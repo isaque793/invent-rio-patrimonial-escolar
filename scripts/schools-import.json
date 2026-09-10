@@ -1,0 +1,1038 @@
+[
+  {
+    "sequence": 1,
+    "name": "EE EFIGÊNIA DE BARROS OLIVEIRA",
+    "schoolCode": "218723",
+    "city": "BARÃO DE COCAIS",
+    "raw": "EE EFIGÊNIA DE BARROS OLIVEIRA - 218723 - BARÃO DE COCAIS"
+  },
+  {
+    "sequence": 2,
+    "name": "EE JOSÉ MARIA DE MORAIS",
+    "schoolCode": "7692",
+    "city": "BARÃO DE COCAIS",
+    "raw": "EE JOSÉ MARIA DE MORAIS - 7692 - BARÃO DE COCAIS"
+  },
+  {
+    "sequence": 3,
+    "name": "EE ODILON BEHRENS",
+    "schoolCode": "1112",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ODILON BEHRENS - 1112 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 4,
+    "name": "EE PE HEITOR",
+    "schoolCode": "31007714",
+    "city": "BARÃO DE COCAIS",
+    "raw": "EE PE HEITOR - 31007714 - BARÃO DE COCAIS"
+  },
+  {
+    "sequence": 5,
+    "name": "CENTRO INTERESCOLAR DE CULTURA ARTE LINGUAGENS E TECNOLOGIAS",
+    "schoolCode": "31364932",
+    "city": "BELO HORIZONTE",
+    "raw": "CENTRO INTERESCOLAR DE CULTURA ARTE LINGUAGENS E TECNOLOGIAS - 31364932 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 6,
+    "name": "CESEC POETA MURILO MENDES",
+    "schoolCode": "307068",
+    "city": "BELO HORIZONTE",
+    "raw": "CESEC POETA MURILO MENDES - 307068 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 7,
+    "name": "COL TIRADENTES PMMG SANTA TEREZA",
+    "schoolCode": "1368",
+    "city": "BELO HORIZONTE",
+    "raw": "COL TIRADENTES PMMG SANTA TEREZA - 1368 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 8,
+    "name": "EE ADALBERTO FERRAZ",
+    "schoolCode": "1911",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ADALBERTO FERRAZ - 1911 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 9,
+    "name": "EE AFONSO PENA",
+    "schoolCode": "264",
+    "city": "BELO HORIZONTE",
+    "raw": "EE AFONSO PENA - 264 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 10,
+    "name": "EE ANA DE CARVALHO SILVEIRA",
+    "schoolCode": "825",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ANA DE CARVALHO SILVEIRA - 825 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 11,
+    "name": "EE ARTUR JOVIANO",
+    "schoolCode": "1546",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ARTUR JOVIANO - 1546 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 12,
+    "name": "EE ASSIS CHATEAUBRIAND",
+    "schoolCode": "1627",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ASSIS CHATEAUBRIAND - 1627 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 13,
+    "name": "EE AUGUSTO DE LIMA",
+    "schoolCode": "1783",
+    "city": "BELO HORIZONTE",
+    "raw": "EE AUGUSTO DE LIMA - 1783 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 14,
+    "name": "EE BARÃO DE MACAÚBAS",
+    "schoolCode": "1864",
+    "city": "BELO HORIZONTE",
+    "raw": "EE BARÃO DE MACAÚBAS - 1864 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 15,
+    "name": "EE BARÃO DO RIO BRANCO",
+    "schoolCode": "1945",
+    "city": "BELO HORIZONTE",
+    "raw": "EE BARÃO DO RIO BRANCO - 1945 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 16,
+    "name": "EE BENJAMIM GUIMARÃES",
+    "schoolCode": "2003",
+    "city": "BELO HORIZONTE",
+    "raw": "EE BENJAMIM GUIMARÃES - 2003 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 17,
+    "name": "EE BOLIVAR TINOCO MINEIRO",
+    "schoolCode": "1384",
+    "city": "BELO HORIZONTE",
+    "raw": "EE BOLIVAR TINOCO MINEIRO - 1384 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 18,
+    "name": "EE BUENO BRANDÃO",
+    "schoolCode": "35",
+    "city": "BELO HORIZONTE",
+    "raw": "EE BUENO BRANDÃO - 35 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 19,
+    "name": "EE CAMINHO A LUZ",
+    "schoolCode": "1651",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CAMINHO A LUZ - 1651 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 20,
+    "name": "EE CARLOS CAMPOS",
+    "schoolCode": "671",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CARLOS CAMPOS - 671 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 21,
+    "name": "EE CARLOS GÓES",
+    "schoolCode": "752",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CARLOS GÓES - 752 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 22,
+    "name": "EE CESÁRIO ALVIM",
+    "schoolCode": "1155",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CESÁRIO ALVIM - 1155 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 23,
+    "name": "EE CORAÇÃO EUCARÍSTICO",
+    "schoolCode": "1317",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CORAÇÃO EUCARÍSTICO - 1317 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 24,
+    "name": "EE CORONEL VICENTE TORRES JÚNIOR",
+    "schoolCode": "1473",
+    "city": "BELO HORIZONTE",
+    "raw": "EE CORONEL VICENTE TORRES JÚNIOR - 1473 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 25,
+    "name": "EE DEPUTADO ILACIR PEREIRA LIMA",
+    "schoolCode": "493",
+    "city": "BELO HORIZONTE",
+    "raw": "EE DEPUTADO ILACIR PEREIRA LIMA - 493 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 26,
+    "name": "EE DO INST AGRONÔMICO",
+    "schoolCode": "655",
+    "city": "BELO HORIZONTE",
+    "raw": "EE DO INST AGRONÔMICO - 655 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 27,
+    "name": "EE DONA ARGENTINA VIANNA CASTELLO BRANCO",
+    "schoolCode": "680",
+    "city": "BELO HORIZONTE",
+    "raw": "EE DONA ARGENTINA VIANNA CASTELLO BRANCO - 680 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 28,
+    "name": "EE DONA AUGUSTA G NOGUEIRA",
+    "schoolCode": "761",
+    "city": "BELO HORIZONTE",
+    "raw": "EE DONA AUGUSTA G NOGUEIRA - 761 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 29,
+    "name": "EE DULCE PINTO RODRIGUES",
+    "schoolCode": "507",
+    "city": "BELO HORIZONTE",
+    "raw": "EE DULCE PINTO RODRIGUES - 507 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 30,
+    "name": "EE EFIGÊNIO SALLES",
+    "schoolCode": "1244",
+    "city": "BELO HORIZONTE",
+    "raw": "EE EFIGÊNIO SALLES - 1244 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 31,
+    "name": "EE ENGENHEIRO PRADO LOPES",
+    "schoolCode": "1481",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ENGENHEIRO PRADO LOPES - 1481 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 32,
+    "name": "EE ENGENHEIRO SÍLVIO FONSECA",
+    "schoolCode": "1562",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ENGENHEIRO SÍLVIO FONSECA - 1562 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 33,
+    "name": "EE ESTEVÃO PINTO",
+    "schoolCode": "1228",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ESTEVÃO PINTO - 1228 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 34,
+    "name": "EE FLÁVIO DOS SANTOS",
+    "schoolCode": "1805",
+    "city": "BELO HORIZONTE",
+    "raw": "EE FLÁVIO DOS SANTOS - 1805 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 35,
+    "name": "EE FRANCISCO SALES- INSTITUTO DE DEFICIÊNCIA DA FALA E AUDIÇÃO",
+    "schoolCode": "1961",
+    "city": "BELO HORIZONTE",
+    "raw": "EE FRANCISCO SALES- INSTITUTO DE DEFICIÊNCIA DA FALA E AUDIÇÃO - 1961 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 36,
+    "name": "EE GERALDINA SOARES",
+    "schoolCode": "2011",
+    "city": "BELO HORIZONTE",
+    "raw": "EE GERALDINA SOARES - 2011 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 37,
+    "name": "EE GOVERNADOR MILTON CAMPOS (ESTADUAL CENTRAL)",
+    "schoolCode": "2135",
+    "city": "BELO HORIZONTE",
+    "raw": "EE GOVERNADOR MILTON CAMPOS (ESTADUAL CENTRAL) - 2135 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 38,
+    "name": "EE HELENA PENA",
+    "schoolCode": "213",
+    "city": "BELO HORIZONTE",
+    "raw": "EE HELENA PENA - 213 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 39,
+    "name": "EE HENRIQUE DINIZ",
+    "schoolCode": "370",
+    "city": "BELO HORIZONTE",
+    "raw": "EE HENRIQUE DINIZ - 370 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 40,
+    "name": "EE ISABEL DA SILVA POLCK",
+    "schoolCode": "2071",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ISABEL DA SILVA POLCK -2071 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 41,
+    "name": "EE JOÃO ALPHONSUS",
+    "schoolCode": "892",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JOÃO ALPHONSUS - 892 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 42,
+    "name": "EE JOSÉ BONIFÁCIO",
+    "schoolCode": "973",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JOSÉ BONIFÁCIO - 973 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 43,
+    "name": "EE JOSÉ DE ALENCAR",
+    "schoolCode": "82791",
+    "city": "RIACHINHO",
+    "raw": "EE JOSÉ DE ALENCAR - 82791 - RIACHINHO"
+  },
+  {
+    "sequence": 44,
+    "name": "EE JOSÉ IZIDORO DE MIRANDA",
+    "schoolCode": "1058",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JOSÉ IZIDORO DE MIRANDA - 1058 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 45,
+    "name": "EE JOSÉ MENDES JÚNIOR",
+    "schoolCode": "337",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JOSÉ MENDES JÚNIOR - 337 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 46,
+    "name": "EE JOVEM PROTAGONISTA",
+    "schoolCode": "322563",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JOVEM PROTAGONISTA - 322563 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 47,
+    "name": "EE JÚLIA LOPES DE ALMEIDA",
+    "schoolCode": "1171",
+    "city": "BELO HORIZONTE",
+    "raw": "EE JÚLIA LOPES DE ALMEIDA - 1171 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 48,
+    "name": "EE LAR DOS MENINOS",
+    "schoolCode": "322555",
+    "city": "BELO HORIZONTE",
+    "raw": "EE LAR DOS MENINOS - 322555 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 49,
+    "name": "EE LAUDIEME VAZ DE MELO",
+    "schoolCode": "1295",
+    "city": "BELO HORIZONTE",
+    "raw": "EE LAUDIEME VAZ DE MELO - 1295 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 50,
+    "name": "EE LAURA DAS CHAGAS FERREIRA",
+    "schoolCode": "1333",
+    "city": "BELO HORIZONTE",
+    "raw": "EE LAURA DAS CHAGAS FERREIRA - 1333 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 51,
+    "name": "EE LUIZ DE BESSA",
+    "schoolCode": "1414",
+    "city": "BELO HORIZONTE",
+    "raw": "EE LUIZ DE BESSA - 1414 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 52,
+    "name": "EE MAESTRO VILLA LOBOS",
+    "schoolCode": "1490",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MAESTRO VILLA LOBOS - 1490 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 53,
+    "name": "EE MAJOR DELFINO DE PAULA RICARDO",
+    "schoolCode": "78",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MAJOR DELFINO DE PAULA RICARDO - 78 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 54,
+    "name": "EE MARECHAL DEODORO DA FONSECA",
+    "schoolCode": "230",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MARECHAL DEODORO DA FONSECA - 230 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 55,
+    "name": "EE MARIA DE LOURDES DE OLIVEIRA",
+    "schoolCode": "175",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MARIA DE LOURDES DE OLIVEIRA - 175 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 56,
+    "name": "EE MARIANO DE ABREU",
+    "schoolCode": "396",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MARIANO DE ABREU - 396 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 57,
+    "name": "EE MENDES PIMENTEL",
+    "schoolCode": "2585",
+    "city": "BELO HORIZONTE",
+    "raw": "EE MENDES PIMENTEL - 2585 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 58,
+    "name": "EE NECÉSIO TAVARES",
+    "schoolCode": "876",
+    "city": "BELO HORIZONTE",
+    "raw": "EE NECÉSIO TAVARES - 876 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 59,
+    "name": "EE OLEGÁRIO MACIEL",
+    "schoolCode": "1198",
+    "city": "BELO HORIZONTE",
+    "raw": "EE OLEGÁRIO MACIEL - 1198 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 60,
+    "name": "EE ONDINA AMARAL BRANDÃO",
+    "schoolCode": "1431",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ONDINA AMARAL BRANDÃO - 1431 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 61,
+    "name": "EE PANDIÁ CALÓGERAS",
+    "schoolCode": "1732",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PANDIÁ CALÓGERAS - 1732 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 62,
+    "name": "EE PAULO DAS GRAÇAS DA SILVA",
+    "schoolCode": "1813",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PAULO DAS GRAÇAS DA SILVA - 1813 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 63,
+    "name": "EE PEDRO FRANCA",
+    "schoolCode": "1937",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PEDRO FRANCA - 1937 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 64,
+    "name": "EE PEDRO II",
+    "schoolCode": "1970",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PEDRO II - 1970 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 65,
+    "name": "EE PERO VAZ DE CAMINHA",
+    "schoolCode": "60",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PERO VAZ DE CAMINHA - 60 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 66,
+    "name": "EE PESTALOZZI",
+    "schoolCode": "1060",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PESTALOZZI - 1060 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 67,
+    "name": "EE PRES ANTÔNIO CARLOS",
+    "schoolCode": "221",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PRES ANTÔNIO CARLOS - 221 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 68,
+    "name": "EE PRESIDENTE DUTRA",
+    "schoolCode": "302",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PRESIDENTE DUTRA - 302 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 69,
+    "name": "EE PROFESSOR ANTÔNIO JOSÉ RIBEIRO FILHO",
+    "schoolCode": "1678",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR ANTÔNIO JOSÉ RIBEIRO FILHO - 1678 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 70,
+    "name": "EE PROFESSOR CAETANO AZEREDO",
+    "schoolCode": "787",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR CAETANO AZEREDO - 787 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 71,
+    "name": "EE PROFESSOR GUILHERME AZEVEDO LAGE",
+    "schoolCode": "698",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR GUILHERME AZEVEDO LAGE - 698 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 72,
+    "name": "EE PROFESSOR JOSÉ MESQUITA DE CARVALHO",
+    "schoolCode": "86",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR JOSÉ MESQUITA DE CARVALHO - 86 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 73,
+    "name": "EE PROFESSOR LEOPOLDO DE MIRANDA",
+    "schoolCode": "1261",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR LEOPOLDO DE MIRANDA - 1261 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 74,
+    "name": "EE PROFESSOR NEIDSON RODRIGUES",
+    "schoolCode": "342432",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR NEIDSON RODRIGUES - 342432 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 75,
+    "name": "EE PROFESSOR PEDRO ALEIXO",
+    "schoolCode": "1589",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSOR PEDRO ALEIXO - 1589 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 76,
+    "name": "EE PROFESSORA ALAÍDE LISBOA DE OLIVEIRA",
+    "schoolCode": "342459",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSORA ALAÍDE LISBOA DE OLIVEIRA - 342459 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 77,
+    "name": "EE PROFESSORA AMÉLIA DE CASTRO MONTEIRO",
+    "schoolCode": "1821",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSORA AMÉLIA DE CASTRO MONTEIRO 1821 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 78,
+    "name": "EE PROFESSORA HENRIQUETA LISBOA",
+    "schoolCode": "342424",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSORA HENRIQUETA LISBOA - 342424 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 79,
+    "name": "EE PROFESSORA MARIA AMÉLIA GUIMARÃES",
+    "schoolCode": "1821",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSORA MARIA AMÉLIA GUIMARÃES - 1821 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 80,
+    "name": "EE PROFESSORA MARIA CECÍLIA DE MELO",
+    "schoolCode": "2194",
+    "city": "BELO HORIZONTE",
+    "raw": "EE PROFESSORA MARIA CECÍLIA DE MELO - 2194 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 81,
+    "name": "EE SAGRADA FAMÍLIA I",
+    "schoolCode": "2101",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SAGRADA FAMÍLIA I - 2101 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 82,
+    "name": "EE SAGRADA FAMÍLIA II",
+    "schoolCode": "2143",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SAGRADA FAMÍLIA II - 2143 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 83,
+    "name": "EE SANDOVAL DE AZEVEDO",
+    "schoolCode": "2186",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SANDOVAL DE AZEVEDO - 2186 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 84,
+    "name": "EE SANTO AFONSO",
+    "schoolCode": "248",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SANTO AFONSO - 248 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 85,
+    "name": "EE SARAH KUBITSCHEK BAIRRO GRAÇA",
+    "schoolCode": "728",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SARAH KUBITSCHEK BAIRRO GRAÇA - 728 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 86,
+    "name": "EE SARAH KUBITSCHEK IPIRANGA",
+    "schoolCode": "809",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SARAH KUBITSCHEK IPIRANGA - 809 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 87,
+    "name": "EE SARAH KUBITSCHEK SÃO GERALDO",
+    "schoolCode": "1040",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SARAH KUBITSCHEK SÃO GERALDO - 1040 BELO HORIZONTE"
+  },
+  {
+    "sequence": 88,
+    "name": "EE SERGIA CALDEIRA ALKIMIM",
+    "schoolCode": "1121",
+    "city": "BELO HORIZONTE",
+    "raw": "EE SERGIA CALDEIRA ALKIMIM - 1121 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 89,
+    "name": "EE TECNICO INDUSTRIAL PROFESSOR FONTES",
+    "schoolCode": "281",
+    "city": "BELO HORIZONTE",
+    "raw": "EE TECNICO INDUSTRIAL PROFESSOR FONTES - 281 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 90,
+    "name": "EE TITO FULGÊNCIO",
+    "schoolCode": "1449",
+    "city": "BELO HORIZONTE",
+    "raw": "EE TITO FULGÊNCIO - 1449 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 91,
+    "name": "EE WALT DISNEY",
+    "schoolCode": "1686",
+    "city": "BELO HORIZONTE",
+    "raw": "EE WALT DISNEY - 1686 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 92,
+    "name": "EE ZILDA ARNS NEUMANN",
+    "schoolCode": "342440",
+    "city": "BELO HORIZONTE",
+    "raw": "EE ZILDA ARNS NEUMANN - 342440 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 93,
+    "name": "INSTITUTO DE EDUCAÇÃO DE MINAS GERAIS (IEMG)",
+    "schoolCode": "1121",
+    "city": "BELO HORIZONTE",
+    "raw": "INSTITUTO DE EDUCAÇÃO DE MINAS GERAIS (IEMG) - 1121 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 94,
+    "name": "INSTITUTO SÃO RAFAEL",
+    "schoolCode": "485",
+    "city": "BELO HORIZONTE",
+    "raw": "INSTITUTO SÃO RAFAEL - 485 - BELO HORIZONTE"
+  },
+  {
+    "sequence": 95,
+    "name": "EE DR GAMA CERQUEIRA",
+    "schoolCode": "106020",
+    "city": "BELO VALE",
+    "raw": "EE DR GAMA CERQUEIRA - 106020 - BELO VALE"
+  },
+  {
+    "sequence": 96,
+    "name": "EE DE FELIPE",
+    "schoolCode": "2806",
+    "city": "BOM JESUS DO AMPARO",
+    "raw": "EE DE FELIPE - 2806 - BOM JESUS DO AMPARO"
+  },
+  {
+    "sequence": 97,
+    "name": "EE EDMUNDO PENA",
+    "schoolCode": "102792",
+    "city": "BOM JESUS DO AMPARO",
+    "raw": "EE EDMUNDO PENA - 102792 - BOM JESUS DO AMPARO"
+  },
+  {
+    "sequence": 98,
+    "name": "EE MELO VIANA",
+    "schoolCode": "8117",
+    "city": "BONFIM",
+    "raw": "EE MELO VIANA - 8117 - BONFIM"
+  },
+  {
+    "sequence": 99,
+    "name": "EE DE ENSINO MEDIO POVOADO DE MELO FRANCO",
+    "schoolCode": "351075",
+    "city": "BRUMADINHO",
+    "raw": "EE DE ENSINO MEDIO POVOADO DE MELO FRANCO - 351075 - BRUMADINHO"
+  },
+  {
+    "sequence": 100,
+    "name": "EE PAULINA ALUOTTO FERREIRA",
+    "schoolCode": "8141",
+    "city": "BRUMADINHO",
+    "raw": "EE PAULINA ALUOTTO FERREIRA - 8141 - BRUMADINHO"
+  },
+  {
+    "sequence": 101,
+    "name": "EE PAULO NETO ALKIMIM",
+    "schoolCode": "8192",
+    "city": "BRUMADINHO",
+    "raw": "EE PAULO NETO ALKIMIM - 8192 - BRUMADINHO"
+  },
+  {
+    "sequence": 102,
+    "name": "EE CARLINDO CAETANO PINTO",
+    "schoolCode": "8427",
+    "city": "CAETE",
+    "raw": "EE CARLINDO CAETANO PINTO - 8427 - CAETE"
+  },
+  {
+    "sequence": 103,
+    "name": "EE FRANCISCO DE PAULA CASTRO",
+    "schoolCode": "8419",
+    "city": "CAETÉ",
+    "raw": "EE FRANCISCO DE PAULA CASTRO - 8419 - CAETÉ"
+  },
+  {
+    "sequence": 104,
+    "name": "EE JOSÉ BRANDÃO",
+    "schoolCode": "8338",
+    "city": "CAETÉ",
+    "raw": "EE JOSÉ BRANDÃO - 8338 - CAETÉ"
+  },
+  {
+    "sequence": 105,
+    "name": "EE JOSÉ PEREIRA CANÇADO",
+    "schoolCode": "8486",
+    "city": "CAETÉ",
+    "raw": "EE JOSÉ PEREIRA CANÇADO - 8486 - CAETÉ"
+  },
+  {
+    "sequence": 106,
+    "name": "EE PAULO PINHEIRO DA SILVA",
+    "schoolCode": "8354",
+    "city": "CAETÉ",
+    "raw": "EE PAULO PINHEIRO DA SILVA - 8354 - CAETÉ"
+  },
+  {
+    "sequence": 107,
+    "name": "EE PRESIDENTE TANCREDO NEVES",
+    "schoolCode": "8401",
+    "city": "CAETÉ",
+    "raw": "EE PRESIDENTE TANCREDO NEVES - 8401 - CAETÉ"
+  },
+  {
+    "sequence": 108,
+    "name": "EE SEBASTIÃO RIBEIRO DE BRITO",
+    "schoolCode": "8362",
+    "city": "CAETÉ",
+    "raw": "EE SEBASTIÃO RIBEIRO DE BRITO - 8362 - CAETÉ"
+  },
+  {
+    "sequence": 109,
+    "name": "EE SENHORA DO BONSUCESSO",
+    "schoolCode": "8371",
+    "city": "CAETÉ",
+    "raw": "EE SENHORA DO BONSUCESSO8371 - CAETÉ"
+  },
+  {
+    "sequence": 110,
+    "name": "EE ALZIRA AYRES PEREIRA",
+    "schoolCode": "10545",
+    "city": "CATAS ALTAS",
+    "raw": "EE ALZIRA AYRES PEREIRA - 10545 - CATAS ALTAS"
+  },
+  {
+    "sequence": 111,
+    "name": "EE DOM SILVÉRIO",
+    "schoolCode": "8915",
+    "city": "CRUCILANDIA",
+    "raw": "EE DOM SILVÉRIO - 8915 - CRUCILANDIA"
+  },
+  {
+    "sequence": 112,
+    "name": "EE SENADOR MELO VIANA",
+    "schoolCode": "106437",
+    "city": "MOEDA",
+    "raw": "EE SENADOR MELO VIANA - 106437 - MOEDA"
+  },
+  {
+    "sequence": 113,
+    "name": "EE AUGUSTO DE LIMA",
+    "schoolCode": "9539",
+    "city": "NOVA LIMA",
+    "raw": "EE AUGUSTO DE LIMA - 9539 - NOVA LIMA"
+  },
+  {
+    "sequence": 114,
+    "name": "EE DENIZ VALE",
+    "schoolCode": "9571",
+    "city": "NOVA LIMA",
+    "raw": "EE DENIZ VALE - 9571 - NOVA LIMA"
+  },
+  {
+    "sequence": 115,
+    "name": "EE GEORGE CHALMERS",
+    "schoolCode": "9598",
+    "city": "NOVA LIMA",
+    "raw": "EE GEORGE CHALMERS - 9598 - NOVA LIMA"
+  },
+  {
+    "sequence": 116,
+    "name": "EE JOÃO FELIPE DA ROCHA",
+    "schoolCode": "9601",
+    "city": "NOVA LIMA",
+    "raw": "EE JOÃO FELIPE DA ROCHA - 9601 - NOVA LIMA"
+  },
+  {
+    "sequence": 117,
+    "name": "EE JOSEFINA WANDERLEY AZEREDO",
+    "schoolCode": "9610",
+    "city": "NOVA LIMA",
+    "raw": "EE JOSEFINA WANDERLEY AZEREDO 9610 - NOVA LIMA"
+  },
+  {
+    "sequence": 118,
+    "name": "EE MARIA JOSEFINA SALES WARDI",
+    "schoolCode": "305014",
+    "city": "NOVA LIMA",
+    "raw": "EE MARIA JOSEFINA SALES WARDI - 305014 - NOVA LIMA"
+  },
+  {
+    "sequence": 119,
+    "name": "EE CORONEL JOSÉ NUNES MELO JÚNIOR",
+    "schoolCode": "9531",
+    "city": "NOVA UNIAO",
+    "raw": "EE CORONEL JOSÉ NUNES MELO JÚNIOR - 9531 - NOVA UNIAO"
+  },
+  {
+    "sequence": 120,
+    "name": "EE DO CARMO",
+    "schoolCode": "9377",
+    "city": "NOVA UNIAO",
+    "raw": "EE DO CARMO - 9377 - NOVA UNIAO"
+  },
+  {
+    "sequence": 121,
+    "name": "EE NOVA APARECIDA",
+    "schoolCode": "9385",
+    "city": "NOVA UNIAO",
+    "raw": "EE NOVA APARECIDA - 9385 - NOVA UNIAO"
+  },
+  {
+    "sequence": 122,
+    "name": "EE PADRE PEDRO THYSEN",
+    "schoolCode": "9831",
+    "city": "PIEDADE DOS GERAIS",
+    "raw": "EE PADRE PEDRO THYSEN - 9831 - PIEDADE DOS GERAIS"
+  },
+  {
+    "sequence": 123,
+    "name": "EE DOM CIRILO DE PAULA FREITAS",
+    "schoolCode": "9873",
+    "city": "RAPOSOS",
+    "raw": "EE DOM CIRILO DE PAULA FREITAS - 9873 - RAPOSOS"
+  },
+  {
+    "sequence": 124,
+    "name": "EE DOUTOR CÍCERO CORREA DE ARAÚJO",
+    "schoolCode": "9865",
+    "city": "RAPOSOS",
+    "raw": "EE DOUTOR CÍCERO CORREA DE ARAÚJO - 9865 - RAPOSOS"
+  },
+  {
+    "sequence": 125,
+    "name": "EE HELENA VIEIRA GONÇALVES",
+    "schoolCode": "9857",
+    "city": "RAPOSOS",
+    "raw": "EE HELENA VIEIRA GONÇALVES - 9857 - RAPOSOS"
+  },
+  {
+    "sequence": 126,
+    "name": "EE SANTO ANTÔNIO",
+    "schoolCode": "10251",
+    "city": "RIO ACIMA",
+    "raw": "EE SANTO ANTÔNIO - 10251 - RIO ACIMA"
+  },
+  {
+    "sequence": 127,
+    "name": "EE LUIZ BORGES FERREIRA GONZAGA",
+    "schoolCode": "10260",
+    "city": "RIO MANSO",
+    "raw": "EE LUIZ BORGES FERREIRA GONZAGA - 10260 - RIO MANSO"
+  },
+  {
+    "sequence": 128,
+    "name": "EE CARVALHO BRITO",
+    "schoolCode": "914",
+    "city": "SABARA",
+    "raw": "EE CARVALHO BRITO -  914 - SABARA"
+  },
+  {
+    "sequence": 129,
+    "name": "EE CHRISTIANO GUIMARÃES",
+    "schoolCode": "10341",
+    "city": "SABARA",
+    "raw": "EE CHRISTIANO GUIMARÃES -  10341 - SABARA"
+  },
+  {
+    "sequence": 130,
+    "name": "EE CORONEL ADELINO CASTELO BRANCO",
+    "schoolCode": "10359",
+    "city": "SABARA",
+    "raw": "EE CORONEL ADELINO CASTELO BRANCO -  10359 - SABARA"
+  },
+  {
+    "sequence": 131,
+    "name": "EE DONA BILU FIGUEIREDO",
+    "schoolCode": "10324",
+    "city": "SABARA",
+    "raw": "EE DONA BILU FIGUEIREDO -  10324 - SABARA"
+  },
+  {
+    "sequence": 132,
+    "name": "EE ELÍSIO CARVALHO BRITO",
+    "schoolCode": "10413",
+    "city": "SABARA",
+    "raw": "EE ELÍSIO CARVALHO BRITO -  10413 - SABARA"
+  },
+  {
+    "sequence": 133,
+    "name": "EE GENERAL CARNEIRO",
+    "schoolCode": "10421",
+    "city": "SABARA",
+    "raw": "EE GENERAL CARNEIRO -  10421 - SABARA"
+  },
+  {
+    "sequence": 134,
+    "name": "EE JOSÉ LUIZ GONZAGA FERREIRA",
+    "schoolCode": "10456",
+    "city": "SABARA",
+    "raw": "EE JOSÉ LUIZ GONZAGA FERREIRA - 10456  - SABARA"
+  },
+  {
+    "sequence": 135,
+    "name": "EE JUQUINHA DE ALMEIDA",
+    "schoolCode": "222470",
+    "city": "SABARA",
+    "raw": "EE JUQUINHA DE ALMEIDA -  222470 - SABARA"
+  },
+  {
+    "sequence": 136,
+    "name": "EE MARIA FLORIPES NASCIMENTO ALVES",
+    "schoolCode": "10430",
+    "city": "SABARA",
+    "raw": "EE MARIA FLORIPES NASCIMENTO ALVES -  10430 - SABARA"
+  },
+  {
+    "sequence": 137,
+    "name": "EE PAULA ROCHA",
+    "schoolCode": "10375",
+    "city": "SABARA",
+    "raw": "EE PAULA ROCHA -  10375 - SABARA"
+  },
+  {
+    "sequence": 138,
+    "name": "EE PRESIDENTE EURICO GASPAR DUTRA",
+    "schoolCode": "10383",
+    "city": "SABARA",
+    "raw": "EE PRESIDENTE EURICO GASPAR DUTRA -  10383 - SABARA"
+  },
+  {
+    "sequence": 139,
+    "name": "EE PRESIDENTE JUSCELINO KUBITSCHEK DE OLIVEIRA",
+    "schoolCode": "318418",
+    "city": "SABARA",
+    "raw": "EE PRESIDENTE JUSCELINO KUBITSCHEK DE OLIVEIRA -  318418 - SABARA"
+  },
+  {
+    "sequence": 140,
+    "name": "EE PROFESSOR JOÃO DE ARRUDA PINTO",
+    "schoolCode": "291102",
+    "city": "SABARA",
+    "raw": "EE PROFESSOR JOÃO DE ARRUDA PINTO -  291102 - SABARA"
+  },
+  {
+    "sequence": 141,
+    "name": "EE PROFESSOR ZOROASTRO VIANNA PASSOS",
+    "schoolCode": "10316",
+    "city": "SABARA",
+    "raw": "EE PROFESSOR ZOROASTRO VIANNA PASSOS  -  10316 - SABARA"
+  },
+  {
+    "sequence": 142,
+    "name": "EE PROFESSORA ANGELICA MARIA DE ALMEIDA",
+    "schoolCode": "10391",
+    "city": "SABARA",
+    "raw": "EE PROFESSORA ANGELICA MARIA DE ALMEIDA  -  10391 - SABARA"
+  },
+  {
+    "sequence": 143,
+    "name": "EE PROFESSORA MARIA ELIZABETH VIANA",
+    "schoolCode": "10367",
+    "city": "SABARA",
+    "raw": "EE PROFESSORA MARIA ELIZABETH VIANA  -  10367 - SABARA"
+  },
+  {
+    "sequence": 144,
+    "name": "EE AFONSO PENA",
+    "schoolCode": "10472",
+    "city": "SANTA BARBARA",
+    "raw": "EE AFONSO PENA - 10472 - SANTA BARBARA"
+  },
+  {
+    "sequence": 145,
+    "name": "EE DOM BOSCO",
+    "schoolCode": "10499",
+    "city": "SANTA BARBARA",
+    "raw": "EE DOM BOSCO  - 10499 - SANTA BARBARA"
+  },
+  {
+    "sequence": 146,
+    "name": "EE JOSÉ ÁLVARES DUARTE",
+    "schoolCode": "10529",
+    "city": "SANTA BARBARA",
+    "raw": "EE JOSÉ ÁLVARES DUARTE - 10529 - SANTA BARBARA"
+  },
+  {
+    "sequence": 147,
+    "name": "EE PROFESSORA NHANITA",
+    "schoolCode": "346284",
+    "city": "SANTA BARBARA",
+    "raw": "EE PROFESSORA NHANITA - 346284 - SANTA BARBARA"
+  },
+  {
+    "sequence": 148,
+    "name": "EE RODRIGO DE CASTRO MOREIRA PENA",
+    "schoolCode": "10511",
+    "city": "SANTA BARBARA",
+    "raw": "EE RODRIGO DE CASTRO MOREIRA PENA - 10511 - SANTA BARBARA"
+  }
+]

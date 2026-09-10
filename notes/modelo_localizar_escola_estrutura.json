@@ -1,0 +1,4465 @@
+{
+  "ref": "A1:H80",
+  "merges": [
+    {
+      "s": {
+        "c": 0,
+        "r": 0
+      },
+      "e": {
+        "c": 7,
+        "r": 0
+      }
+    },
+    {
+      "s": {
+        "c": 0,
+        "r": 3
+      },
+      "e": {
+        "c": 3,
+        "r": 3
+      }
+    }
+  ],
+  "columns": [
+    {
+      "width": 28,
+      "customwidth": "1",
+      "wpx": 168,
+      "wch": 27.17,
+      "MDW": 6
+    },
+    {
+      "width": 14,
+      "customwidth": "1",
+      "wpx": 84,
+      "wch": 13.17,
+      "MDW": 6
+    },
+    {
+      "width": 20,
+      "customwidth": "1",
+      "wpx": 120,
+      "wch": 19.17,
+      "MDW": 6
+    },
+    {
+      "width": 18,
+      "customwidth": "1",
+      "wpx": 108,
+      "wch": 17.17,
+      "MDW": 6
+    },
+    {
+      "width": 30,
+      "customwidth": "1",
+      "wpx": 180,
+      "wch": 29.17,
+      "MDW": 6
+    },
+    {
+      "width": 12,
+      "customwidth": "1",
+      "wpx": 72,
+      "wch": 11.17,
+      "MDW": 6
+    },
+    {
+      "width": 18,
+      "customwidth": "1",
+      "wpx": 108,
+      "wch": 17.17,
+      "MDW": 6
+    },
+    {
+      "width": 18,
+      "customwidth": "1",
+      "wpx": 108,
+      "wch": 17.17,
+      "MDW": 6
+    }
+  ],
+  "rows": [
+    {
+      "hpt": 32.1,
+      "hpx": 32.1
+    },
+    null,
+    {
+      "hpt": 15,
+      "hpx": 15
+    },
+    null,
+    null,
+    {
+      "hpt": 15,
+      "hpx": 15
+    }
+  ],
+  "cells": [
+    {
+      "address": "A1",
+      "value": "LOCALIZAR ESCOLA",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "B1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "C1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "D1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "E1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "F1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "G1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "H1",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "0B5D4B"
+        }
+      }
+    },
+    {
+      "address": "A3",
+      "value": "Digite o nome, código INEP ou município:",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A4",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "F5F8F5"
+        }
+      }
+    },
+    {
+      "address": "B4",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "F5F8F5"
+        }
+      }
+    },
+    {
+      "address": "C4",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "F5F8F5"
+        }
+      }
+    },
+    {
+      "address": "D4",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "F5F8F5"
+        }
+      }
+    },
+    {
+      "address": "A6",
+      "value": "Escola",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "B6",
+      "value": "Código INEP",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "C6",
+      "value": "Município",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "D6",
+      "value": "N.º patrimônio",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "E6",
+      "value": "Descrição do bem",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "F6",
+      "value": "Quantidade",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "G6",
+      "value": "Valor total (R$)",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "H6",
+      "value": "Situação atual",
+      "format": "General",
+      "style": {
+        "patternType": "solid",
+        "fgColor": {
+          "rgb": "DDEBE6"
+        }
+      }
+    },
+    {
+      "address": "A7",
+      "value": "Digite um termo acima",
+      "formula": "IF(A4=\"\",\"Digite um termo acima\",_xlws.FILTER(CHOOSE({1,2,3,4,5,6,7,8},'Escolas e Inventário'!A2:A501,'Escolas e Inventário'!B2:B501,'Escolas e Inventário'!C2:C501,'Escolas e Inventário'!D2:D501,'Escolas e Inventário'!E2:E501,'Escolas e Inventário'!I2:I501,'Escolas e Inventário'!K2:K501,'Escolas e Inventário'!L2:L501),(ISNUMBER(SEARCH(A4,'Escolas e Inventário'!A2:A501))+ISNUMBER(SEARCH(A4,'Escolas e Inventário'!B2:B501&\"\"))+ISNUMBER(SEARCH(A4,'Escolas e Inventário'!C2:C501)))>0,\"Nenhuma escola encontrada\"))",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G7",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H7",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G8",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H8",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G9",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H9",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G10",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H10",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G11",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H11",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G12",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H12",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G13",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H13",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G14",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H14",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G15",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H15",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G16",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H16",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G17",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H17",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G18",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H18",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G19",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H19",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G20",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H20",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G21",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H21",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G22",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H22",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G23",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H23",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G24",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H24",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G25",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H25",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G26",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H26",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G27",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H27",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G28",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H28",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G29",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H29",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G30",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H30",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G31",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H31",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G32",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H32",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G33",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H33",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G34",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H34",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G35",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H35",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G36",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H36",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G37",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H37",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G38",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H38",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G39",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H39",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G40",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H40",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G41",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H41",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G42",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H42",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G43",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H43",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G44",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H44",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G45",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H45",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G46",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H46",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G47",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H47",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G48",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H48",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G49",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H49",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G50",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H50",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G51",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H51",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G52",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H52",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G53",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H53",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G54",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H54",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G55",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H55",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G56",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H56",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G57",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H57",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G58",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H58",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G59",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H59",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G60",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H60",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G61",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H61",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G62",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H62",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G63",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H63",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G64",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H64",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G65",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H65",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G66",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H66",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G67",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H67",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G68",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H68",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G69",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H69",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G70",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H70",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G71",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H71",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G72",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H72",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G73",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H73",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G74",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H74",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G75",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H75",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G76",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H76",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G77",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H77",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G78",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H78",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G79",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H79",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "A80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "B80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "C80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "D80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "E80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "F80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "G80",
+      "format": "\\R\\$\\ #,##0.00",
+      "style": {
+        "patternType": "none"
+      }
+    },
+    {
+      "address": "H80",
+      "format": "General",
+      "style": {
+        "patternType": "none"
+      }
+    }
+  ]
+}

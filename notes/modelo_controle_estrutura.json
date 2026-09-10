@@ -1,0 +1,2512 @@
+{
+  "Escolas e Inventário": {
+    "ref": "A1:AA501",
+    "sampleRows": [
+      [
+        {
+          "value": "Escola",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Código INEP",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Município",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "N.º de patrimônio",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Descrição do bem",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Detalhes técnicos",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Código de despesa",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Estado de conservação",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Quantidade",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Valor unitário (R$)",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Valor total (R$)",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Situação atual",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Presidente da subcomissão",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Cargo do presidente",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "MASP do presidente",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Membro 2",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Cargo membro 2",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "MASP membro 2",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Membro 3",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Cargo membro 3",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "MASP membro 3",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Pendências / ocorrências",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Problemas / divergências",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Ata de Abertura",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Termo de Responsabilidade",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Ata de Encerramento",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "value": "Status da validação",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        }
+      ],
+      [
+        {
+          "value": "EE AFONSO PENA",
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "284",
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "BELO HORIZONTE",
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I2=\"\",J2=\"\"),\"\",I2*J2)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I3=\"\",J3=\"\"),\"\",I3*J3)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I4=\"\",J4=\"\"),\"\",I4*J4)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I5=\"\",J5=\"\"),\"\",I5*J5)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I6=\"\",J6=\"\"),\"\",I6*J6)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I7=\"\",J7=\"\"),\"\",I7*J7)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I8=\"\",J8=\"\"),\"\",I8*J8)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I9=\"\",J9=\"\"),\"\",I9*J9)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "0",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "value": "",
+          "formula": "IF(OR(I10=\"\",J10=\"\"),\"\",I10*J10)",
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ]
+    ],
+    "columns": [
+      {
+        "width": 28,
+        "customwidth": "1",
+        "wpx": 168,
+        "wch": 27.17,
+        "MDW": 6
+      },
+      {
+        "width": 14,
+        "customwidth": "1",
+        "wpx": 84,
+        "wch": 13.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 28,
+        "customwidth": "1",
+        "wpx": 168,
+        "wch": 27.17,
+        "MDW": 6
+      },
+      {
+        "width": 34,
+        "customwidth": "1",
+        "wpx": 204,
+        "wch": 33.17,
+        "MDW": 6
+      },
+      {
+        "width": 22,
+        "customwidth": "1",
+        "wpx": 132,
+        "wch": 21.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 12,
+        "customwidth": "1",
+        "wpx": 72,
+        "wch": 11.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 28,
+        "customwidth": "1",
+        "wpx": 168,
+        "wch": 27.17,
+        "MDW": 6
+      },
+      {
+        "width": 22,
+        "customwidth": "1",
+        "wpx": 132,
+        "wch": 21.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 24,
+        "customwidth": "1",
+        "wpx": 144,
+        "wch": 23.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 16,
+        "customwidth": "1",
+        "wpx": 96,
+        "wch": 15.17,
+        "MDW": 6
+      },
+      {
+        "width": 24,
+        "customwidth": "1",
+        "wpx": 144,
+        "wch": 23.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 16,
+        "customwidth": "1",
+        "wpx": 96,
+        "wch": 15.17,
+        "MDW": 6
+      },
+      {
+        "width": 35,
+        "customwidth": "1",
+        "wpx": 210,
+        "wch": 34.17,
+        "MDW": 6
+      },
+      {
+        "width": 35,
+        "customwidth": "1",
+        "wpx": 210,
+        "wch": 34.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 25,
+        "customwidth": "1",
+        "wpx": 150,
+        "wch": 24.17,
+        "MDW": 6
+      },
+      {
+        "width": 22,
+        "customwidth": "1",
+        "wpx": 132,
+        "wch": 21.17,
+        "MDW": 6
+      },
+      {
+        "width": 22,
+        "customwidth": "1",
+        "wpx": 132,
+        "wch": 21.17,
+        "MDW": 6
+      }
+    ],
+    "rows": [
+      {
+        "hpt": 42,
+        "hpx": 42
+      }
+    ]
+  },
+  "Localizar Escola": {
+    "ref": "A1:H80",
+    "sampleRows": [
+      [
+        {
+          "value": "LOCALIZAR ESCOLA",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "0B5D4B"
+            }
+          }
+        }
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "value": "Digite o nome, código INEP ou município:",
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "F5F8F5"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "F5F8F5"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "F5F8F5"
+            }
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "F5F8F5"
+            }
+          }
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "value": "Escola",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Código INEP",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Município",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "N.º patrimônio",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Descrição do bem",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Quantidade",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Valor total (R$)",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        },
+        {
+          "value": "Situação atual",
+          "format": "General",
+          "style": {
+            "patternType": "solid",
+            "fgColor": {
+              "rgb": "DDEBE6"
+            }
+          }
+        }
+      ],
+      [
+        {
+          "value": "Digite um termo acima",
+          "formula": "IF(A4=\"\",\"Digite um termo acima\",_xlws.FILTER(CHOOSE({1,2,3,4,5,6,7,8},'Escolas e Inventário'!A2:A501,'Escolas e Inventário'!B2:B501,'Escolas e Inventário'!C2:C501,'Escolas e Inventário'!D2:D501,'Escolas e Inventário'!E2:E501,'Escolas e Inventário'!I2:I501,'Escolas e Inventário'!K2:K501,'Escolas e Inventário'!L2:L501),(ISNUMBER(SEARCH(A4,'Escolas e Inventário'!A2:A501))+ISNUMBER(SEARCH(A4,'Escolas e Inventário'!B2:B501&\"\"))+ISNUMBER(SEARCH(A4,'Escolas e Inventário'!C2:C501)))>0,\"Nenhuma escola encontrada\"))",
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ],
+      [
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "\\R\\$\\ #,##0.00",
+          "style": {
+            "patternType": "none"
+          }
+        },
+        {
+          "format": "General",
+          "style": {
+            "patternType": "none"
+          }
+        }
+      ]
+    ],
+    "columns": [
+      {
+        "width": 28,
+        "customwidth": "1",
+        "wpx": 168,
+        "wch": 27.17,
+        "MDW": 6
+      },
+      {
+        "width": 14,
+        "customwidth": "1",
+        "wpx": 84,
+        "wch": 13.17,
+        "MDW": 6
+      },
+      {
+        "width": 20,
+        "customwidth": "1",
+        "wpx": 120,
+        "wch": 19.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 30,
+        "customwidth": "1",
+        "wpx": 180,
+        "wch": 29.17,
+        "MDW": 6
+      },
+      {
+        "width": 12,
+        "customwidth": "1",
+        "wpx": 72,
+        "wch": 11.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      },
+      {
+        "width": 18,
+        "customwidth": "1",
+        "wpx": 108,
+        "wch": 17.17,
+        "MDW": 6
+      }
+    ],
+    "rows": [
+      {
+        "hpt": 32.1,
+        "hpx": 32.1
+      },
+      null,
+      {
+        "hpt": 15,
+        "hpx": 15
+      },
+      null,
+      null,
+      {
+        "hpt": 15,
+        "hpx": 15
+      }
+    ],
+    "merges": [
+      {
+        "s": {
+          "c": 0,
+          "r": 0
+        },
+        "e": {
+          "c": 7,
+          "r": 0
+        }
+      },
+      {
+        "s": {
+          "c": 0,
+          "r": 3
+        },
+        "e": {
+          "c": 3,
+          "r": 3
+        }
+      }
+    ]
+  }
+}

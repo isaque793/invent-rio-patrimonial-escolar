@@ -1,0 +1,119 @@
+# Project TODO
+
+- [x] Definir a base de dados para escolas, responsáveis, direção e membros da subcomissão, com nome, cargo e MASP.
+- [x] Implementar papéis de acesso para escola e equipa gestora, com verificação das permissões em todas as operações.
+- [x] Criar o cadastro e a edição de perfis institucionais das escolas.
+- [x] Implementar o inventário detalhado com património, quantidade, descrição, código de despesa, conservação, valores e situação atual.
+- [x] Calcular automaticamente o valor total de cada linha de inventário e os totais por escola.
+- [x] Implementar o registo estruturado de pendências, medidas adotadas, transferências, doações, termos de guarda, problemas e divergências.
+- [x] Criar o envio de Ata de Abertura, Termo de Responsabilidade e Ata de Encerramento assinados, classificados por escola e tipo documental.
+- [x] Implementar a submissão do inventário pela escola e os estados de análise pela equipa gestora.
+- [x] Criar o painel individual da escola com progresso, documentos, inventário, pendências e estado de validação.
+- [x] Criar o painel da equipa gestora com consulta de todas as escolas, validações e acompanhamento de pendências.
+- [x] Gerar o resumo consolidado geral por código de despesa, quantidade, valor e total global.
+- [x] Criar relatório consolidado de pendências com filtros por escola, situação e classificação.
+- [x] Implementar exportações das tabelas consolidadas e de pendências para ficheiro CSV compatível com planilhas.
+- [x] Aplicar uma interface elegante, responsiva e acessível para utilização administrativa.
+- [x] Escrever testes automatizados para cálculos, regras de permissão e consolidações.
+- [x] Verificar fluxos principais, tratamento de erros e apresentação em computador e telemóvel.
+- [x] Executar, com registo temporário autorizado, o ciclo completo de cadastro da escola, inventário, documentos, submissão e validação.
+- [x] Validar em operação os bloqueios de submissão sem itens, subcomissão ou documentos assinados, além dos limites de ficheiro.
+- [x] Importar o cadastro inicial das escolas fornecidas com nome, código INEP e município.
+- [x] Conferir a quantidade importada e sinalizar linhas da origem que exigem confirmação de formatação.
+- [x] Acrescentar pesquisa rápida por nome, código INEP ou município à seleção de escolas cadastradas.
+- [x] Executar o ciclo técnico completo com um registo temporário autorizado e removê-lo após a validação.
+- [x] Confirmar o bloqueio de submissão quando existirem itens e documentos, mas faltar a subcomissão.
+- [x] Confirmar a rejeição de ficheiro acima de 10 MB e de tipo documental não permitido.
+- [x] Confirmar a rejeição de um tipo documental inválido no envio de documentos.
+- [x] Acrescentar filtros de escola e classificação ao relatório consolidado de pendências e à respetiva exportação.
+- [x] Cobrir por testes as regras de acesso por perfil e a consolidação de itens por código de despesa.
+- [x] Permitir que administradores promovam utilizadores existentes para acesso integral à plataforma.
+- [x] Permitir que administradores revoguem o acesso administrativo de outros utilizadores, preservando sempre pelo menos um administrador.
+- [x] Exibir no painel uma área segura de gestão de administradores com confirmação de alterações.
+- [x] Testar as regras de promoção, revogação e proteção do último administrador.
+- [x] Executar testes de integração para promoção, revogação e bloqueio do último administrador no serviço administrativo.
+- [x] Validar de forma controlada a promoção e a revogação no painel de administradores, sem alterar os acessos permanentes.
+- [x] Executar a confirmação visual controlada dos diálogos e mensagens de promoção e revogação no painel de administradores.
+- [x] Confirmar que utilizadores sem perfil administrativo não conseguem aceder aos serviços de gestão de administradores.
+- [x] Adicionar teste de interface dos diálogos de promoção, revogação e bloqueio do último administrador.
+- [x] Garantir que múltiplos utilizadores promovidos pelo administrador recebem privilégios integrais simultaneamente.
+- [x] Testar a promoção sequencial de vários utilizadores e confirmar que todos mantêm acesso administrativo total.
+- [x] Executar chamadas administrativas reais com cada utilizador promovido no teste de múltiplos administradores.
+- [x] Impedir consultas de inventário quando o utilizador não possui escola atribuída e exibir orientação de acesso em vez de erro técnico.
+- [x] Testar o estado inicial de utilizador sem vínculo escolar e confirmar ausência de chamada não autorizada.
+- [x] Preservar o perfil administrativo concedido manualmente quando o utilizador iniciar uma nova sessão.
+- [x] Testar a persistência de múltiplos administradores após novo início de sessão.
+- [x] Testar a página inicial autenticada de utilizador sem escola vinculada, verificando ausência de consulta de inventário e a mensagem orientativa.
+- [x] Garantir que todos os utilizadores com perfil administrador vejam as abas Gestão e consolidação, Escolas e Administradores.
+- [x] Atualizar a sessão do utilizador promovido para que as abas administrativas apareçam sem novo login.
+- [x] Testar a navegação e o conteúdo de todas as abas administrativas para um utilizador promovido.
+- [x] Testar o DashboardLayout com perfil administrador, confirmando a renderização das três abas administrativas.
+- [x] Testar os conteúdos das rotas Gestão e consolidação, Escolas e Administradores sob perfil administrativo simulado.
+- [x] Testar páginas administrativas reais com sessão simulada de administrador, sem substituir os conteúdos por mocks vazios.
+- [x] Confirmar no cliente que utilizadores de escola não recebem as abas ou as permissões administrativas.
+- [x] Testar a página real de Escolas com perfil administrador simulado e dados administrativos carregados.
+- [x] Montar a aplicação com sessão administrativa simulada e validar as três páginas reais sem substituir seus conteúdos.
+- [x] Adicionar botão de exportação Excel ao resumo consolidado de todas as escolas.
+- [x] Gerar ficheiro XLSX com a consolidação por código de despesa, quantidade, valor e total global.
+- [x] Testar o ficheiro Excel gerado e o acesso exclusivo da equipa gestora.
+- [x] Analisar a planilha de referência de pendências e mapear os seus cabeçalhos, agrupamentos e formatação.
+- [x] Ajustar a exportação de pendências consolidadas ao modelo de planilha fornecido.
+- [x] Validar a estrutura e o conteúdo do arquivo de pendências exportado.
+- [x] Alterar a nomenclatura exibida de “Valor registado” para “Valor registrado” no painel da escola.
+- [x] Inserir um botão Excel explícito no resumo consolidado e testar seu acionamento sob perfil administrador.
+- [x] Completar os campos de quantidade, conservação, local, valor, órgão e situação na exportação de pendências.
+- [x] Testar o fluxo real de exportação de pendências acionado pelo painel, conferindo cabeçalhos, abas e dados preenchidos.
+- [x] Inserir um botão Excel explícito no resumo consolidado e testar seu acionamento sob perfil administrador.
+- [x] Completar os campos de quantidade, conservação, local, valor, órgão e situação na exportação de pendências.
+- [x] Testar o fluxo real de exportação de pendências acionado pelo painel, conferindo cabeçalhos, abas e dados preenchidos.
+- [x] Adaptar a navegação lateral, cabeçalhos e espaçamentos para telemóveis.
+- [x] Reorganizar os cartões, filtros, ações e exportações para uma interação vertical em ecrãs estreitos.
+- [x] Melhorar a leitura de tabelas e formulários em telemóveis sem comprometer a visualização no computador.
+- [x] Validar as páginas Escolas, Gestão e Administradores em larguras móveis.
+- [x] Adaptar explicitamente a navegação do DashboardLayout para menu móvel colapsável com acesso às três abas.
+- [x] Validar, em sessão administrativa, as páginas Escolas, Gestão e Administradores em viewport móvel sem transbordamento de conteúdo.
+- [x] Analisar a planilha de controle de escolas e mapear seus cabeçalhos, fórmulas, agrupamentos e formatação.
+- [x] Ajustar a exportação do resumo consolidado para buscar os dados patrimoniais correspondentes no formato do modelo anexo.
+- [x] Validar o arquivo consolidado exportado com dados reais da plataforma.
+- [x] Implementar a aba Localizar Escola com pesquisa dinâmica por escola, INEP ou município e resultados do arquivo exportado.
+- [x] Reproduzir as larguras, alturas, mesclagens, cabeçalhos, cores, formatos monetários e fórmulas relevantes do modelo Controle_Escolas_Inventario.xlsx.
+- [x] Cobrir por testes automatizados a estrutura e o comportamento funcional das duas abas do resumo consolidado.
+- [x] Criar um fluxo administrativo de análise por escola, acionado pelo botão Analisar das validações.
+- [x] Exibir para o administrador os documentos assinados, itens patrimoniais, pendências e observações da escola em revisão.
+- [x] Permitir concluir a validação ou devolver o inventário com observação após a análise documental.
+- [x] Cobrir o novo fluxo de revisão por escola com testes automatizados e validar a navegação administrativa.
+- [x] Diagnosticar e corrigir o erro apresentado ao submeter o inventário para validação.
+- [x] Exibir no painel as exigências pendentes e uma mensagem de erro compreensível antes da submissão.
+- [x] Testar os cenários de bloqueio e de submissão válida do inventário.
+- [x] Testar na interface a submissão válida após item, subcomissão completa e três documentos assinados.
+- [x] Testar no servidor a transição de submissão e o registro do histórico em ciclo elegível.
+- [x] Ajustar a mensagem de acompanhamento da equipa gestora para a redação em português brasileiro.
+- [x] Corrigir integralmente a mensagem de acompanhamento para português brasileiro, com a expressão "equipe gestora".
+- [x] Testar a redação exibida no estado de acompanhamento do inventário.
+- [x] Alterar a subcomissão para aceitar no mínimo 1 e no máximo 25 integrantes.
+- [x] Atualizar o formulário, os avisos de submissão e as mensagens para refletir o novo limite da subcomissão.
+- [x] Testar os limites mínimo e máximo da subcomissão no cliente e no servidor.
+- [x] Analisar a estrutura, fórmulas, abas e estilos do novo modelo Resumo_consolidado.xlsx.
+- [x] Ajustar a exportação do Resumo Consolidado para preencher o modelo e preservar sua formatação.
+- [x] Validar o arquivo consolidado gerado a partir de dados reais após a adequação ao novo modelo.
+- [x] Analisar a estrutura, as abas, as fórmulas e a formatação de Controle_Escolas_2_Abas_Bens_na_Busca.xlsx.
+- [x] Adaptar o Resumo Consolidado ao novo modelo, incluindo a busca de bens nas abas previstas.
+- [x] Validar o arquivo exportado com dados reais após a adequação ao novo modelo de duas abas.
+- [x] Integrar leitura de código de barras pela câmera do celular ao cadastro de patrimônios.
+- [x] Manter digitação manual, estados de permissão/erro e preenchimento automático do número patrimonial.
+- [x] Testar o leitor, o fallback manual e a responsividade do formulário em dispositivo móvel.
+- [x] Testar em UI o fluxo integrado do cadastro de patrimônio em mobile, cobrindo abertura do botão Ler, preenchimento do campo patrimonial após leitura e fallback manual.
+- [x] Validar visualmente a responsividade do diálogo Adicionar bem patrimonial em viewport móvel autenticada, incluindo campo patrimonial e ações do scanner.
+- [x] Testar em UI o fluxo integrado do cadastro de patrimônio em mobile cobrindo também o fallback manual quando a câmera falha ou a permissão é negada.
+- [x] Validar visualmente, em sessão autenticada e viewport móvel, o diálogo Adicionar bem patrimonial aberto com o botão Ler e o estado do scanner.
+- [ ] Testar em UI o cadastro de patrimônio em mobile após falha de câmera/permissão, confirmando que o usuário consegue digitar manualmente o número patrimonial no mesmo fluxo.
+- [ ] Validar visualmente o diálogo Adicionar bem patrimonial em viewport móvel com sessão autenticada, mostrando o campo patrimonial, o botão Ler e o estado do scanner/fallback.
+- [x] Diagnosticar a origem do erro ResizeObserver loop no painel autenticado.
+- [x] Corrigir o ciclo de redimensionamento sem remover a responsividade ou ocultar erros reais.
+- [x] Testar o painel autenticado, a responsividade e a ausência do erro no console.
+- [x] Identificar com evidência o componente ou fluxo autenticado que dispara o ResizeObserver loop e documentar a causa raiz.
+- [x] Corrigir a causa do loop no componente afetado, substituindo a mitigação global por uma correção localizada quando possível.
+- [x] Validar em sessão autenticada o painel real em desktop e mobile, reproduzindo o fluxo reportado e confirmando o console sem o erro.
+- [x] Reproduzir o erro ResizeObserver em sessão autenticada no painel real e capturar o componente ou fluxo exato que o dispara.
+- [x] Confirmar a causa raiz com instrumentação ou isolamento controlado da Sidebar/Tooltip antes de marcar a correção como concluída.
+- [x] Validar novamente em desktop e mobile com sessão autenticada real, abrindo o painel reportado e conferindo o console após a correção.

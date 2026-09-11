@@ -1,4 +1,5 @@
-import { and, asc, eq, inArray } from "drizzle-orm";
+import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from "crypto";
+import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   committeeMembers,
@@ -64,6 +65,55 @@ export async function getUserById(id: number) {
   if (!db) return undefined;
   const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
   return result[0];
+}
+
+function hashPassword(password: string): string {
+  const salt = randomBytes(16).toString("hex");
+  const hash = scryptSync(password, salt, 64).toString("hex");
+  return `${salt}:${hash}`;
+}
+
+function verifyPasswordHash(password: string, stored: string): boolean {
+  const [salt, hash] = stored.split(":");
+  if (!salt || !hash) return false;
+  const hashBuffer = Buffer.from(hash, "hex");
+  const suppliedBuffer = scryptSync(password, salt, 64);
+  return hashBuffer.length === suppliedBuffer.length && timingSafeEqual(hashBuffer, suppliedBuffer);
+}
+
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result[0];
+}
+
+export async function createUserWithPassword(input: { email: string; password: string; name?: string }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const existing = await getUserByEmail(input.email);
+  if (existing) throw new Error("E-mail já cadastrado");
+
+  const [{ count }] = await db.select({ count: sql<number>`count(*)` }).from(users);
+  const isFirstUser = Number(count) === 0;
+
+  await db.insert(users).values({
+    openId: randomUUID(),
+    email: input.email,
+    name: input.name ?? null,
+    passwordHash: hashPassword(input.password),
+    loginMethod: "password",
+    role: isFirstUser ? "admin" : "user",
+  });
+
+  return getUserByEmail(input.email);
+}
+
+export async function verifyUserPassword(email: string, password: string) {
+  const user = await getUserByEmail(email);
+  if (!user || !user.passwordHash) return null;
+  return verifyPasswordHash(password, user.passwordHash) ? user : null;
 }
 
 export async function requireDb() {

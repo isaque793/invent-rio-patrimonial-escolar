@@ -59,6 +59,13 @@ export async function getUserByOpenId(openId: string) {
   return result[0];
 }
 
+export async function getUserById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
+  return result[0];
+}
+
 export async function requireDb() {
   const db = await getDb();
   if (!db) throw new Error("A base de dados não está disponível neste momento.");

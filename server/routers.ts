@@ -28,6 +28,7 @@ import {
   userCanAccessSchool,
 } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
+import { createSessionToken } from "./_core/session";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { systemRouter } from "./_core/systemRouter";
 import { storagePut } from "./storage";
@@ -42,7 +43,8 @@ import {
   safeFileName,
   type CycleStatus,
 } from "./inventoryUtils";
-import { COOKIE_NAME } from "@shared/const";
+import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
+import { createUserWithPassword, verifyUserPassword } from "./db";
 
 const yearInput = z.number().int().min(2020).max(2100);
 const schoolInput = z.object({ schoolId: z.number().int().positive() });
@@ -88,6 +90,26 @@ export const appRouter = router({
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
+
+    register: publicProcedure
+      .input(z.object({ email: z.string().email(), password: z.string().min(8), name: z.string().optional() }))
+      .mutation(async ({ input, ctx }) => {
+        const user = await createUserWithPassword(input);
+        const token = await createSessionToken(user!.id);
+        ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
+        return user;
+      }),
+
+    login: publicProcedure
+      .input(z.object({ email: z.string().email(), password: z.string() }))
+      .mutation(async ({ input, ctx }) => {
+        const user = await verifyUserPassword(input.email, input.password);
+        if (!user) throw new Error("E-mail ou senha inválidos");
+        const token = await createSessionToken(user.id);
+        ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
+        return user;
+      }),
+
     logout: publicProcedure.mutation(({ ctx }) => {
       ctx.res.clearCookie(COOKIE_NAME, { ...getSessionCookieOptions(ctx.req), maxAge: -1 });
       return { success: true } as const;

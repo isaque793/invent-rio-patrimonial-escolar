@@ -16,5 +16,23 @@ import NotFound from "./pages/NotFound";
 function ManagementRoute() { return <AdminGuard><Management /></AdminGuard>; }
 function ManagementReviewRoute() { return <AdminGuard><ManagementReview /></AdminGuard>; }
 function AdministratorsRoute() { return <AdminGuard><AdminUsers /></AdminGuard>; }
-function Router() { return <DashboardLayout><Switch><Route path="/" component={Home} /><Route path="/login" component={Login} /><Route path="/gestao" component={ManagementRoute} /><Route path="/gestao/analise/:cycleId" component={ManagementReviewRoute} /><Route path="/administradores" component={AdministratorsRoute} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></DashboardLayout>; }
+function Router() {
+  return (
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route>
+        <DashboardLayout>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/gestao" component={ManagementRoute} />
+            <Route path="/gestao/analise/:cycleId" component={ManagementReviewRoute} />
+            <Route path="/administradores" component={AdministratorsRoute} />
+            <Route path="/404" component={NotFound} />
+            <Route component={NotFound} />
+          </Switch>
+        </DashboardLayout>
+      </Route>
+    </Switch>
+  );
+}
 export default function App() { return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster richColors position="top-right" /><Router /></TooltipProvider></ThemeProvider></ErrorBoundary>; }

@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
-import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
 import { getNavigationItemsForRole } from "@/lib/roleNavigation";
 import { BarChart3, Building2, ClipboardList, LogOut, PanelLeft, ShieldCheck } from "lucide-react";
@@ -28,7 +27,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-[#0c4a3e] text-white"><ShieldCheck className="size-7" /></div>
         <h1 className="font-serif text-3xl font-semibold tracking-tight text-[#16382e]">Acesso ao inventário</h1>
         <p className="mt-3 text-sm leading-6 text-[#617067]">Entre para aceder ao espaço da sua escola ou ao painel de acompanhamento da equipa gestora.</p>
-        <Button onClick={() => startLogin()} className="mt-7 w-full bg-[#0c4a3e] hover:bg-[#083a31]">Iniciar sessão</Button>
+        <Button onClick={() => (window.location.href = "/login")} className="mt-7 w-full bg-[#0c4a3e] hover:bg-[#083a31]">Iniciar sessão</Button>
       </div>
     </div>;
   }

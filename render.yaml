@@ -5,21 +5,30 @@ services:
     plan: free
     region: oregon
     branch: main
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
-    startCommand: pnpm start
+
+    buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm build
+    startCommand: corepack pnpm start
+
     healthCheckPath: /
+
     envVars:
       - key: NODE_ENV
         value: production
+
       - key: DATABASE_URL
         sync: false
+
       - key: JWT_SECRET
         generateValue: true
+
       - key: R2_ACCOUNT_ID
         sync: false
+
       - key: R2_ACCESS_KEY_ID
         sync: false
+
       - key: R2_SECRET_ACCESS_KEY
         sync: false
+
       - key: R2_BUCKET_NAME
         sync: false

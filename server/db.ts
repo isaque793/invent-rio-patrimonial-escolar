@@ -18,7 +18,7 @@ import {
 import { ENV } from "./_core/env";
 import { hasSchoolAccess } from "./inventoryUtils";
 
-let _db: ReturnType<typeof drizzle> | null = null;
+let _db: ReturnType<typeof drizzle> | null;
 
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
@@ -32,7 +32,7 @@ export async function getDb() {
         database: url.pathname.replace(/^\//, ""),
         ssl: { rejectUnauthorized: false },
       });
-      _db = drizzle(pool);
+      _db = drizzle(pool as any) as any;
     } catch (error) {
       console.warn("[Database] Falha ao conectar:", error);
       _db = null;
@@ -95,6 +95,21 @@ export async function getUserByEmail(email: string) {
   const db = await getDb();
   if (!db) return undefined;
   const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result[0];
+}
+
+export async function findSchoolByEmail(email: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+
+  const normalizedEmail = email.trim().toLowerCase();
+
+  const result = await db
+    .select()
+    .from(schools)
+    .where(eq(schools.email, normalizedEmail))
+    .limit(1);
+
   return result[0];
 }
 

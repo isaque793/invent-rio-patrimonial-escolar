@@ -106,7 +106,23 @@ export const appRouter = router({
     }
     const token = await createSessionToken(user!.id);
     ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
-    return user;
+        return user;
+  }),
+
+  login: publicProcedure
+    .input(z.object({ email: z.string().email(), password: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const user = await verifyUserPassword(input.email, input.password);
+      if (!user) throw new Error("E-mail ou senha inválidos");
+      const token = await createSessionToken(user.id);
+      ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
+      return user;
+    }),
+
+  logout: publicProcedure.mutation(({ ctx }) => {
+    ctx.res.clearCookie(COOKIE_NAME, { ...getSessionCookieOptions(ctx.req), maxAge: -1 });
+    return { success: true } as const;
+  }),
   }),
 
   catalog: router({

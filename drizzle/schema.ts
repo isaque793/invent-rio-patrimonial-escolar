@@ -23,22 +23,30 @@ export const users = mysqlTable("users", {
   lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
 });
 
-export const schools = mysqlTable("schools", {
-  id: int("id").autoincrement().primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  schoolCode: varchar("schoolCode", { length: 64 }),
-  city: varchar("city", { length: 120 }),
-  regionalOffice: varchar("regionalOffice", { length: 160 }),
-  email: varchar("email", { length: 320 }),
-  phone: varchar("phone", { length: 40 }),
-  responsibleName: varchar("responsibleName", { length: 255 }),
-  responsibleMasp: varchar("responsibleMasp", { length: 32 }),
-  responsibleRole: varchar("responsibleRole", { length: 120 }),
-  directorName: varchar("directorName", { length: 255 }),
-  directorMasp: varchar("directorMasp", { length: 32 }),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
-});
+
+export const schools = mysqlTable(
+  "schools",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    name: varchar("name", { length: 255 }).notNull(),
+    schoolCode: varchar("schoolCode", { length: 64 }),
+    city: varchar("city", { length: 120 }),
+    regionalOffice: varchar("regionalOffice", { length: 160 }),
+    email: varchar("email", { length: 320 }),
+    phone: varchar("phone", { length: 40 }),
+    responsibleName: varchar("responsibleName", { length: 255 }),
+    responsibleMasp: varchar("responsibleMasp", { length: 32 }),
+    responsibleRole: varchar("responsibleRole", { length: 120 }),
+    directorName: varchar("directorName", { length: 255 }),
+    directorMasp: varchar("directorMasp", { length: 32 }),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  table => ({
+    schoolCodeUnique: uniqueIndex("school_code_unique").on(table.schoolCode),
+    emailUnique: uniqueIndex("school_email_unique").on(table.email),
+  }),
+);
 
 export const schoolMemberships = mysqlTable(
   "schoolMemberships",

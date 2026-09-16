@@ -26,6 +26,7 @@ import {
   listAssignableUsers,
   requireDb,
   userCanAccessSchool,
+  linkUserToSchoolByEmail,
 } from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { createSessionToken } from "./_core/session";
@@ -45,6 +46,7 @@ import {
 } from "./inventoryUtils";
 import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 import { createUserWithPassword, verifyUserPassword } from "./db";
+
 
 const yearInput = z.number().int().min(2020).max(2100);
 const schoolInput = z.object({ schoolId: z.number().int().positive() });
@@ -91,33 +93,26 @@ export const appRouter = router({
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
 
-    register: publicProcedure
-  .input(z.object({ email: z.string().email(), password: z.string().min(8), name: z.string().optional() }))
-  .mutation(async ({ input, ctx }) => {
-    const user = await createUserWithPassword(input);
-    const db = await requireDb();
-    const [matchedSchool] = await db.select().from(schools).where(eq(schools.email, input.email)).limit(1);
-    if (matchedSchool) {
-      await db.insert(schoolMemberships).values({
-        schoolId: matchedSchool.id,
-        userId: user!.id,
-        accessRole: "contributor",
-      });
-    }
-    const token = await createSessionToken(user!.id);
-    ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
+        register: publicProcedure
+      .input(z.object({ email: z.string().email(), password: z.string().min(8), name: z.string().optional() }))
+      .mutation(async ({ input, ctx }) => {
+        const user = await createUserWithPassword(input);
+        await linkUserToSchoolByEmail(user!.id, user!.email);
+        const token = await createSessionToken(user!.id);
+        ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
         return user;
-  }),
+      }),
 
-  login: publicProcedure
-    .input(z.object({ email: z.string().email(), password: z.string() }))
-    .mutation(async ({ input, ctx }) => {
-      const user = await verifyUserPassword(input.email, input.password);
-      if (!user) throw new Error("E-mail ou senha inválidos");
-      const token = await createSessionToken(user.id);
-      ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
-      return user;
-    }),
+    login: publicProcedure
+      .input(z.object({ email: z.string().email(), password: z.string() }))
+      .mutation(async ({ input, ctx }) => {
+        const user = await verifyUserPassword(input.email, input.password);
+        if (!user) throw new Error("E-mail ou senha inválidos");
+        await linkUserToSchoolByEmail(user.id, user.email);
+        const token = await createSessionToken(user.id);
+        ctx.res.cookie(COOKIE_NAME, token, { ...getSessionCookieOptions(ctx.req), maxAge: ONE_YEAR_MS });
+        return user;
+      }),
 
   logout: publicProcedure.mutation(({ ctx }) => {
     ctx.res.clearCookie(COOKIE_NAME, { ...getSessionCookieOptions(ctx.req), maxAge: -1 });

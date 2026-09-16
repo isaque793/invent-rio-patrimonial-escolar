@@ -1,6 +1,6 @@
 import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from "crypto";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
+import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
 import {
   committeeMembers,
@@ -18,7 +18,7 @@ import {
 import { ENV } from "./_core/env";
 import { hasSchoolAccess } from "./inventoryUtils";
 
-let _db: ReturnType<typeof drizzle> | null;
+let _db: MySql2Database | null = null;
 
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
@@ -282,6 +282,30 @@ export async function findSchoolMember(schoolId: number, userId: number) {
     .where(and(eq(schoolMemberships.schoolId, schoolId), eq(schoolMemberships.userId, userId)))
     .limit(1);
   return result[0];
+}
+
+export async function linkUserToSchoolByEmail(userId: number, email?: string | null) {
+  if (!email) return null;
+  const db = await getDb();
+  if (!db) return null;
+
+  const normalized = email.trim().toLowerCase();
+  const [school] = await db
+    .select({ id: schools.id })
+    .from(schools)
+    .where(sql`lower(trim(${schools.email})) = ${normalized}`)
+    .limit(1);
+  if (!school) return null;
+
+  const existing = await findSchoolMember(school.id, userId);
+  if (existing) return school.id;
+
+  await db
+    .insert(schoolMemberships)
+    .values({ schoolId: school.id, userId, accessRole: "contributor" })
+    .onDuplicateKeyUpdate({ set: { schoolId: school.id } });
+
+  return school.id;
 }
 
 export async function getSchoolMembers(schoolId: number) {

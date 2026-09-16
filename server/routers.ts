@@ -219,6 +219,33 @@ export const appRouter = router({
         const result = await db.insert(inventoryItems).values({ ...fields, quantity, unitValue: unitValue.toFixed(2), totalValue });
         return { id: Number(result[0].insertId), totalValue };
       }),
+    updateItem: protectedProcedure
+      .input(
+        z.object({
+          itemId: z.number().int().positive(),
+          cycleId: z.number().int().positive(),
+          propertyNumber: z.string().trim().min(1).max(80),
+          quantity: z.number().int().min(1).max(1000000),
+          description: z.string().trim().min(2).max(4000),
+          technicalDetails: z.string().trim().max(4000).optional().nullable(),
+          expenseCode: z.string().trim().regex(/^52\.(0[1-9]|1[0-9]|2[0-2]|25|26|99)$/),
+          conservationCode: z.string().trim().max(32).optional().nullable(),
+          conservationState: z.string().trim().min(2).max(80),
+          unitValue: z.number().min(0).max(999999999),
+          currentSituation: z.string().trim().min(2).max(160),
+        }),
+      )
+      .mutation(async ({ ctx, input }) => {
+        const cycle = await assertEditableCycle(ctx.user, input.cycleId);
+        const db = await requireDb();
+        const item = await db.select().from(inventoryItems).where(eq(inventoryItems.id, input.itemId)).limit(1);
+        if (!item[0]) throw new TRPCError({ code: "NOT_FOUND", message: "Item não encontrado." });
+        if (item[0].cycleId !== cycle.id) throw accessDenied();
+        const { itemId, cycleId, unitValue, quantity, ...fields } = input;
+        const totalValue = calculateLineTotal(quantity, unitValue);
+        await db.update(inventoryItems).set({ ...fields, cycleId, quantity, unitValue: unitValue.toFixed(2), totalValue }).where(eq(inventoryItems.id, itemId));
+        return { id: itemId, totalValue };
+      }),
     deleteItem: protectedProcedure.input(z.object({ itemId: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
       const db = await requireDb();
       const item = await db.select().from(inventoryItems).where(eq(inventoryItems.id, input.itemId)).limit(1);

@@ -62,11 +62,11 @@ function findTarget(id: string): HTMLElement | null {
     case "add-item":
       return findByText("button", "Adicionar item", element => !element.closest('[role="dialog"]'));
     case "description":
-      return Array.from(document.querySelectorAll('input[name="description"]')).find(element => visible(element)) as HTMLElement | null;
+      return Array.from(document.querySelectorAll('[role="dialog"] input[name="description"]')).find(element => visible(element)) as HTMLElement | null;
     case "property":
       return findByText('[role="dialog"] button', "Não se aplica");
     case "unit-value":
-      return Array.from(document.querySelectorAll('input[name="unitValue"]')).find(element => visible(element)) as HTMLElement | null;
+      return Array.from(document.querySelectorAll('[role="dialog"] input[name="unitValue"]')).find(element => visible(element)) as HTMLElement | null;
     case "save-item":
       return findByText('[role="dialog"] button', "Adicionar item");
     case "pending":
@@ -113,7 +113,6 @@ export default function GuidedTutorial() {
   const [inputReady, setInputReady] = useState(false);
   const step = steps[stepIndex];
   const target = step.selector ? findTarget(step.id) : null;
-  const targetInsideDialog = Boolean(target?.closest('[role="dialog"]'));
 
   useEffect(() => { activateTutorial(); }, []);
 
@@ -143,23 +142,54 @@ export default function GuidedTutorial() {
   }, [refreshTarget]);
 
   useEffect(() => {
-    setInputReady(step.mode === "input" && target instanceof HTMLInputElement ? target.value.trim().length > 0 : false);
+    if (step.mode !== "input") return;
+
+    const readCurrentValue = () => {
+      const currentTarget = findTarget(step.id);
+      if (currentTarget instanceof HTMLInputElement) {
+        setInputReady(currentTarget.value.trim().length > 0);
+      }
+    };
+
+    const onInput = (event: Event) => {
+      const element = event.target;
+      if (element instanceof HTMLInputElement) {
+        setInputReady(element.value.trim().length > 0);
+      } else {
+        readCurrentValue();
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.target instanceof HTMLInputElement) {
+        window.requestAnimationFrame(readCurrentValue);
+      }
+    };
+
+    document.addEventListener("input", onInput, true);
+    document.addEventListener("change", readCurrentValue, true);
+    document.addEventListener("keydown", onKeyDown, true);
+    readCurrentValue();
+
+    return () => {
+      document.removeEventListener("input", onInput, true);
+      document.removeEventListener("change", readCurrentValue, true);
+      document.removeEventListener("keydown", onKeyDown, true);
+    };
+  }, [step.id, step.mode]);
+
+  useEffect(() => {
     if (!target || !visible(target)) return;
     const onClick = () => {
       if (step.mode === "click") window.setTimeout(() => setStepIndex(index => Math.min(index + 1, steps.length - 1)), 120);
-    };
-    const onInput = () => {
-      if (step.mode === "input") setInputReady((target as HTMLInputElement).value.trim().length > 0);
     };
     const onChange = () => {
       if (step.mode === "file") window.setTimeout(() => setStepIndex(index => Math.min(index + 1, steps.length - 1)), 120);
     };
     target.addEventListener("click", onClick, true);
-    target.addEventListener("input", onInput, true);
     target.addEventListener("change", onChange, true);
     return () => {
       target.removeEventListener("click", onClick, true);
-      target.removeEventListener("input", onInput, true);
       target.removeEventListener("change", onChange, true);
     };
   }, [target, step.mode]);

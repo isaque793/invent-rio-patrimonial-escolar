@@ -191,22 +191,14 @@ export default function GuidedTutorial() {
 
     {highlighted && targetRect && <div className="pointer-events-none fixed z-[45] rounded-xl border-2 border-[#f2d98c] shadow-[0_0_28px_rgba(242,217,140,.45)]" style={{ left: targetRect.left - 5, top: targetRect.top - 5, width: targetRect.width + 10, height: targetRect.height + 10 }} />}
 
-    <div className="pointer-events-auto fixed z-[50]" style={tooltipStyle}>
+    <div className="pointer-events-auto fixed z-[100]" style={tooltipStyle}>
       <div className="rounded-2xl border border-[#d8e3db] bg-white p-5 shadow-[0_22px_70px_rgba(15,45,35,.24)]">
         <div className="flex items-start gap-3">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eaf3ee] text-[#0b5d4b]"><GraduationCap className="size-5" /></div>
-          <div><p className="text-[11px] font-bold uppercase tracking-[.16em] text-[#597566]">Orientação</p><h2 className="mt-1 text-lg font-semibold text-[#173b30]">{step.title}</h2></div>
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#e8f2ea] text-[#1f5c48]"><GraduationCap className="size-5" /></div>
+          <div className="min-w-0 flex-1"><p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#6a8072]">Orientação</p><h2 className="mt-1 font-semibold text-[#173c31]">{step.title}</h2></div>
         </div>
-        <p className="mt-3 text-sm leading-6 text-[#65796e]">{step.description}</p>
-        <div className="mt-4 flex items-center justify-between gap-3">
-          <p className="text-xs font-medium text-[#7b897f]">{stepIndex + 1}/{steps.length}</p>
-          {step.mode === "welcome" && <button type="button" onClick={continueStep} className="inline-flex items-center rounded-lg bg-[#0b5d4b] px-3 py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#083f34]">Começar <ChevronRight className="ml-1 size-4" /></button>}
-          {step.mode === "ack" && <button type="button" onClick={continueStep} className="inline-flex items-center rounded-lg bg-[#0b5d4b] px-3 py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#083f34]">{step.continueLabel || "Continuar"} <ChevronRight className="ml-1 size-4" /></button>}
-          {step.mode === "input" && <button type="button" disabled={!inputReady} onClick={continueStep} className="inline-flex items-center rounded-lg bg-[#0b5d4b] px-3 py-2 text-xs font-semibold text-white shadow-sm enabled:hover:bg-[#083f34] disabled:cursor-not-allowed disabled:opacity-40">{step.continueLabel || "Continuar"} <ChevronRight className="ml-1 size-4" /></button>}
-          {step.mode === "click" && <p className="text-xs font-semibold text-[#567064]">Realize a ação destacada</p>}
-          {step.mode === "file" && <p className="text-xs font-semibold text-[#567064]">Selecione um arquivo para continuar</p>}
-          {step.mode === "finish" && <button type="button" onClick={finish} className="inline-flex items-center rounded-lg bg-[#0b5d4b] px-3 py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#083f34]"><CheckCircle2 className="mr-1 size-4" />Liberar sistema</button>}
-        </div>
+        <p className="mt-4 text-sm leading-6 text-[#63776b]">{step.description}</p>
+        <div className="mt-4 flex items-center justify-between gap-3"><span className="text-xs text-[#738277]">{stepIndex + 1}/{steps.length}</span>{step.mode === "finish" ? <button onClick={finish} className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a3e] px-4 py-2 text-sm font-semibold text-white hover:bg-[#083a31]">Concluir <CheckCircle2 className="size-4" /></button> : step.mode === "welcome" ? <button onClick={continueStep} className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a3e] px-4 py-2 text-sm font-semibold text-white hover:bg-[#083a31]">Começar <ChevronRight className="size-4" /></button> : step.mode === "ack" ? <button onClick={continueStep} className="inline-flex items-center gap-2 rounded-xl bg-[#d9c07c] px-4 py-2 text-sm font-semibold text-[#17372f] hover:bg-[#ead38f]">{step.continueLabel || "Continuar"} <ChevronRight className="size-4" /></button> : step.mode === "input" ? <button disabled={!inputReady} onClick={continueStep} className="inline-flex items-center gap-2 rounded-xl bg-[#d9c07c] px-4 py-2 text-sm font-semibold text-[#17372f] disabled:cursor-not-allowed disabled:opacity-50">Continuar <ChevronRight className="size-4" /></button> : <span className="text-xs font-semibold text-[#6d8174]">Realize a ação destacada</span>}</div>
       </div>
     </div>
   </>;

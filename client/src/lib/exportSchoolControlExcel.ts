@@ -73,12 +73,6 @@ const issueStatusLabels: Record<SchoolControlExportRecord["issues"][number]["res
   resolved: "Resolvida",
 };
 
-const headerStyle = {
-  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
-  font: { bold: true, color: { rgb: "FFFFFF" } },
-  alignment: { horizontal: "center", vertical: "center", wrapText: true },
-};
-
 const titleStyle = {
   fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
   font: { bold: true, color: { rgb: "FFFFFF" }, sz: 16 },
@@ -91,6 +85,18 @@ const subtitleStyle = {
   alignment: { horizontal: "left", vertical: "center" },
 };
 
+const headerStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
+  font: { bold: true, color: { rgb: "FFFFFF" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+};
+
+const headerSoftStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "DDEBE6" } },
+  font: { bold: true, color: { rgb: "173B30" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+};
+
 const labelStyle = {
   fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } },
   font: { bold: true, color: { rgb: "173B30" } },
@@ -100,6 +106,34 @@ const labelStyle = {
 const bodyStyle = {
   alignment: { vertical: "top", wrapText: true },
 };
+
+const bodyAlternateStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "F5F9F6" } },
+  alignment: { vertical: "top", wrapText: true },
+};
+
+const pendingStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FFF7D6" } },
+  font: { color: { rgb: "7A5A00" } },
+  alignment: { vertical: "top", wrapText: true },
+};
+
+const problemStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } },
+  font: { color: { rgb: "8A3D46" } },
+  alignment: { vertical: "top", wrapText: true },
+};
+
+function statusStyle(status: string) {
+  const styles: Record<string, typeof bodyStyle> = {
+    "Em preparação": { fill: { patternType: "solid", fgColor: { rgb: "F1F3F1" } }, font: { color: { rgb: "5D675F" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+    Submetido: { fill: { patternType: "solid", fgColor: { rgb: "FFF0CC" } }, font: { color: { rgb: "8A5B00" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+    "Em análise": { fill: { patternType: "solid", fgColor: { rgb: "E6F1FB" } }, font: { color: { rgb: "255B85" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+    Devolvido: { fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } }, font: { color: { rgb: "8A3D46" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+    Validado: { fill: { patternType: "solid", fgColor: { rgb: "E4F3E8" } }, font: { color: { rgb: "286149" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+  };
+  return styles[status] ?? bodyStyle;
+}
 
 function setStyle(sheet: XLSX.WorkSheet, address: string, style: NonNullable<XLSX.CellObject["s"]>) {
   const cell = sheet[address] ?? { t: "z", v: "" };
@@ -193,43 +227,13 @@ export function buildSchoolControlTemplateRows(records: SchoolControlExportRecor
 function applyWorksheetLayout(worksheet: XLSX.WorkSheet, dataEndRow: number) {
   worksheet["!autofilter"] = { ref: `A4:AD${Math.max(dataEndRow, 4)}` };
   worksheet["!cols"] = [
-    { wch: 34 },
-    { wch: 14 },
-    { wch: 22 },
-    { wch: 18 },
-    { wch: 32 },
-    { wch: 36 },
-    { wch: 18 },
-    { wch: 20 },
-    { wch: 20 },
-    { wch: 11 },
-    { wch: 18 },
-    { wch: 18 },
-    { wch: 22 },
-    { wch: 28 },
-    { wch: 22 },
-    { wch: 16 },
-    { wch: 24 },
-    { wch: 20 },
-    { wch: 16 },
-    { wch: 24 },
-    { wch: 20 },
-    { wch: 16 },
-    { wch: 17 },
-    { wch: 23 },
-    { wch: 20 },
-    { wch: 20 },
-    { wch: 42 },
-    { wch: 42 },
-    { wch: 3, hidden: true },
-    { wch: 3, hidden: true },
+    { wch: 34 }, { wch: 14 }, { wch: 22 }, { wch: 18 }, { wch: 32 }, { wch: 36 }, { wch: 18 }, { wch: 20 }, { wch: 20 }, { wch: 11 },
+    { wch: 18 }, { wch: 18 }, { wch: 22 }, { wch: 28 }, { wch: 22 }, { wch: 16 }, { wch: 24 }, { wch: 20 }, { wch: 16 }, { wch: 24 },
+    { wch: 20 }, { wch: 16 }, { wch: 17 }, { wch: 23 }, { wch: 20 }, { wch: 20 }, { wch: 42 }, { wch: 42 }, { wch: 3, hidden: true }, { wch: 3, hidden: true },
   ];
   worksheet["!rows"] = [
-    { hpt: 30 },
-    { hpt: 21 },
-    { hpt: 9 },
-    { hpt: 42 },
-    ...Array.from({ length: Math.max(dataEndRow - 4, 0) }, () => ({ hpt: 36 })),
+    { hpt: 30 }, { hpt: 21 }, { hpt: 9 }, { hpt: 42 },
+    ...Array.from({ length: Math.max(dataEndRow - 4, 0) }, () => ({ hpt: 38 })),
   ];
 
   setStyle(worksheet, "A1", titleStyle);
@@ -238,42 +242,26 @@ function applyWorksheetLayout(worksheet: XLSX.WorkSheet, dataEndRow: number) {
     setStyle(worksheet, XLSX.utils.encode_cell({ r: 0, c: column }), titleStyle);
     setStyle(worksheet, XLSX.utils.encode_cell({ r: 1, c: column }), subtitleStyle);
   }
-  for (let column = 0; column < 30; column += 1) {
-    setStyle(worksheet, XLSX.utils.encode_cell({ r: 3, c: column }), headerStyle);
-  }
+  for (let column = 0; column < 30; column += 1) setStyle(worksheet, XLSX.utils.encode_cell({ r: 3, c: column }), headerStyle);
 
   for (let row = 5; row <= dataEndRow; row += 1) {
-    for (let column = 0; column < 30; column += 1) {
-      setStyle(worksheet, XLSX.utils.encode_cell({ r: row - 1, c: column }), bodyStyle);
-    }
+    const rowStyle = row % 2 === 0 ? bodyAlternateStyle : bodyStyle;
+    for (let column = 0; column < 30; column += 1) setStyle(worksheet, XLSX.utils.encode_cell({ r: row - 1, c: column }), rowStyle);
+
     const quantity = `J${row}`;
     const unitValue = `K${row}`;
     worksheet[`K${row}`] = { ...(worksheet[`K${row}`] ?? { t: "n", v: "" }), z: "R$ #,##0.00" };
-    worksheet[`L${row}`] = {
-      t: "n",
-      v: "",
-      f: `IF(OR(${quantity}=\"\",${unitValue}=\"\"),\"\",${quantity}*${unitValue})`,
-      z: "R$ #,##0.00",
-      s: bodyStyle,
-    };
-    worksheet[`AC${row}`] = {
-      t: "n",
-      v: "",
-      f: `IF(A${row}=\"\",\"\",COUNTIF($A$5:A${row},A${row}))`,
-      s: bodyStyle,
-    };
-    worksheet[`AD${row}`] = {
-      t: "s",
-      v: "",
-      f: `IF(A${row}=\"\",\"\",A${row}&\"|\"&AC${row})`,
-      s: bodyStyle,
-    };
+    worksheet[`L${row}`] = { t: "n", v: "", f: `IF(OR(${quantity}=\"\",${unitValue}=\"\"),\"\",${quantity}*${unitValue})`, z: "R$ #,##0.00", s: rowStyle };
+    worksheet[`AC${row}`] = { t: "n", v: "", f: `IF(A${row}=\"\",\"\",COUNTIF($A$5:A${row},A${row}))`, s: rowStyle };
+    worksheet[`AD${row}`] = { t: "s", v: "", f: `IF(A${row}=\"\",\"\",A${row}&\"|\"&AC${row})`, s: rowStyle };
+
+    setStyle(worksheet, `Z${row}`, statusStyle(String(worksheet[`Z${row}`]?.v ?? "")));
+    if (worksheet[`AA${row}`]?.v) setStyle(worksheet, `AA${row}`, pendingStyle);
+    if (worksheet[`AB${row}`]?.v) setStyle(worksheet, `AB${row}`, problemStyle);
   }
 
-  worksheet["!merges"] = [
-    XLSX.utils.decode_range("A1:AD1"),
-    XLSX.utils.decode_range("A2:AD2"),
-  ];
+  worksheet["!merges"] = [XLSX.utils.decode_range("A1:AD1"), XLSX.utils.decode_range("A2:AD2")];
+  worksheet["!tabColor"] = "0B5D4B";
 }
 
 export function buildSchoolLookupSheet(dataEndRow: number) {
@@ -284,20 +272,11 @@ export function buildSchoolLookupSheet(dataEndRow: number) {
     ["Digite parte do nome da escola ou o nome completo:"],
     [""],
     [],
-    ["Escola encontrada", ""],
-    ["Codigo INEP", ""],
-    ["Municipio", ""],
-    ["Presidente", ""],
-    ["Cargo", ""],
-    ["MASP", ""],
-    ["Status da validacao", ""],
-    ["Pendencias / ocorrencias", ""],
-    ["Problemas / divergencias", ""],
-    ["Quantidade de registros", ""],
-    ["Valor total registrado", ""],
+    ["Escola encontrada", ""], ["Codigo INEP", ""], ["Municipio", ""], ["Presidente", ""], ["Cargo", ""], ["MASP", ""],
+    ["Status da validacao", ""], ["Pendencias / ocorrencias", ""], ["Problemas / divergencias", ""], ["Quantidade de registros", ""], ["Valor total registrado", ""],
     [],
     ["BENS PATRIMONIAIS DA ESCOLA LOCALIZADA"],
-    ["N. patrimonio", "Descricao do bem", "Codigo de despesa", "Estado de conservacao", "Quantidade", "Valor unitario (R$)", "Valor total (R$)", "Situacao atual", "Chave"],
+    ["N. patrimonio", "Descricao do bem", "Codigo de despesa", "Estado de conservacao", "Quantidade", "Valor unitario (R$)", "Valor total (R$)", "Situacao atual"],
   ]);
 
   const lookup = {
@@ -314,63 +293,37 @@ export function buildSchoolLookupSheet(dataEndRow: number) {
     B16: `IF(OR($B$6=\"\",$B$6=\"ESCOLA NAO ENCONTRADA\"),\"\",SUMIF('Escolas e Inventario'!$A$5:$A$${lastRow},$B$6,'Escolas e Inventario'!$L$5:$L$${lastRow}))`,
   } as const;
 
-  Object.entries(lookup).forEach(([address, formula]) => {
-    searchSheet[address] = { t: "s", v: "", f: formula, z: address === "B16" ? "R$ #,##0.00" : "General" };
-  });
+  Object.entries(lookup).forEach(([address, formula]) => { searchSheet[address] = { t: "s", v: "", f: formula, z: address === "B16" ? "R$ #,##0.00" : "General" }; });
 
-  const lookupRowStart = 20;
-  const lookupRowEnd = 69;
-  for (let row = lookupRowStart; row <= lookupRowEnd; row += 1) {
+  for (let row = 20; row <= 69; row += 1) {
     const sourceColumns = ["D", "E", "G", "I", "J", "K", "L", "M"];
     sourceColumns.forEach((sourceColumn, index) => {
       const address = `${XLSX.utils.encode_col(index)}${row}`;
       const format = index === 4 ? "0" : index === 5 || index === 6 ? "R$ #,##0.00" : "General";
-      searchSheet[address] = {
-        t: "s",
-        v: "",
-        f: `IFERROR(INDEX('Escolas e Inventario'!$${sourceColumn}$5:$${sourceColumn}$${lastRow},MATCH($I${row},'Escolas e Inventario'!$AD$5:$AD$${lastRow},0)),\"\")`,
-        z: format,
-      };
+      searchSheet[address] = { t: "s", v: "", f: `IFERROR(INDEX('Escolas e Inventario'!$${sourceColumn}$5:$${sourceColumn}$${lastRow},MATCH($I${row},'Escolas e Inventario'!$AD$5:$AD$${lastRow},0)),\"\")`, z: format };
     });
-    searchSheet[`I${row}`] = {
-      t: "s",
-      v: "",
-      f: `IF(OR($B$6=\"\",$B$6=\"ESCOLA NAO ENCONTRADA\"),\"\",$B$6&\"|\"&ROWS($I$20:I${row}))`,
-    };
+    searchSheet[`I${row}`] = { t: "s", v: "", f: `IF(OR($B$6=\"\",$B$6=\"ESCOLA NAO ENCONTRADA\"),\"\",$B$6&\"|\"&ROWS($I$20:I${row}))` };
   }
 
   searchSheet["!ref"] = "A1:I69";
-  searchSheet["!cols"] = [18, 36, 23, 24, 13, 20, 20, 22, 2].map(wch => ({ wch }));
+  searchSheet["!cols"] = [18, 36, 23, 24, 13, 20, 20, 22, 2].map((wch, index) => index === 8 ? { wch, hidden: true } : { wch });
   searchSheet["!rows"] = [
-    { hpt: 30 },
-    { hpt: 20 },
-    { hpt: 20 },
-    { hpt: 22 },
-    { hpt: 8 },
-    ...Array.from({ length: 11 }, () => ({ hpt: 22 })),
-    { hpt: 8 },
-    { hpt: 26 },
-    { hpt: 36 },
+    { hpt: 30 }, { hpt: 20 }, { hpt: 20 }, { hpt: 22 }, { hpt: 8 },
+    ...Array.from({ length: 11 }, () => ({ hpt: 22 })), { hpt: 8 }, { hpt: 26 }, { hpt: 36 },
     ...Array.from({ length: 50 }, () => ({ hpt: 30 })),
   ];
-  searchSheet["!merges"] = [
-    XLSX.utils.decode_range("A1:I1"),
-    XLSX.utils.decode_range("A2:I2"),
-    XLSX.utils.decode_range("A4:D4"),
-    XLSX.utils.decode_range("A18:I18"),
-  ];
+  searchSheet["!merges"] = [XLSX.utils.decode_range("A1:I1"), XLSX.utils.decode_range("A2:I2"), XLSX.utils.decode_range("A4:D4"), XLSX.utils.decode_range("A18:H18")];
+  searchSheet["!tabColor"] = "3D6B59";
 
-  ["A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1"].forEach(address => setStyle(searchSheet, address, titleStyle));
-  ["A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2"].forEach(address => setStyle(searchSheet, address, subtitleStyle));
-  ["A6", "A7", "A8", "A9", "A10", "A11", "A12", "A13", "A14", "A15", "A16"].forEach(address => setStyle(searchSheet, address, labelStyle));
-  ["A18", "B18", "C18", "D18", "E18", "F18", "G18", "H18", "I18"].forEach(address => setStyle(searchSheet, address, titleStyle));
-  ["A19", "B19", "C19", "D19", "E19", "F19", "G19", "H19", "I19"].forEach(address => setStyle(searchSheet, address, headerStyle));
-  ["A4", "B4", "C4", "D4"].forEach(address => setStyle(searchSheet, address, { fill: { patternType: "solid", fgColor: { rgb: "F7FAF8" } }, alignment: { vertical: "center", wrapText: true } }));
-
-  for (let row = 20; row <= lookupRowEnd; row += 1) {
-    for (let column = 0; column <= 8; column += 1) {
-      setStyle(searchSheet, `${XLSX.utils.encode_col(column)}${row}`, bodyStyle);
-    }
+  for (const address of ["A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1"]) setStyle(searchSheet, address, titleStyle);
+  for (const address of ["A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2"]) setStyle(searchSheet, address, subtitleStyle);
+  for (const address of ["A6", "A7", "A8", "A9", "A10", "A11", "A12", "A13", "A14", "A15", "A16"]) setStyle(searchSheet, address, labelStyle);
+  for (const address of ["A18", "B18", "C18", "D18", "E18", "F18", "G18", "H18"]) setStyle(searchSheet, address, titleStyle);
+  for (const address of ["A19", "B19", "C19", "D19", "E19", "F19", "G19", "H19"]) setStyle(searchSheet, address, headerSoftStyle);
+  for (const address of ["A4", "B4", "C4", "D4"]) setStyle(searchSheet, address, { fill: { patternType: "solid", fgColor: { rgb: "F7FAF8" } }, alignment: { vertical: "center", wrapText: true } });
+  for (let row = 20; row <= 69; row += 1) {
+    const style = row % 2 === 0 ? bodyAlternateStyle : bodyStyle;
+    for (let column = 0; column <= 8; column += 1) setStyle(searchSheet, `${XLSX.utils.encode_col(column)}${row}`, style);
   }
 
   return searchSheet;

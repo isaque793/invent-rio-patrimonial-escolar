@@ -1,4 +1,4 @@
-import { CheckCircle2, ChevronRight, GraduationCap, Sparkles } from "lucide-react";
+import { CheckCircle2, ChevronRight, GraduationCap } from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { activateTutorial, completeTutorial } from "@/lib/tutorialSandbox";
 
@@ -60,10 +60,8 @@ function findTarget(id: string): HTMLElement | null {
       return findByText("button", "Iniciar inventário");
     case "add-item":
       return findByText("button", "Adicionar item", element => !element.closest('[role="dialog"]'));
-    case "description": {
-      const inputs = Array.from(document.querySelectorAll('input[name="description"]'));
-      return inputs.find(element => visible(element)) as HTMLElement | null;
-    }
+    case "description":
+      return Array.from(document.querySelectorAll('input[name="description"]')).find(element => visible(element)) as HTMLElement | null;
     case "property":
       return findByText("button", "Não se aplica", element => Boolean(element.closest('[role="dialog"]')));
     case "unit-value":
@@ -111,36 +109,31 @@ function findTarget(id: string): HTMLElement | null {
 export default function GuidedTutorial() {
   const [stepIndex, setStepIndex] = useState(0);
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
+  const [inputReady, setInputReady] = useState(false);
   const step = steps[stepIndex];
+  const target = step.selector ? findTarget(step.id) : null;
 
-  useEffect(() => {
-    activateTutorial();
-  }, []);
+  useEffect(() => { activateTutorial(); }, []);
 
-  const target = useMemo(() => step.selector ? findTarget(step.id) : null, [step.id, step.selector]);
-
-  const refreshTarget = useCallback(() => {
+  const refreshTarget = useCallback((scroll = false) => {
     const element = step.selector ? findTarget(step.id) : null;
     if (!element) {
       setTargetRect(null);
       return;
     }
-    element.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" });
-    const update = () => setTargetRect(element.getBoundingClientRect());
-    update();
-    const frame = window.requestAnimationFrame(update);
-    return () => window.cancelAnimationFrame(frame);
-  }, [step.id, step.selector]);
+    if (scroll) element.scrollIntoView({ block: "center", inline: "center", behavior: "smooth" });
+    setTargetRect(element.getBoundingClientRect());
+    if (step.mode === "input") setInputReady((element as HTMLInputElement).value.trim().length > 0);
+  }, [step.id, step.mode, step.selector]);
 
   useEffect(() => {
-    const cleanup = refreshTarget();
-    const update = () => refreshTarget();
+    refreshTarget(true);
+    const update = () => refreshTarget(false);
     window.addEventListener("resize", update);
     window.addEventListener("scroll", update, true);
     const observer = new MutationObserver(update);
-    observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+    observer.observe(document.body, { childList: true, subtree: true });
     return () => {
-      cleanup?.();
       observer.disconnect();
       window.removeEventListener("resize", update);
       window.removeEventListener("scroll", update, true);
@@ -148,16 +141,16 @@ export default function GuidedTutorial() {
   }, [refreshTarget]);
 
   useEffect(() => {
+    setInputReady(step.mode === "input" && target instanceof HTMLInputElement ? target.value.trim().length > 0 : false);
     if (!target || !visible(target)) return;
-    const next = () => setStepIndex(index => Math.min(index + 1, steps.length - 1));
-    const onClick = () => { if (step.mode === "click") window.setTimeout(next, 120); };
+    const onClick = () => {
+      if (step.mode === "click") window.setTimeout(() => setStepIndex(index => Math.min(index + 1, steps.length - 1)), 120);
+    };
     const onInput = () => {
-      if (step.mode !== "input") return;
-      const input = target as HTMLInputElement;
-      if (input.value.trim()) setTargetRect(input.getBoundingClientRect());
+      if (step.mode === "input") setInputReady((target as HTMLInputElement).value.trim().length > 0);
     };
     const onChange = () => {
-      if (step.mode === "file") window.setTimeout(next, 120);
+      if (step.mode === "file") window.setTimeout(() => setStepIndex(index => Math.min(index + 1, steps.length - 1)), 120);
     };
     target.addEventListener("click", onClick, true);
     target.addEventListener("input", onInput, true);
@@ -169,63 +162,40 @@ export default function GuidedTutorial() {
     };
   }, [target, step.mode]);
 
-  useEffect(() => {
-    const onDocumentChange = (event: Event) => {
-      if (step.mode !== "file") return;
-      const element = event.target;
-      if (element instanceof HTMLInputElement && element.type === "file" && element.files?.length) {
-        window.setTimeout(() => setStepIndex(index => Math.min(index + 1, steps.length - 1)), 120);
-      }
-    };
-    document.addEventListener("change", onDocumentChange, true);
-    return () => document.removeEventListener("change", onDocumentChange, true);
-  }, [step.mode]);
-
   const continueStep = () => setStepIndex(index => Math.min(index + 1, steps.length - 1));
-  const finish = () => {
-    completeTutorial();
-    window.location.reload();
-  };
+  const finish = () => { completeTutorial(); window.location.reload(); };
 
   const tooltipStyle = useMemo<React.CSSProperties>(() => {
-    if (!targetRect) {
-      return { left: "50%", top: "50%", width: "min(430px, calc(100vw - 32px))", transform: "translate(-50%, -50%)" };
-    }
+    if (!targetRect) return { left: "50%", top: "50%", width: "min(430px, calc(100vw - 32px))", transform: "translate(-50%, -50%)" };
     const width = Math.min(390, window.innerWidth - 32);
     const gap = 18;
     let left = targetRect.left + targetRect.width / 2 - width / 2;
     let top = targetRect.bottom + gap;
-    if (step.placement === "top") top = targetRect.top - 230 - gap;
+    if (step.placement === "top") top = targetRect.top - 220 - gap;
     if (step.placement === "left") { left = targetRect.left - width - gap; top = targetRect.top; }
     if (step.placement === "right") { left = targetRect.right + gap; top = targetRect.top; }
     left = Math.max(16, Math.min(left, window.innerWidth - width - 16));
-    top = Math.max(16, Math.min(top, window.innerHeight - 245));
+    top = Math.max(16, Math.min(top, window.innerHeight - 230));
     return { left, top, width };
   }, [step.placement, targetRect]);
 
-  const highlighted = targetRect && step.selector;
-  const inputReady = step.mode === "input" && target instanceof HTMLInputElement && target.value.trim().length > 0;
+  const highlighted = Boolean(targetRect && step.selector);
 
   return <>
-    <div className="fixed inset-0 z-[40] bg-black/50" style={{ pointerEvents: highlighted ? "auto" : "auto" }}>
-      {highlighted && targetRect ? <>
-        <div className="absolute left-0 top-0 w-full bg-black/50" style={{ height: Math.max(targetRect.top - 8, 0) }} />
-        <div className="absolute bottom-0 left-0 w-full bg-black/50" style={{ height: Math.max(window.innerHeight - targetRect.bottom - 8, 0) }} />
-        <div className="absolute left-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(targetRect.left - 8, 0), height: targetRect.height + 16 }} />
-        <div className="absolute right-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(window.innerWidth - targetRect.right - 8, 0), height: targetRect.height + 16 }} />
-      </> : null}
-    </div>
+    {highlighted && targetRect ? <div className="fixed inset-0 z-[40] pointer-events-none">
+      <div className="pointer-events-auto absolute left-0 top-0 w-full bg-black/50" style={{ height: Math.max(targetRect.top - 8, 0) }} />
+      <div className="pointer-events-auto absolute bottom-0 left-0 w-full bg-black/50" style={{ height: Math.max(window.innerHeight - targetRect.bottom - 8, 0) }} />
+      <div className="pointer-events-auto absolute left-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(targetRect.left - 8, 0), height: targetRect.height + 16 }} />
+      <div className="pointer-events-auto absolute right-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(window.innerWidth - targetRect.right - 8, 0), height: targetRect.height + 16 }} />
+    </div> : <div className="fixed inset-0 z-[40] bg-black/50" />}
 
     {highlighted && targetRect && <div className="pointer-events-none fixed z-[45] rounded-xl border-2 border-[#f2d98c] shadow-[0_0_28px_rgba(242,217,140,.45)]" style={{ left: targetRect.left - 5, top: targetRect.top - 5, width: targetRect.width + 10, height: targetRect.height + 10 }} />}
 
-    <div className="fixed z-[50]" style={tooltipStyle}>
+    <div className="pointer-events-auto fixed z-[50]" style={tooltipStyle}>
       <div className="rounded-2xl border border-[#d8e3db] bg-white p-5 shadow-[0_22px_70px_rgba(15,45,35,.24)]">
         <div className="flex items-start gap-3">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eaf3ee] text-[#0b5d4b]"><GraduationCap className="size-5" /></div>
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[.16em] text-[#597566]">Orientação</p>
-            <h2 className="mt-1 text-lg font-semibold text-[#173b30]">{step.title}</h2>
-          </div>
+          <div><p className="text-[11px] font-bold uppercase tracking-[.16em] text-[#597566]">Orientação</p><h2 className="mt-1 text-lg font-semibold text-[#173b30]">{step.title}</h2></div>
         </div>
         <p className="mt-3 text-sm leading-6 text-[#65796e]">{step.description}</p>
         <div className="mt-4 flex items-center justify-between gap-3">

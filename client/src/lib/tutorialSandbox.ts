@@ -273,14 +273,11 @@ function mutate(procedure: string, input: any): any {
 }
 
 export async function tutorialFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
-  if (!isTutorialActive()) {
-    return globalThis.fetch(input, init);
-  }
+  if (!isTutorialActive()) return globalThis.fetch(input, init);
 
-  const requestUrl = new URL(String(input), window.location.origin);
-  if (!requestUrl.pathname.startsWith("/api/trpc/")) {
-    return globalThis.fetch(input, init);
-  }
+  const rawUrl = input instanceof Request ? input.url : String(input);
+  const requestUrl = new URL(rawUrl, window.location.origin);
+  if (!requestUrl.pathname.startsWith("/api/trpc/")) return globalThis.fetch(input, init);
 
   const procedures = requestUrl.pathname.replace("/api/trpc/", "").split(",").filter(Boolean);
   const inputMap = getInputMap(requestUrl.toString(), init);
@@ -294,7 +291,8 @@ export async function tutorialFetch(input: RequestInfo | URL, init?: RequestInit
   });
 
   if (body.some(entry => entry !== null)) {
-    const payload = procedures.length === 1 ? body[0] : body;
+    const isBatch = requestUrl.searchParams.get("batch") === "1" || procedures.length > 1;
+    const payload = isBatch ? body : body[0];
     return new Response(JSON.stringify(payload), { status: 200, headers: { "content-type": "application/json" } });
   }
 

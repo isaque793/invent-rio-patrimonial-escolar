@@ -5,10 +5,12 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useIsMobile } from "@/hooks/useMobile";
 import { getNavigationItemsForRole } from "@/lib/roleNavigation";
+import { activateTutorial, isTutorialComplete, TUTORIAL_ACTIVE_KEY } from "@/lib/tutorialSandbox";
 import { BarChart3, Building2, ClipboardList, LogOut, PanelLeft, ShieldCheck } from "lucide-react";
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from "./DashboardLayoutSkeleton";
+import GuidedTutorial from "./GuidedTutorial";
 
 const SIDEBAR_WIDTH_KEY = "inventario-sidebar-width";
 const DEFAULT_WIDTH = 272;
@@ -31,7 +33,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </div>
     </div>;
   }
-  return <SidebarProvider style={{ "--sidebar-width": `${sidebarWidth}px` } as CSSProperties}><DashboardLayoutContent setSidebarWidth={setSidebarWidth}>{children}</DashboardLayoutContent></SidebarProvider>;
+
+  const tutorialOpen = user.role !== "admin" && !isTutorialComplete();
+  if (tutorialOpen) activateTutorial();
+  else localStorage.removeItem(TUTORIAL_ACTIVE_KEY);
+
+  return <SidebarProvider style={{ "--sidebar-width": `${sidebarWidth}px` } as CSSProperties}><DashboardLayoutContent setSidebarWidth={setSidebarWidth}>{children}</DashboardLayoutContent>{tutorialOpen && <GuidedTutorial />}</SidebarProvider>;
 }
 
 function DashboardLayoutContent({ children, setSidebarWidth }: { children: React.ReactNode; setSidebarWidth: (width: number) => void }) {

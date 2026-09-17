@@ -1,0 +1,7 @@
+/* Tutorial layers must remain above Radix dialogs and their portal overlays.
+   These exact arbitrary z-index classes are used only by GuidedTutorial. */
+.fixed.z-\[80\],
+.fixed.z-\[90\],
+.fixed.z-\[100\] {
+  z-index: 10000 !important;
+}

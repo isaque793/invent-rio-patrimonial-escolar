@@ -38,21 +38,125 @@ const issueStatusLabels: Record<SchoolControlExportRecord["issues"][number]["res
   open: "Aberta", in_progress: "Em andamento", resolved: "Resolvida",
 };
 
-const titleStyle = { fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } }, font: { bold: true, color: { rgb: "FFFFFF" }, sz: 16 }, alignment: { horizontal: "left", vertical: "center" } };
-const subtitleStyle = { fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } }, font: { bold: true, color: { rgb: "173B30" } }, alignment: { horizontal: "left", vertical: "center" } };
-const headerStyle = { fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } }, font: { bold: true, color: { rgb: "FFFFFF" } }, alignment: { horizontal: "center", vertical: "center", wrapText: true } };
-const headerSoftStyle = { fill: { patternType: "solid", fgColor: { rgb: "DDEBE6" } }, font: { bold: true, color: { rgb: "173B30" } }, alignment: { horizontal: "center", vertical: "center", wrapText: true } };
-const labelStyle = { fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } }, font: { bold: true, color: { rgb: "173B30" } }, alignment: { horizontal: "left", vertical: "center", wrapText: true } };
-const bodyStyle = { alignment: { vertical: "top", wrapText: true } };
-const bodyAlternateStyle = { fill: { patternType: "solid", fgColor: { rgb: "F5F9F6" } }, alignment: { vertical: "top", wrapText: true } };
-const pendingStyle = { fill: { patternType: "solid", fgColor: { rgb: "FFF7D6" } }, font: { color: { rgb: "7A5A00" } }, alignment: { vertical: "top", wrapText: true } };
-const problemStyle = { fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } }, font: { color: { rgb: "8A3D46" } }, alignment: { vertical: "top", wrapText: true } };
+const thinBorder = {
+  top: { style: "thin", color: { rgb: "D8E3DB" } },
+  bottom: { style: "thin", color: { rgb: "D8E3DB" } },
+  left: { style: "thin", color: { rgb: "D8E3DB" } },
+  right: { style: "thin", color: { rgb: "D8E3DB" } },
+};
+
+const titleStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
+  font: { bold: true, color: { rgb: "FFFFFF" }, sz: 16 },
+  alignment: { horizontal: "left", vertical: "center" },
+};
+const subtitleStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } },
+  font: { bold: true, color: { rgb: "173B30" } },
+  alignment: { horizontal: "left", vertical: "center" },
+  border: thinBorder,
+};
+const headerStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
+  font: { bold: true, color: { rgb: "FFFFFF" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+const inventoryHeaderStyle = {
+  ...headerStyle,
+  fill: { patternType: "solid", fgColor: { rgb: "2F6F5E" } },
+};
+const committeeHeaderStyle = {
+  ...headerStyle,
+  fill: { patternType: "solid", fgColor: { rgb: "3D5A80" } },
+};
+const documentsHeaderStyle = {
+  ...headerStyle,
+  fill: { patternType: "solid", fgColor: { rgb: "806A3B" } },
+};
+const validationHeaderStyle = {
+  ...headerStyle,
+  fill: { patternType: "solid", fgColor: { rgb: "7A4E48" } },
+};
+const headerSoftStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "DDEBE6" } },
+  font: { bold: true, color: { rgb: "173B30" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+const labelStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } },
+  font: { bold: true, color: { rgb: "173B30" } },
+  alignment: { horizontal: "left", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+const inputStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FFF8DC" } },
+  font: { bold: true, color: { rgb: "6B5600" } },
+  alignment: { horizontal: "left", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+const valueStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FFFFFF" } },
+  font: { color: { rgb: "243F34" } },
+  alignment: { vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+const bodyStyle = {
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+const bodyAlternateStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "F5F9F6" } },
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+const numberBodyStyle = {
+  ...bodyStyle,
+  alignment: { horizontal: "right", vertical: "top", wrapText: true },
+};
+const numberAlternateStyle = {
+  ...bodyAlternateStyle,
+  alignment: { horizontal: "right", vertical: "top", wrapText: true },
+};
+const centerBodyStyle = {
+  ...bodyStyle,
+  alignment: { horizontal: "center", vertical: "top", wrapText: true },
+};
+const centerAlternateStyle = {
+  ...bodyAlternateStyle,
+  alignment: { horizontal: "center", vertical: "top", wrapText: true },
+};
+const pendingStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FFF7D6" } },
+  font: { color: { rgb: "7A5A00" }, bold: true },
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+const problemStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } },
+  font: { color: { rgb: "8A3D46" }, bold: true },
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+const missingPropertyStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "FFF4CC" } },
+  font: { color: { rgb: "7A5A00" }, bold: true },
+  alignment: { horizontal: "center", vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+const totalStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "E8F2EB" } },
+  font: { color: { rgb: "173B30" }, bold: true },
+  alignment: { horizontal: "right", vertical: "center" },
+  border: thinBorder,
+};
 const statusStyles: Record<string, any> = {
-  "Em preparação": { fill: { patternType: "solid", fgColor: { rgb: "F1F3F1" } }, font: { color: { rgb: "5D675F" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
-  Submetido: { fill: { patternType: "solid", fgColor: { rgb: "FFF0CC" } }, font: { color: { rgb: "8A5B00" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
-  "Em análise": { fill: { patternType: "solid", fgColor: { rgb: "E6F1FB" } }, font: { color: { rgb: "255B85" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
-  Devolvido: { fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } }, font: { color: { rgb: "8A3D46" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
-  Validado: { fill: { patternType: "solid", fgColor: { rgb: "E4F3E8" } }, font: { color: { rgb: "286149" }, bold: true }, alignment: { vertical: "top", wrapText: true } },
+  "Em preparação": { fill: { patternType: "solid", fgColor: { rgb: "F1F3F1" } }, font: { color: { rgb: "5D675F" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  Submetido: { fill: { patternType: "solid", fgColor: { rgb: "FFF0CC" } }, font: { color: { rgb: "8A5B00" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  "Em análise": { fill: { patternType: "solid", fgColor: { rgb: "E6F1FB" } }, font: { color: { rgb: "255B85" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  Devolvido: { fill: { patternType: "solid", fgColor: { rgb: "FDEBEC" } }, font: { color: { rgb: "8A3D46" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  Validado: { fill: { patternType: "solid", fgColor: { rgb: "E4F3E8" } }, font: { color: { rgb: "286149" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
 };
 
 function setStyle(sheet: XLSX.WorkSheet, address: string, style: any) {
@@ -113,22 +217,46 @@ function applyWorksheetLayout(worksheet: XLSX.WorkSheet, dataEndRow: number) {
   worksheet["!autofilter"] = { ref: `A4:AD${Math.max(dataEndRow, 4)}` };
   worksheet["!cols"] = [34, 14, 22, 18, 32, 36, 18, 20, 20, 11, 18, 18, 22, 28, 22, 16, 24, 20, 16, 24, 20, 16, 17, 23, 20, 20, 42, 42, 3, 3].map((wch, index) => index >= 28 ? { wch, hidden: true } : { wch });
   worksheet["!rows"] = [{ hpt: 30 }, { hpt: 21 }, { hpt: 9 }, { hpt: 42 }, ...Array.from({ length: Math.max(dataEndRow - 4, 0) }, () => ({ hpt: 38 }))];
-  setStyle(worksheet, "A1", titleStyle); setStyle(worksheet, "A2", subtitleStyle);
-  for (let column = 1; column < 30; column += 1) { setStyle(worksheet, XLSX.utils.encode_cell({ r: 0, c: column }), titleStyle); setStyle(worksheet, XLSX.utils.encode_cell({ r: 1, c: column }), subtitleStyle); }
-  for (let column = 0; column < 30; column += 1) setStyle(worksheet, XLSX.utils.encode_cell({ r: 3, c: column }), headerStyle);
+
+  setStyle(worksheet, "A1", titleStyle);
+  setStyle(worksheet, "A2", subtitleStyle);
+  for (let column = 1; column < 30; column += 1) {
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 0, c: column }), titleStyle);
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 1, c: column }), subtitleStyle);
+  }
+
+  for (let column = 0; column < 30; column += 1) {
+    const style = column < 3 ? headerStyle : column < 13 ? inventoryHeaderStyle : column < 22 ? committeeHeaderStyle : column < 25 ? documentsHeaderStyle : column < 28 ? validationHeaderStyle : headerSoftStyle;
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 3, c: column }), style);
+  }
+
   for (let row = 5; row <= dataEndRow; row += 1) {
-    const rowStyle = row % 2 === 0 ? bodyAlternateStyle : bodyStyle;
-    for (let column = 0; column < 30; column += 1) setStyle(worksheet, XLSX.utils.encode_cell({ r: row - 1, c: column }), rowStyle);
-    const quantity = `J${row}`; const unitValue = `K${row}`;
+    const alternating = row % 2 === 0;
+    const defaultStyle = alternating ? bodyAlternateStyle : bodyStyle;
+    const numberStyle = alternating ? numberAlternateStyle : numberBodyStyle;
+    const centerStyle = alternating ? centerAlternateStyle : centerBodyStyle;
+
+    for (let column = 0; column < 30; column += 1) {
+      let style = defaultStyle;
+      if ([7, 8, 9, 10, 11, 15, 18, 21, 22, 23, 24, 25].includes(column)) style = centerStyle;
+      if ([9, 10, 11].includes(column)) style = numberStyle;
+      setStyle(worksheet, XLSX.utils.encode_cell({ r: row - 1, c: column }), style);
+    }
+
+    const quantity = `J${row}`;
+    const unitValue = `K${row}`;
     worksheet[`K${row}`] = { ...(worksheet[`K${row}`] ?? { t: "n", v: "" }), z: "R$ #,##0.00" };
-    worksheet[`L${row}`] = { t: "n", v: "", f: `IF(OR(${quantity}=\"\",${unitValue}=\"\"),\"\",${quantity}*${unitValue})`, z: "R$ #,##0.00", s: rowStyle };
-    worksheet[`AC${row}`] = { t: "n", v: "", f: `IF(A${row}=\"\",\"\",COUNTIF($A$5:A${row},A${row}))`, s: rowStyle };
-    worksheet[`AD${row}`] = { t: "s", v: "", f: `IF(A${row}=\"\",\"\",A${row}&\"|\"&AC${row})`, s: rowStyle };
+    worksheet[`L${row}`] = { t: "n", v: "", f: `IF(OR(${quantity}=\"\",${unitValue}=\"\"),\"\",${quantity}*${unitValue})`, z: "R$ #,##0.00", s: numberStyle };
+    worksheet[`AC${row}`] = { t: "n", v: "", f: `IF(A${row}=\"\",\"\",COUNTIF($A$5:A${row},A${row}))`, s: defaultStyle };
+    worksheet[`AD${row}`] = { t: "s", v: "", f: `IF(A${row}=\"\",\"\",A${row}&\"|\"&AC${row})`, s: defaultStyle };
+
     const status = String(worksheet[`Z${row}`]?.v ?? "");
     if (statusStyles[status]) setStyle(worksheet, `Z${row}`, statusStyles[status]);
     if (worksheet[`AA${row}`]?.v) setStyle(worksheet, `AA${row}`, pendingStyle);
     if (worksheet[`AB${row}`]?.v) setStyle(worksheet, `AB${row}`, problemStyle);
+    if (String(worksheet[`D${row}`]?.v ?? "").trim() === "Não se aplica") setStyle(worksheet, `D${row}`, missingPropertyStyle);
   }
+
   worksheet["!merges"] = [XLSX.utils.decode_range("A1:AD1"), XLSX.utils.decode_range("A2:AD2")];
   worksheet["!tabColor"] = "0B5D4B";
 }
@@ -166,17 +294,38 @@ export function buildSchoolLookupSheet(dataEndRow: number) {
     searchSheet[`I${row}`] = { t: "s", v: "", f: `IF(OR($B$6=\"\",$B$6=\"ESCOLA NAO ENCONTRADA\"),\"\",$B$6&\"|\"&ROWS($I$20:I${row}))` };
   }
   searchSheet["!ref"] = "A1:I69";
-  searchSheet["!cols"] = [18, 36, 23, 24, 13, 20, 20, 22, 2].map((wch, index) => index === 8 ? { wch, hidden: true } : { wch });
+  searchSheet["!autofilter"] = { ref: "A19:H69" };
+  searchSheet["!cols"] = [20, 36, 23, 24, 13, 20, 20, 22, 2].map((wch, index) => index === 8 ? { wch, hidden: true } : { wch });
   searchSheet["!rows"] = [{ hpt: 30 }, { hpt: 20 }, { hpt: 20 }, { hpt: 22 }, { hpt: 8 }, ...Array.from({ length: 11 }, () => ({ hpt: 22 })), { hpt: 8 }, { hpt: 26 }, { hpt: 36 }, ...Array.from({ length: 50 }, () => ({ hpt: 30 }))];
   searchSheet["!merges"] = [XLSX.utils.decode_range("A1:I1"), XLSX.utils.decode_range("A2:I2"), XLSX.utils.decode_range("A4:D4"), XLSX.utils.decode_range("A18:H18")];
   searchSheet["!tabColor"] = "3D6B59";
+
   ["A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1"].forEach(address => setStyle(searchSheet, address, titleStyle));
   ["A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2"].forEach(address => setStyle(searchSheet, address, subtitleStyle));
   ["A6", "A7", "A8", "A9", "A10", "A11", "A12", "A13", "A14", "A15", "A16"].forEach(address => setStyle(searchSheet, address, labelStyle));
+  setStyle(searchSheet, "A4", inputStyle);
+  setStyle(searchSheet, "B4", inputStyle);
   ["A18", "B18", "C18", "D18", "E18", "F18", "G18", "H18"].forEach(address => setStyle(searchSheet, address, titleStyle));
   ["A19", "B19", "C19", "D19", "E19", "F19", "G19", "H19"].forEach(address => setStyle(searchSheet, address, headerSoftStyle));
-  ["A4", "B4", "C4", "D4"].forEach(address => setStyle(searchSheet, address, { fill: { patternType: "solid", fgColor: { rgb: "F7FAF8" } }, alignment: { vertical: "center", wrapText: true } }));
-  for (let row = 20; row <= 69; row += 1) for (let column = 0; column <= 8; column += 1) setStyle(searchSheet, `${XLSX.utils.encode_col(column)}${row}`, row % 2 === 0 ? bodyAlternateStyle : bodyStyle);
+
+  for (let row = 6; row <= 16; row += 1) {
+    setStyle(searchSheet, `B${row}`, valueStyle);
+  }
+  setStyle(searchSheet, "B6", { ...valueStyle, fill: { patternType: "solid", fgColor: { rgb: "E8F2EB" } }, font: { bold: true, color: { rgb: "1E523E" } } });
+  setStyle(searchSheet, "B13", pendingStyle);
+  setStyle(searchSheet, "B14", problemStyle);
+  setStyle(searchSheet, "B16", totalStyle);
+
+  for (let row = 20; row <= 69; row += 1) {
+    for (let column = 0; column < 8; column += 1) {
+      const style = row % 2 === 0 ? bodyAlternateStyle : bodyStyle;
+      setStyle(searchSheet, `${XLSX.utils.encode_col(column)}${row}`, style);
+    }
+    setStyle(searchSheet, `E${row}`, row % 2 === 0 ? numberAlternateStyle : numberBodyStyle);
+    setStyle(searchSheet, `F${row}`, row % 2 === 0 ? numberAlternateStyle : numberBodyStyle);
+    setStyle(searchSheet, `G${row}`, row % 2 === 0 ? numberAlternateStyle : numberBodyStyle);
+  }
+
   return searchSheet;
 }
 

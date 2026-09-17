@@ -1,5 +1,6 @@
 import { CheckCircle2, ChevronRight, GraduationCap } from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { activateTutorial, completeTutorial } from "@/lib/tutorialSandbox";
 
 type Step = {
@@ -183,7 +184,7 @@ export default function GuidedTutorial() {
   const highlighted = Boolean(targetRect && step.selector);
   const overlayZ = targetInsideDialog ? "z-[80]" : "z-[40]";
 
-  return <>
+  const tutorial = <>
     {highlighted && targetRect ? <div className={`fixed inset-0 ${overlayZ} pointer-events-none`}>
       <div className="pointer-events-auto absolute left-0 top-0 w-full bg-black/50" style={{ height: Math.max(targetRect.top - 8, 0) }} />
       <div className="pointer-events-auto absolute bottom-0 left-0 w-full bg-black/50" style={{ height: Math.max(window.innerHeight - targetRect.bottom - 8, 0) }} />
@@ -204,4 +205,6 @@ export default function GuidedTutorial() {
       </div>
     </div>
   </>;
+
+  return createPortal(tutorial, document.body);
 }

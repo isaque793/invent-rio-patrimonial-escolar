@@ -64,7 +64,7 @@ function findTarget(id: string): HTMLElement | null {
     case "description":
       return Array.from(document.querySelectorAll('input[name="description"]')).find(element => visible(element)) as HTMLElement | null;
     case "property":
-      return findByText("button", "Não se aplica", element => Boolean(element.closest('[role="dialog"]')));
+      return findByText('[role="dialog"] button', "Não se aplica");
     case "unit-value":
       return Array.from(document.querySelectorAll('input[name="unitValue"]')).find(element => visible(element)) as HTMLElement | null;
     case "save-item":
@@ -182,19 +182,18 @@ export default function GuidedTutorial() {
   }, [step.placement, targetRect]);
 
   const highlighted = Boolean(targetRect && step.selector);
-  const overlayZ = targetInsideDialog ? "z-[80]" : "z-[40]";
 
   const tutorial = <>
-    {highlighted && targetRect ? <div className={`fixed inset-0 ${overlayZ} pointer-events-none`}>
+    {highlighted && targetRect && <div className="pointer-events-none fixed inset-0" style={{ zIndex: 40 }}>
       <div className="pointer-events-auto absolute left-0 top-0 w-full bg-black/50" style={{ height: Math.max(targetRect.top - 8, 0) }} />
       <div className="pointer-events-auto absolute bottom-0 left-0 w-full bg-black/50" style={{ height: Math.max(window.innerHeight - targetRect.bottom - 8, 0) }} />
       <div className="pointer-events-auto absolute left-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(targetRect.left - 8, 0), height: targetRect.height + 16 }} />
       <div className="pointer-events-auto absolute right-0 bg-black/50" style={{ top: Math.max(targetRect.top - 8, 0), width: Math.max(window.innerWidth - targetRect.right - 8, 0), height: targetRect.height + 16 }} />
-    </div> : <div className="fixed inset-0 z-[40] bg-black/50" />}
+    </div>}
 
-    {highlighted && targetRect && <div className="pointer-events-none fixed z-[90] rounded-xl border-2 border-[#f2d98c] shadow-[0_0_28px_rgba(242,217,140,.45)]" style={{ left: targetRect.left - 5, top: targetRect.top - 5, width: targetRect.width + 10, height: targetRect.height + 10 }} />}
+    {highlighted && targetRect && <div className="pointer-events-none fixed rounded-xl border-2 border-[#f2d98c] shadow-[0_0_28px_rgba(242,217,140,.45)]" style={{ left: targetRect.left - 5, top: targetRect.top - 5, width: targetRect.width + 10, height: targetRect.height + 10, zIndex: 100 }} />}
 
-    <div className="pointer-events-auto fixed z-[100]" style={tooltipStyle}>
+    <div className="pointer-events-auto fixed" style={{ ...tooltipStyle, zIndex: 1000 }}>
       <div className="rounded-2xl border border-[#d8e3db] bg-white p-5 shadow-[0_22px_70px_rgba(15,45,35,.24)]">
         <div className="flex items-start gap-3">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#e8f2ea] text-[#1f5c48]"><GraduationCap className="size-5" /></div>

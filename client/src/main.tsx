@@ -1,4 +1,5 @@
 import { trpc } from "@/lib/trpc";
+import { tutorialFetch } from "@/lib/tutorialSandbox";
 import { COOKIE_NAME, UNAUTHED_ERR_MSG } from '@shared/const';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, TRPCClientError } from "@trpc/client";
@@ -43,7 +44,7 @@ const trpcClient = trpc.createClient({
       url: "/api/trpc",
       transformer: superjson,
       fetch(input, init) {
-        return globalThis.fetch(input, {
+        return tutorialFetch(input, {
           ...(init ?? {}),
           credentials: "include",
         });

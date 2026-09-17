@@ -29,6 +29,13 @@
       "when": 1789563463907,
       "tag": "0003_hot_mongoose",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1789660386922,
+      "tag": "0004_archive_fields",
+      "breakpoints": true
     }
   ]
 }

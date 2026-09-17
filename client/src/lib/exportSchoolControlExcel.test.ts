@@ -44,7 +44,7 @@ describe("exportação estruturada do controle escolar", () => {
     expect(row[26]).toBe("Aberta — Armário não localizado: Conferir sala 03");
   });
 
-  it("monta o workbook somente com linhas reais e com cabeçalho separado dos dados", () => {
+  it("monta o workbook sem escolas vazias e com formatação visual", () => {
     const record = {
       school: { name: "EE Afonso Pena", schoolCode: "264", city: "Belo Horizonte" },
       cycle: { status: "validated" as const },
@@ -97,15 +97,19 @@ describe("exportação estruturada do controle escolar", () => {
     expect(sheet["L5"]?.f).toBe('IF(OR(J5="",K5=""),"",J5*K5)');
     expect(sheet["K5"]?.z).toBe("R$ #,##0.00");
     expect(sheet["L5"]?.z).toBe("R$ #,##0.00");
+    expect(sheet["A4"]?.s?.fill?.fgColor?.rgb).toBe("0B5D4B");
+    expect(sheet["Z5"]?.s?.fill?.fgColor?.rgb).toBe("E4F3E8");
 
     const lookup = workbook.Sheets["Localizar Escola"];
     expect(lookup["B6"]?.f).toContain("$A$5:$A$5");
     expect(lookup["I20"]?.f).toContain('$B$6&"|"&ROWS($I$20:I20)');
+    expect(lookup["I19"]?.v).toBeUndefined();
+    expect(lookup["!cols"]?.[8]?.hidden).toBe(true);
     expect(lookup["!merges"]).toEqual([
       XLSX.utils.decode_range("A1:I1"),
       XLSX.utils.decode_range("A2:I2"),
       XLSX.utils.decode_range("A4:D4"),
-      XLSX.utils.decode_range("A18:I18"),
+      XLSX.utils.decode_range("A18:H18"),
     ]);
   });
 });

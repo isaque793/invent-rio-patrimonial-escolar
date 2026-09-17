@@ -33,6 +33,7 @@ import { createSessionToken } from "./_core/session";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { systemRouter } from "./_core/systemRouter";
 import { storagePut } from "./storage";
+import { archiveCycle } from "./archiveService";
 import {
   EXPENSE_CATEGORIES,
   REQUIRED_DOCUMENT_TYPES,
@@ -399,8 +400,25 @@ export const appRouter = router({
         const db = await requireDb();
         await db.update(inventoryCycles).set({ status: input.status, reviewNotes: csvText(input.note), reviewedAt: new Date() }).where(eq(inventoryCycles.id, input.cycleId));
         await db.insert(validationHistory).values({ cycleId: input.cycleId, action: input.status, note: csvText(input.note), performedByUserId: ctx.user.id });
+        if (input.status === "validated") {
+          // A validação é o gatilho de elegibilidade para arquivamento (ver plano
+          // de armazenamento). Não aguardamos nem propagamos falhas aqui: a
+          // validação do inventário não deve ficar refém do empacotamento, que
+          // pode ser reprocessado depois (archiveStatus fica "ERROR" e é
+          // retomável via archiveCycle(cycleId)).
+          void archiveCycle(input.cycleId).catch(error => {
+            console.error(`[Archive] Falha não tratada ao arquivar ciclo ${input.cycleId}:`, error);
+          });
+        }
         return { success: true };
       }),
+    retryArchive: adminProcedure.input(z.object({ cycleId: z.number().int().positive() })).mutation(async ({ input }) => {
+      const cycle = await getCycleById(input.cycleId);
+      if (!cycle) throw new TRPCError({ code: "NOT_FOUND", message: "Ciclo de inventário não encontrado." });
+      const result = await archiveCycle(input.cycleId);
+      if (!result.ok) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: result.error });
+      return { success: true, location: result.location };
+    }),
   }),
 });
 

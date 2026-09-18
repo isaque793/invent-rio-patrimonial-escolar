@@ -95,11 +95,11 @@ function findTarget(id: string): HTMLElement | null {
     case "save-committee":
       return findByText('[role="dialog"] button', "Guardar subcomissão");
     case "document-opening":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Ata de Abertura")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-opening_minutes"]') as HTMLElement | null;
     case "document-responsibility":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Termo de Responsabilidade")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-responsibility_term"]') as HTMLElement | null;
     case "document-closing":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Ata de Encerramento")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-closing_minutes"]') as HTMLElement | null;
     case "submit":
       return Array.from(document.querySelectorAll("button")).find(button => visible(button) && (textMatches(button, "Submeter para validação") || textMatches(button, "Concluir exigências para submeter"))) as HTMLElement | null;
     default:
@@ -188,9 +188,17 @@ export default function GuidedTutorial() {
     };
     target.addEventListener("click", onClick, true);
     target.addEventListener("change", onChange, true);
+
+    // Para passos de upload de arquivo, o evento change é disparado no <input>
+    // filho oculto. Registramos o listener também no input para garantir a
+    // detecção independentemente da fase de bubbling/capture no React.
+    const fileInput = step.mode === "file" ? target.querySelector('input[type="file"]') : null;
+    if (fileInput) fileInput.addEventListener("change", onChange);
+
     return () => {
       target.removeEventListener("click", onClick, true);
       target.removeEventListener("change", onChange, true);
+      if (fileInput) fileInput.removeEventListener("change", onChange);
     };
   }, [target, step.mode]);
 

@@ -28,11 +28,19 @@ describe("exportação Excel do consolidado", () => {
     expect(row).toEqual(["Bem não localizado", "Aberta", "Escola: EE Afonso Pena\nArmário de aço", "123", "Não informado", "Não informado", "Não informado", 0, "Não informado", "Não informado", "Bem não encontrado", "Solicitada conferência"]);
   });
 
-  it("cria as abas e a formatação essencial do modelo de pendências", () => {
+  it("cria a aba de pendências sem a aba Listas, com título, subtítulo e cabeçalhos na estrutura correta", () => {
     const workbook = buildPendingIssuesWorkbook([{ Escola: "EE Afonso Pena", Tipo: "Bem não localizado", Situação: "Aberta", Descrição: "Armário", Património: "123", Pendência: "Não localizado" }]);
-    expect(workbook.SheetNames).toEqual(["Registro de Pendências", "Listas"]);
-    expect(XLSX.utils.sheet_to_json(workbook.Sheets["Registro de Pendências"], { header: 1 })[0]).toEqual(PENDING_TEMPLATE_HEADERS);
-    expect(workbook.Sheets["Registro de Pendências"]["H2"]?.z).toBe('R$ #,##0.00');
+    // Apenas a aba de dados — aba "Listas" removida
+    expect(workbook.SheetNames).toEqual(["Registro de Pendências"]);
+    const values = XLSX.utils.sheet_to_json(workbook.Sheets["Registro de Pendências"], { header: 1 }) as unknown[][];
+    // Linha 1: título
+    expect(String(values[0]?.[0])).toContain("REGISTRO DE PENDÊNCIAS");
+    // Linha 2: subtítulo com contagem
+    expect(String(values[1]?.[0])).toContain("Total de ocorrências: 1");
+    // Linha 3: cabeçalhos das colunas
+    expect(values[2]).toEqual(PENDING_TEMPLATE_HEADERS);
+    // Linha 4: primeira linha de dados — formato monetário na coluna H (índice 7)
+    expect(workbook.Sheets["Registro de Pendências"]["H4"]?.z).toBe("R$ #,##0.00");
   });
 
   it("cria o resumo consolidado no formato de controle por escola e bem patrimonial", () => {

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { isTutorialActive } from "@/lib/tutorialSandbox";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 import * as React from "react";
@@ -19,9 +20,7 @@ const DialogCompositionContext = React.createContext<{
 export const useDialogComposition = () =>
   React.useContext(DialogCompositionContext);
 
-function Dialog({
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Root>) {
+function Dialog({ onOpenChange, ...props }: React.ComponentProps<typeof DialogPrimitive.Root>) {
   const composingRef = React.useRef(false);
   const justEndedRef = React.useRef(false);
   const endTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -46,9 +45,24 @@ function Dialog({
     []
   );
 
+  const handleOpenChange = React.useCallback(
+    (open: boolean) => {
+      // During the guided tutorial the real dialogs must remain open while
+      // the user fills the highlighted fields. Successful saves still close
+      // them because the parent controls the `open` prop directly.
+      if (!open && isTutorialActive()) return;
+      onOpenChange?.(open);
+    },
+    [onOpenChange]
+  );
+
   return (
     <DialogCompositionContext.Provider value={contextValue}>
-      <DialogPrimitive.Root data-slot="dialog" {...props} />
+      <DialogPrimitive.Root
+        data-slot="dialog"
+        {...props}
+        onOpenChange={handleOpenChange}
+      />
     </DialogCompositionContext.Provider>
   );
 }
@@ -206,4 +220,3 @@ export {
   DialogTitle,
   DialogTrigger
 };
-

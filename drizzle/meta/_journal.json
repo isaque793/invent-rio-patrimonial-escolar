@@ -29,6 +29,27 @@
       "when": 1789563463907,
       "tag": "0003_hot_mongoose",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1789660386922,
+      "tag": "0004_archive_fields",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1789661048919,
+      "tag": "0005_auto_missing_property_issue",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1789740849409,
+      "tag": "0006_brown_vargas",
+      "breakpoints": true
     }
   ]
 }

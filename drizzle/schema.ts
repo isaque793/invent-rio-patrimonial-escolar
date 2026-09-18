@@ -78,6 +78,13 @@ export const inventoryCycles = mysqlTable(
     submittedAt: timestamp("submittedAt"),
     reviewedAt: timestamp("reviewedAt"),
     reviewNotes: text("reviewNotes"),
+    archiveStatus: mysqlEnum("archiveStatus", ["ACTIVE", "PENDING", "ARCHIVED", "ERROR"])
+      .default("ACTIVE")
+      .notNull(),
+    archivedAt: timestamp("archivedAt"),
+    archiveLocation: varchar("archiveLocation", { length: 512 }),
+    archiveVersion: int("archiveVersion"),
+    archiveError: text("archiveError"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   },
@@ -85,6 +92,7 @@ export const inventoryCycles = mysqlTable(
     schoolYearUnique: uniqueIndex("cycle_school_year_unique").on(table.schoolId, table.year),
     schoolIdx: index("cycle_school_idx").on(table.schoolId),
     statusIdx: index("cycle_status_idx").on(table.status),
+    archiveStatusIdx: index("cycle_archive_status_idx").on(table.archiveStatus),
   }),
 );
 

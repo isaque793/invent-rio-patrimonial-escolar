@@ -5,10 +5,12 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useIsMobile } from "@/hooks/useMobile";
 import { getNavigationItemsForRole } from "@/lib/roleNavigation";
+import { activateTutorial, isTutorialComplete, TUTORIAL_ACTIVE_KEY } from "@/lib/tutorialSandbox";
 import { BarChart3, Building2, ClipboardList, LogOut, PanelLeft, ShieldCheck } from "lucide-react";
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from "./DashboardLayoutSkeleton";
+import GuidedTutorial from "./GuidedTutorial";
 
 const SIDEBAR_WIDTH_KEY = "inventario-sidebar-width";
 const DEFAULT_WIDTH = 272;
@@ -31,7 +33,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </div>
     </div>;
   }
-  return <SidebarProvider style={{ "--sidebar-width": `${sidebarWidth}px` } as CSSProperties}><DashboardLayoutContent setSidebarWidth={setSidebarWidth}>{children}</DashboardLayoutContent></SidebarProvider>;
+
+  const tutorialOpen = user.role !== "admin" && !isTutorialComplete();
+  if (tutorialOpen) activateTutorial();
+  else localStorage.removeItem(TUTORIAL_ACTIVE_KEY);
+
+  return <SidebarProvider style={{ "--sidebar-width": `${sidebarWidth}px` } as CSSProperties}><DashboardLayoutContent setSidebarWidth={setSidebarWidth}>{children}</DashboardLayoutContent>{tutorialOpen && <GuidedTutorial />}</SidebarProvider>;
 }
 
 function DashboardLayoutContent({ children, setSidebarWidth }: { children: React.ReactNode; setSidebarWidth: (width: number) => void }) {
@@ -84,6 +91,6 @@ function DashboardLayoutContent({ children, setSidebarWidth }: { children: React
       </Sidebar>
       {!isMobile && !isCollapsed && <div className="absolute right-0 top-0 z-50 h-full w-1 cursor-col-resize hover:bg-[#d9c07c]/60" onMouseDown={() => setIsResizing(true)} />}
     </div>
-    <SidebarInset className="bg-[#f5f7f3]">{isMobile && <div className="sticky top-0 z-40 border-b border-[#dce6df] bg-[#f5f7f3]/95 px-4 py-2 backdrop-blur"><div className="flex h-10 items-center"><SidebarTrigger className="mr-3" /><span className="font-semibold text-[#17372f]">{activeLabel}</span></div><nav aria-label="Navegação móvel" className="-mx-1 flex gap-2 overflow-x-auto pb-1 pt-1 [scrollbar-width:none]">{menuItems.map(item => <button key={item.path} onClick={() => setLocation(item.path)} className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${location === item.path ? "bg-[#0c4a3e] text-white" : "bg-white text-[#456356] ring-1 ring-[#dce7dc]"}`}>{item.label}</button>)}</nav></div>}<main className="min-h-screen p-4 md:p-7">{children}</main></SidebarInset>
+    <SidebarInset className="min-w-0 max-w-full overflow-x-clip bg-[#f5f7f3]">{isMobile && <div className="sticky top-0 z-40 w-full min-w-0 border-b border-[#dce6df] bg-[#f5f7f3]/95 px-3 py-2 backdrop-blur sm:px-4"><div className="flex h-10 items-center"><SidebarTrigger className="mr-3" /><span className="font-semibold text-[#17372f]">{activeLabel}</span></div><nav aria-label="Navegação móvel" className="-mx-1 flex min-w-0 gap-2 overflow-x-auto pb-1 pt-1 [scrollbar-width:none]">{menuItems.map(item => <button key={item.path} onClick={() => setLocation(item.path)} className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${location === item.path ? "bg-[#0c4a3e] text-white" : "bg-white text-[#456356] ring-1 ring-[#dce7dc]"}`}>{item.label}</button>)}</nav></div>}<main className="min-h-screen w-full min-w-0 p-3 sm:p-4 md:p-7">{children}</main></SidebarInset>
   </>;
 }

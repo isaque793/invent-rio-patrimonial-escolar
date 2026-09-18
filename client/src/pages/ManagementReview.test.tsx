@@ -15,7 +15,7 @@ const review = {
   notes: { problemsFound: "Sem outras divergências", quantityDivergences: null, valueDivergences: null },
 };
 vi.mock("wouter", () => ({ useRoute: () => [true, { cycleId: "7" }], useLocation: () => ["/gestao/analise/7", mocks.navigate] }));
-vi.mock("@/lib/trpc", () => ({ trpc: { useUtils: () => ({ management: { dashboard: { invalidate: mocks.invalidate } } }), management: { reviewInventory: { useQuery: () => ({ isLoading: false, data: review, refetch: mocks.refetch }) }, changeStatus: { useMutation: () => ({ mutate: mocks.mutate, isPending: false }) } } } }));
+vi.mock("@/lib/trpc", () => ({ trpc: { useUtils: () => ({ management: { dashboard: { invalidate: mocks.invalidate } } }), management: { reviewInventory: { useQuery: () => ({ isLoading: false, data: review, refetch: mocks.refetch }) }, changeStatus: { useMutation: () => ({ mutate: mocks.mutate, isPending: false }) }, retryArchive: { useMutation: () => ({ mutate: vi.fn(), isPending: false, variables: null }) } } } }));
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: mocks.toastError } }));
 import ManagementReview from "./ManagementReview";
 

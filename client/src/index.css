@@ -122,44 +122,48 @@
 .font-serif { font-family: "Fraunces", Georgia, serif; }
 @media (prefers-reduced-motion: no-preference) { button, a { transition: transform 160ms cubic-bezier(.23,1,.32,1), background-color 160ms cubic-bezier(.23,1,.32,1), box-shadow 160ms cubic-bezier(.23,1,.32,1); } button:active { transform: scale(.97); } }
 
-/* Mobile-first refinement: preserve the desktop tables while turning wide data grids into readable cards on narrow screens. */
-@media (max-width: 639px) {
-  main { padding: 1rem 0.75rem !important; }
-  main .font-serif.text-3xl { font-size: 2rem; line-height: 1.05; }
+/* Responsive refinement: keep the page inside the viewport and let data-heavy components scroll locally. */
+html, body, #root { width: 100%; min-width: 0; max-width: 100%; }
+
+@media (max-width: 767px) {
+  body { overflow-x: hidden; }
+  [data-slot="sidebar-wrapper"],
+  [data-slot="sidebar-inset"] { min-width: 0; max-width: 100%; overflow-x: clip; }
+
+  main { width: 100%; min-width: 0; max-width: 100%; padding: 1rem 0.75rem !important; }
+  main > * { min-width: 0; max-width: 100%; }
+  main .font-serif.text-3xl { font-size: 1.75rem; line-height: 1.1; }
+  main .font-serif.text-4xl { font-size: 2rem; line-height: 1.1; }
   main .grid.gap-4.sm\:grid-cols-2,
-  main .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  main .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-5 > :last-child { grid-column: span 2 / span 2; }
-  main button { min-height: 2.5rem; }
+  main .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-5 { grid-template-columns: minmax(0, 1fr); }
+  main .grid.gap-4.sm\:grid-cols-2.xl\:grid-cols-5 > :last-child { grid-column: auto; }
+
   main input, main textarea, main [role="combobox"] { font-size: 16px; }
+  main .overflow-x-auto { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+  main .overflow-x-auto > table { min-width: 640px; }
+  main .overflow-auto:has(> table) { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+  main .overflow-auto:has(> table) > table { min-width: 640px !important; }
 
-  main .overflow-x-auto { overflow: visible; }
-  main .overflow-x-auto > table { min-width: 0 !important; display: block; }
-  main .overflow-x-auto > table > thead { display: none; }
-  main .overflow-x-auto > table > tbody { display: grid; gap: 0.5rem; padding: 0.5rem; }
-  main .overflow-x-auto > table > tbody > tr { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; border: 1px solid #e2ebe3 !important; border-radius: 0.85rem; background: #fff; padding: 0.65rem; }
-  main .overflow-x-auto > table > tbody > tr > td { border: 0 !important; padding: 0.2rem !important; min-width: 0; }
-  main .overflow-x-auto > table > tbody > tr > td:first-child { flex: 1 1 58%; font-weight: 700; }
-  main .overflow-x-auto > table > tbody > tr > td:nth-child(2) { flex: 1 1 34%; }
-  main .overflow-x-auto > table > tbody > tr > td:nth-child(n+3) { flex: 1 1 42%; font-size: 0.75rem; }
-  main .overflow-x-auto > table > tbody > tr > td:last-child { margin-left: auto; flex: 0 0 auto; }
-  main .overflow-x-auto > table > tfoot { display: block; padding: 0 0.5rem 0.5rem; }
-  main .overflow-x-auto > table > tfoot > tr { display: flex; align-items: center; justify-content: space-between; border-radius: 0.75rem; padding: 0.6rem; }
-  main .overflow-x-auto > table > tfoot > tr > td { display: block; padding: 0.2rem !important; }
-  main .overflow-x-auto > table > tfoot > tr > td[colspan] { flex: 1; }
+  [data-slot="dialog-content"] {
+    width: calc(100vw - 1rem) !important;
+    max-width: calc(100vw - 1rem) !important;
+    max-height: calc(100dvh - 1rem) !important;
+    padding: 1rem !important;
+  }
+  [data-slot="dialog-footer"] { width: 100%; }
+  [data-slot="dialog-footer"] > button { width: 100%; }
+  [data-slot="dialog-content"] .grid { min-width: 0; }
+  [data-slot="dialog-content"] .grid.sm\:grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
 
-  main .overflow-auto:has(> table) { overflow: visible; }
-  main .overflow-auto:has(> table) > table { min-width: 0 !important; display: block; }
-  main .overflow-auto:has(> table) > table > thead { display: none; }
-  main .overflow-auto:has(> table) > table > tbody { display: grid; gap: 0.5rem; padding: 0.5rem; }
-  main .overflow-auto:has(> table) > table > tbody > tr { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; border: 1px solid #e2ebe3 !important; border-radius: 0.85rem; background: #fff; padding: 0.65rem; }
-  main .overflow-auto:has(> table) > table > tbody > tr > td { border: 0 !important; padding: 0.2rem !important; min-width: 0; }
-  main .overflow-auto:has(> table) > table > tbody > tr > td:first-child { flex: 1 1 25%; font-weight: 700; }
-  main .overflow-auto:has(> table) > table > tbody > tr > td:nth-child(2) { flex: 1 1 35%; }
-  main .overflow-auto:has(> table) > table > tbody > tr > td:nth-child(n+3) { flex: 1 1 22%; font-size: 0.75rem; text-align: right; }
-  main .overflow-auto:has(> table) > table > tfoot { display: block; padding: 0 0.5rem 0.5rem; }
-  main .overflow-auto:has(> table) > table > tfoot > tr { display: flex; align-items: center; justify-content: space-between; border-radius: 0.75rem; padding: 0.6rem; }
-  main .overflow-auto:has(> table) > table > tfoot > tr > td { display: block; padding: 0.2rem !important; }
-  main .overflow-auto:has(> table) > table > tfoot > tr > td[colspan] { flex: 1; }
+  [data-radix-popper-content-wrapper] { max-width: calc(100vw - 1rem) !important; }
 
-  [data-radix-popper-content-wrapper] { max-width: calc(100vw - 1.5rem) !important; }
+  main [class*="sm:grid-cols-2"],
+  main [class*="sm:grid-cols-3"],
+  main [class*="xl:grid-cols-"] { grid-template-columns: minmax(0, 1fr); }
+  main [class*="sm:flex-row"] { flex-direction: column; align-items: stretch; }
+  main [class*="sm:flex-row"] > button,
+  main [class*="sm:flex-row"] > [role="combobox"] { width: 100%; }
+  main [class*="sm:flex-row"] > input { width: 100%; max-width: none; }
+  main [class*="sm:col-span-"] { grid-column: auto; }
+  main [class*="xl:grid-cols-"] > * { min-width: 0; }
 }

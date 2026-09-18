@@ -33,6 +33,7 @@ import { createSessionToken } from "./_core/session";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { systemRouter } from "./_core/systemRouter";
 import { storagePut } from "./storage";
+import { archiveCycle } from "./archiveService";
 import {
   EXPENSE_CATEGORIES,
   REQUIRED_DOCUMENT_TYPES,
@@ -219,6 +220,33 @@ export const appRouter = router({
         const result = await db.insert(inventoryItems).values({ ...fields, quantity, unitValue: unitValue.toFixed(2), totalValue });
         return { id: Number(result[0].insertId), totalValue };
       }),
+    updateItem: protectedProcedure
+      .input(
+        z.object({
+          itemId: z.number().int().positive(),
+          cycleId: z.number().int().positive(),
+          propertyNumber: z.string().trim().min(1).max(80),
+          quantity: z.number().int().min(1).max(1000000),
+          description: z.string().trim().min(2).max(4000),
+          technicalDetails: z.string().trim().max(4000).optional().nullable(),
+          expenseCode: z.string().trim().regex(/^52\.(0[1-9]|1[0-9]|2[0-2]|25|26|99)$/),
+          conservationCode: z.string().trim().max(32).optional().nullable(),
+          conservationState: z.string().trim().min(2).max(80),
+          unitValue: z.number().min(0).max(999999999),
+          currentSituation: z.string().trim().min(2).max(160),
+        }),
+      )
+      .mutation(async ({ ctx, input }) => {
+        const cycle = await assertEditableCycle(ctx.user, input.cycleId);
+        const db = await requireDb();
+        const item = await db.select().from(inventoryItems).where(eq(inventoryItems.id, input.itemId)).limit(1);
+        if (!item[0]) throw new TRPCError({ code: "NOT_FOUND", message: "Item não encontrado." });
+        if (item[0].cycleId !== cycle.id) throw accessDenied();
+        const { itemId, cycleId, unitValue, quantity, ...fields } = input;
+        const totalValue = calculateLineTotal(quantity, unitValue);
+        await db.update(inventoryItems).set({ ...fields, cycleId, quantity, unitValue: unitValue.toFixed(2), totalValue }).where(eq(inventoryItems.id, itemId));
+        return { id: itemId, totalValue };
+      }),
     deleteItem: protectedProcedure.input(z.object({ itemId: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
       const db = await requireDb();
       const item = await db.select().from(inventoryItems).where(eq(inventoryItems.id, input.itemId)).limit(1);
@@ -372,8 +400,57 @@ export const appRouter = router({
         const db = await requireDb();
         await db.update(inventoryCycles).set({ status: input.status, reviewNotes: csvText(input.note), reviewedAt: new Date() }).where(eq(inventoryCycles.id, input.cycleId));
         await db.insert(validationHistory).values({ cycleId: input.cycleId, action: input.status, note: csvText(input.note), performedByUserId: ctx.user.id });
+        if (input.status === "validated") {
+          // A validação é o gatilho de elegibilidade para arquivamento (ver plano
+          // de armazenamento). Não aguardamos nem propagamos falhas aqui: a
+          // validação do inventário não deve ficar refém do empacotamento, que
+          // pode ser reprocessado depois (archiveStatus fica "ERROR" e é
+          // retomável via archiveCycle(cycleId)).
+          void archiveCycle(input.cycleId).catch(error => {
+            console.error(`[Archive] Falha não tratada ao arquivar ciclo ${input.cycleId}:`, error);
+          });
+        }
         return { success: true };
       }),
+    retryArchive: adminProcedure.input(z.object({ cycleId: z.number().int().positive() })).mutation(async ({ input }) => {
+      const cycle = await getCycleById(input.cycleId);
+      if (!cycle) throw new TRPCError({ code: "NOT_FOUND", message: "Ciclo de inventário não encontrado." });
+      const result = await archiveCycle(input.cycleId);
+      if (!result.ok) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: result.error });
+      return { success: true, location: result.location };
+    }),
+    archiveStats: adminProcedure.input(z.object({ year: yearInput })).query(async ({ input }) => {
+      const db = await requireDb();
+      // Traz todos os ciclos validados do ano com seus dados de arquivamento e escola
+      const rows = await db
+        .select({ cycle: inventoryCycles, school: schools })
+        .from(inventoryCycles)
+        .innerJoin(schools, eq(inventoryCycles.schoolId, schools.id))
+        .where(and(eq(inventoryCycles.year, input.year), eq(inventoryCycles.status, "validated")));
+
+      const counts = { ACTIVE: 0, PENDING: 0, ARCHIVED: 0, ERROR: 0 };
+      for (const row of rows) counts[row.cycle.archiveStatus as keyof typeof counts]++;
+
+      const withErrors = rows
+        .filter(row => row.cycle.archiveStatus === "ERROR")
+        .map(row => ({
+          cycleId: row.cycle.id,
+          schoolName: row.school.name,
+          archiveError: row.cycle.archiveError,
+        }));
+
+      const archived = rows
+        .filter(row => row.cycle.archiveStatus === "ARCHIVED")
+        .map(row => ({
+          cycleId: row.cycle.id,
+          schoolName: row.school.name,
+          archivedAt: row.cycle.archivedAt,
+          archiveLocation: row.cycle.archiveLocation,
+          archiveVersion: row.cycle.archiveVersion,
+        }));
+
+      return { counts, withErrors, archived };
+    }),
   }),
 });
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx-js-style";
 import { buildConsolidatedExcelRows, buildPendingIssuesTemplateRows, buildPendingIssuesWorkbook, buildSchoolControlWorkbook, buildSchoolControlTemplateRows, exportAdministrativeRowsAsExcel, PENDING_TEMPLATE_HEADERS, SCHOOL_CONTROL_TEMPLATE_HEADERS } from "./exportConsolidatedExcel";
 
 describe("exportação Excel do consolidado", () => {

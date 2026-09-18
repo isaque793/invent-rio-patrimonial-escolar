@@ -267,6 +267,109 @@ export function exportAdministrativeRowsAsExcel({ title, rows, fileName }: { tit
 
 export const PENDING_TEMPLATE_HEADERS = ["Tipo de ocorrência", "Estado de acompanhamento", "Descrição resumida", "N.º de patrimônio", "Quantidade", "Estado de conservação", "Local / bloco", "Valor total (R$)", "Órgão de origem", "Situação atual", "Pendência identificada", "Medidas adotadas e resultados"];
 
+// ── estilos compartilhados com a identidade visual do Resumo Consolidado ──────
+
+const thinBorder = {
+  top:    { style: "thin", color: { rgb: "D8E3DB" } },
+  bottom: { style: "thin", color: { rgb: "D8E3DB" } },
+  left:   { style: "thin", color: { rgb: "D8E3DB" } },
+  right:  { style: "thin", color: { rgb: "D8E3DB" } },
+};
+
+const pendingTitleStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
+  font: { bold: true, color: { rgb: "FFFFFF" }, sz: 16 },
+  alignment: { horizontal: "left", vertical: "center" },
+};
+
+const pendingSubtitleStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "EAF3EE" } },
+  font: { bold: true, color: { rgb: "173B30" } },
+  alignment: { horizontal: "left", vertical: "center" },
+  border: thinBorder,
+};
+
+// Cabeçalho da coluna: verde escuro (informações gerais da ocorrência)
+const pendingHeaderMain = {
+  fill: { patternType: "solid", fgColor: { rgb: "0B5D4B" } },
+  font: { bold: true, color: { rgb: "FFFFFF" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+
+// Cabeçalho das colunas de detalhe patrimonial: verde médio
+const pendingHeaderDetail = {
+  fill: { patternType: "solid", fgColor: { rgb: "2F6F5E" } },
+  font: { bold: true, color: { rgb: "FFFFFF" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+
+// Cabeçalho das colunas de pendência/medidas: tom âmbar escuro
+const pendingHeaderAction = {
+  fill: { patternType: "solid", fgColor: { rgb: "7A5A00" } },
+  font: { bold: true, color: { rgb: "FFFFFF" } },
+  alignment: { horizontal: "center", vertical: "center", wrapText: true },
+  border: thinBorder,
+};
+
+const pendingBodyStyle = {
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+
+const pendingBodyAltStyle = {
+  fill: { patternType: "solid", fgColor: { rgb: "F5F9F6" } },
+  alignment: { vertical: "top", wrapText: true },
+  border: thinBorder,
+};
+
+const pendingNumberStyle = {
+  ...pendingBodyStyle,
+  alignment: { horizontal: "right", vertical: "top", wrapText: true },
+};
+
+const pendingNumberAltStyle = {
+  ...pendingBodyAltStyle,
+  alignment: { horizontal: "right", vertical: "top", wrapText: true },
+};
+
+const pendingCenterStyle = {
+  ...pendingBodyStyle,
+  alignment: { horizontal: "center", vertical: "top", wrapText: true },
+};
+
+const pendingCenterAltStyle = {
+  ...pendingBodyAltStyle,
+  alignment: { horizontal: "center", vertical: "top", wrapText: true },
+};
+
+// Célula de status de acompanhamento com cores semânticas
+const issueStatusStyles: Record<string, unknown> = {
+  Aberta:           { fill: { patternType: "solid", fgColor: { rgb: "FFF0CC" } }, font: { color: { rgb: "8A5B00" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  "Em andamento":   { fill: { patternType: "solid", fgColor: { rgb: "E6F1FB" } }, font: { color: { rgb: "255B85" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+  Resolvida:        { fill: { patternType: "solid", fgColor: { rgb: "E4F3E8" } }, font: { color: { rgb: "286149" }, bold: true }, alignment: { horizontal: "center", vertical: "top", wrapText: true }, border: thinBorder },
+};
+
+// Mapeamento coluna → estilo de cabeçalho:
+// 0–1  tipo/status         → verde escuro (main)
+// 2–7  detalhes do bem     → verde médio  (detail)
+// 8–11 pendência/medidas   → âmbar        (action)
+const HEADER_STYLES = [
+  pendingHeaderMain,   // 0  Tipo de ocorrência
+  pendingHeaderMain,   // 1  Estado de acompanhamento
+  pendingHeaderDetail, // 2  Descrição resumida
+  pendingHeaderDetail, // 3  N.º de patrimônio
+  pendingHeaderDetail, // 4  Quantidade
+  pendingHeaderDetail, // 5  Estado de conservação
+  pendingHeaderDetail, // 6  Local / bloco
+  pendingHeaderDetail, // 7  Valor total (R$)
+  pendingHeaderDetail, // 8  Órgão de origem
+  pendingHeaderDetail, // 9  Situação atual
+  pendingHeaderAction, // 10 Pendência identificada
+  pendingHeaderAction, // 11 Medidas adotadas e resultados
+];
+
 export function buildPendingIssuesTemplateRows(rows: Array<Record<string, unknown>>) {
   return rows.map(row => [
     row.Tipo || "Outro",
@@ -286,23 +389,82 @@ export function buildPendingIssuesTemplateRows(rows: Array<Record<string, unknow
 
 export function buildPendingIssuesWorkbook(rows: Array<Record<string, unknown>>) {
   const dataRows = buildPendingIssuesTemplateRows(rows);
-  const worksheet = XLSX.utils.aoa_to_sheet([PENDING_TEMPLATE_HEADERS, ...dataRows]);
+  const totalRows = dataRows.length;
+
+  // Linhas 1–2: título e subtítulo; linha 3: cabeçalhos; a partir da 4: dados
+  const worksheet = XLSX.utils.aoa_to_sheet([
+    ["REGISTRO DE PENDÊNCIAS DO INVENTÁRIO PATRIMONIAL"],
+    [`Total de ocorrências: ${totalRows}`],
+    PENDING_TEMPLATE_HEADERS,
+    ...dataRows,
+  ]);
+
+  const dataEndRow = 3 + totalRows; // linha 3 = cabeçalho; dados começam na 4
+  worksheet["!ref"] = `A1:L${Math.max(dataEndRow, 3)}`;
+
+  // Larguras das colunas
   worksheet["!cols"] = [23, 24, 38, 19, 12, 22, 20, 18, 24, 34, 42, 46].map(wch => ({ wch }));
-  worksheet["!autofilter"] = { ref: `A1:L${dataRows.length + 1}` };
-  worksheet["!freeze"] = { xSplit: 0, ySplit: 1 };
-  PENDING_TEMPLATE_HEADERS.forEach((_, index) => setStyle(worksheet, XLSX.utils.encode_cell({ r: 0, c: index }), darkHeaderStyle));
-  dataRows.forEach((_, rowIndex) => {
-    for (let columnIndex = 0; columnIndex < PENDING_TEMPLATE_HEADERS.length; columnIndex += 1) {
-      setStyle(worksheet, XLSX.utils.encode_cell({ r: rowIndex + 1, c: columnIndex }), { alignment: { vertical: "top", wrapText: true } });
-    }
-    const valueCell = worksheet[XLSX.utils.encode_cell({ r: rowIndex + 1, c: 7 })];
-    if (valueCell) valueCell.z = "R$ #,##0.00";
+
+  // Alturas das linhas
+  worksheet["!rows"] = [
+    { hpt: 30 },  // linha 1 — título
+    { hpt: 20 },  // linha 2 — subtítulo
+    { hpt: 42 },  // linha 3 — cabeçalho
+    ...Array.from({ length: Math.max(totalRows, 0) }, () => ({ hpt: 38 })),
+  ];
+
+  // Mesclagem do título e subtítulo
+  worksheet["!merges"] = [
+    XLSX.utils.decode_range("A1:L1"),
+    XLSX.utils.decode_range("A2:L2"),
+  ];
+
+  // Filtro automático e linha fixa no topo
+  worksheet["!autofilter"] = { ref: `A3:L${Math.max(dataEndRow, 3)}` };
+  worksheet["!freeze"]     = { xSplit: 0, ySplit: 3 };
+  worksheet["!tabColor"]   = "0B5D4B";
+
+  // Título (linha 1) e subtítulo (linha 2) em todas as colunas
+  for (let col = 0; col < 12; col += 1) {
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 0, c: col }), pendingTitleStyle);
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 1, c: col }), pendingSubtitleStyle);
+  }
+
+  // Cabeçalhos (linha 3) com cores por seção
+  PENDING_TEMPLATE_HEADERS.forEach((_, col) => {
+    setStyle(worksheet, XLSX.utils.encode_cell({ r: 2, c: col }), HEADER_STYLES[col] ?? pendingHeaderMain);
   });
-  const lists = XLSX.utils.aoa_to_sheet([["Tipo de ocorrência", "Estado de acompanhamento", "Estado de conservação"], ["Bem não localizado", "Aberta", "Novo"], ["Bem sem identificação patrimonial", "Em andamento", "Bom"], ["Divergência de patrimônio", "Aguardando providência", "Regular"], ["Bem danificado", "Resolvida", "Ruim"], ["Outro", "Cancelada", "Inservível"], ["", "", "Não informado"]]);
+
+  // Linhas de dados com zebra, alinhamento e formatos específicos
+  for (let rowIdx = 0; rowIdx < totalRows; rowIdx += 1) {
+    const alt = rowIdx % 2 === 0;
+    const base    = alt ? pendingBodyAltStyle    : pendingBodyStyle;
+    const center  = alt ? pendingCenterAltStyle  : pendingCenterStyle;
+    const number  = alt ? pendingNumberAltStyle  : pendingNumberStyle;
+
+    for (let col = 0; col < 12; col += 1) {
+      const address = XLSX.utils.encode_cell({ r: rowIdx + 3, c: col });
+      // col 4 (Quantidade) e col 7 (Valor) → alinhamento direita
+      const style = [4, 7].includes(col) ? number : [0, 1, 3, 5, 6, 8, 9].includes(col) ? center : base;
+      setStyle(worksheet, address, style);
+    }
+
+    // Formato monetário na coluna H (Valor total)
+    const valueAddress = XLSX.utils.encode_cell({ r: rowIdx + 3, c: 7 });
+    const valueCell = worksheet[valueAddress];
+    if (valueCell) valueCell.z = "R$ #,##0.00";
+
+    // Cor semântica na coluna B (Estado de acompanhamento)
+    const statusAddress = XLSX.utils.encode_cell({ r: rowIdx + 3, c: 1 });
+    const statusValue   = String(worksheet[statusAddress]?.v ?? "");
+    if (issueStatusStyles[statusValue]) {
+      setStyle(worksheet, statusAddress, issueStatusStyles[statusValue] as NonNullable<XLSX.CellObject["s"]>);
+    }
+  }
+
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "Registro de Pendências");
-  XLSX.utils.book_append_sheet(workbook, lists, "Listas");
-  if (workbook.Workbook?.Sheets?.[1]) workbook.Workbook.Sheets[1].Hidden = 1;
+  // Aba "Listas" removida conforme solicitado
   return workbook;
 }
 

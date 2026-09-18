@@ -31,6 +31,18 @@ export async function getDb() {
         password: decodeURIComponent(url.password),
         database: url.pathname.replace(/^\//, ""),
         ssl: { rejectUnauthorized: false },
+        // Mantém conexões vivas para evitar ECONNRESET do Aiven após idle.
+        enableKeepAlive: true,
+        keepAliveInitialDelay: 30_000, // 30 s
+        // Limite de conexões simultâneas e fila de espera.
+        waitForConnections: true,
+        connectionLimit: 5,
+        // Descarta conexões que ficaram ociosas por mais de 60 s (antes de
+        // o Aiven fechá-las pelo lado dele, geralmente em ~120 s).
+        idleTimeout: 60_000,
+        // Timeout para estabelecer cada conexão (evita esperar infinitamente
+        // quando o banco está temporariamente inacessível).
+        connectTimeout: 10_000, // 10 s
       });
       _db = drizzle(pool as any) as any;
     } catch (error) {
@@ -145,6 +157,37 @@ export async function requireDb() {
   const db = await getDb();
   if (!db) throw new Error("A base de dados não está disponível neste momento.");
   return db;
+}
+
+/**
+ * Executa uma função que usa o banco e, se o erro for de conectividade
+ * transitória (ECONNRESET ou ETIMEDOUT), descarta o pool atual, reabre
+ * a ligação e tenta novamente uma vez antes de propagar o erro.
+ */
+export async function withDb<T>(fn: (db: MySql2Database) => Promise<T>): Promise<T> {
+  const db = await requireDb();
+  try {
+    return await fn(db);
+  } catch (error: unknown) {
+    const code =
+      error instanceof Error && "code" in error
+        ? (error as NodeJS.ErrnoException).code
+        : undefined;
+    const message = error instanceof Error ? error.message : "";
+    const isTransient =
+      code === "ECONNRESET" ||
+      code === "ETIMEDOUT" ||
+      code === "ECONNREFUSED" ||
+      message.includes("ECONNRESET") ||
+      message.includes("ETIMEDOUT");
+
+    if (!isTransient) throw error;
+
+    console.warn(`[Database] Erro transitório (${code ?? "desconhecido"}) — descartando pool e reconectando...`);
+    _db = null; // força recriação do pool na próxima chamada
+    const freshDb = await requireDb();
+    return fn(freshDb);
+  }
 }
 
 export async function getVisibleSchools(user: typeof users.$inferSelect) {

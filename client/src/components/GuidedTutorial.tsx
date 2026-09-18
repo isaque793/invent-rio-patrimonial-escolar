@@ -58,23 +58,23 @@ function findTarget(id: string): HTMLElement | null {
     case "year":
       return Array.from(document.querySelectorAll('button[role="combobox"]')).find(element => visible(element)) as HTMLElement | null;
     case "start-cycle":
-      return findByText("button", "Iniciar inventário");
+      return findByText("button", "Iniciar inventário") ?? null;
     case "add-item":
-      return findByText("button", "Adicionar item", element => !element.closest('[role="dialog"]'));
+      return findByText("button", "Adicionar item", element => !element.closest('[role="dialog"]')) ?? null;
     case "description":
       return Array.from(document.querySelectorAll('[role="dialog"] input[name="description"]')).find(element => visible(element)) as HTMLElement | null;
     case "property":
-      return findByText('[role="dialog"] button', "Não se aplica");
+      return findByText('[role="dialog"] button', "Não se aplica") ?? null;
     case "unit-value":
       return Array.from(document.querySelectorAll('[role="dialog"] input[name="unitValue"]')).find(element => visible(element)) as HTMLElement | null;
     case "save-item":
-      return findByText('[role="dialog"] button', "Adicionar item");
+      return findByText('[role="dialog"] button', "Adicionar item") ?? null;
     case "pending":
-      return findByText("h3", "Pendências e ocorrências") || findByText("div", "Pendências e ocorrências");
+      return findByText("h3", "Pendências e ocorrências") ?? findByText("div", "Pendências e ocorrências") ?? null;
     case "edit-item":
       return document.querySelector('button[aria-label="Editar item"]') as HTMLElement | null;
     case "save-edit":
-      return findByText('[role="dialog"] button', "Guardar alterações");
+      return findByText('[role="dialog"] button', "Guardar alterações") ?? null;
     case "edit-committee": {
       return Array.from(document.querySelectorAll("button")).find(button => {
         if (!visible(button) || !textMatches(button, "Editar")) return false;
@@ -93,13 +93,13 @@ function findTarget(id: string): HTMLElement | null {
       return inputs[index] || null;
     }
     case "save-committee":
-      return findByText('[role="dialog"] button', "Guardar subcomissão");
+      return findByText('[role="dialog"] button', "Guardar subcomissão") ?? null;
     case "document-opening":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Ata de Abertura")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-opening_minutes"]') as HTMLElement | null;
     case "document-responsibility":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Termo de Responsabilidade")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-responsibility_term"]') as HTMLElement | null;
     case "document-closing":
-      return Array.from(document.querySelectorAll("label")).find(label => visible(label) && textMatches(label, "Ata de Encerramento")) as HTMLElement | null;
+      return document.querySelector('[data-tutorial-id="document-closing_minutes"]') as HTMLElement | null;
     case "submit":
       return Array.from(document.querySelectorAll("button")).find(button => visible(button) && (textMatches(button, "Submeter para validação") || textMatches(button, "Concluir exigências para submeter"))) as HTMLElement | null;
     default:
@@ -188,9 +188,17 @@ export default function GuidedTutorial() {
     };
     target.addEventListener("click", onClick, true);
     target.addEventListener("change", onChange, true);
+
+    // Para passos de upload de arquivo, o evento change é disparado no <input>
+    // filho oculto. Registramos o listener também no input para garantir a
+    // detecção independentemente da fase de bubbling/capture no React.
+    const fileInput = step.mode === "file" ? target.querySelector('input[type="file"]') : null;
+    if (fileInput) fileInput.addEventListener("change", onChange);
+
     return () => {
       target.removeEventListener("click", onClick, true);
       target.removeEventListener("change", onChange, true);
+      if (fileInput) fileInput.removeEventListener("change", onChange);
     };
   }, [target, step.mode]);
 

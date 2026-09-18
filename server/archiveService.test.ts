@@ -1,338 +1,276 @@
-/**
- * Testes unitários para server/archiveService.ts
- *
- * Cobertos:
- *  - ciclo não existe
- *  - ciclo não validado é rejeitado
- *  - ciclo PENDING retorna erro imediato (evita concorrência)
- *  - ciclo já ARCHIVED é retornado com sucesso sem reprocessar (idempotência)
- *  - falha ao copiar documento → archiveStatus = ERROR, nada é apagado
- *  - falha ao verificar documento copiado → archiveStatus = ERROR
- *  - falha ao verificar manifest → archiveStatus = ERROR
- *  - sucesso completo → ARCHIVED com location, archivedAt, archiveVersion
- */
-
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-// ── helpers para construir o banco falso ─────────────────────────────────────
+// ── mock do banco ─────────────────────────────────────────────────────────────
+// Usa uma fila de resultados sequenciais para cobrir todas as consultas de
+// archiveCycle sem precisar de um db real ou de um spy por tabela.
+const mocks = vi.hoisted(() => {
+  const updates: unknown[] = [];
+  const selectResults: unknown[][] = [];
 
-type DbRow = Record<string, unknown>;
-
-function buildDb(cycleRow: DbRow, extras: {
-  schools?: DbRow[];
-  items?: DbRow[];
-  issues?: DbRow[];
-  notes?: DbRow[];
-  committee?: DbRow[];
-  history?: DbRow[];
-  documents?: DbRow[];
-} = {}) {
-  const updates: DbRow[] = [];
-
-  // Respostas sequenciais para cobrir todas as consultas de archiveCycle.
-  const selectQueue: DbRow[][] = [
-    [cycleRow],                            // 0 – SELECT cycle
-    extras.schools ?? [],                  // 1 – SELECT school
-    extras.items ?? [],                    // 2 – SELECT items
-    extras.issues ?? [],                   // 3 – SELECT issues
-    extras.notes ?? [],                    // 4 – SELECT notes
-    extras.committee ?? [],                // 5 – SELECT committee
-    extras.history ?? [],                  // 6 – SELECT history
-    extras.documents ?? [],                // 7 – SELECT documents
-  ];
-
-  // Constrói um objeto de query encadeável:
-  //   .select().from().where()          → thenable que também expõe .limit()
-  //   .select().from().where().limit()  → consome um item da fila
-  //   .select().from().limit()          → consome um item da fila (sem .where)
-  //
-  // archiveCycle usa sempre .where().limit(1) para a consulta do ciclo,
-  // e .where() (sem limit) para todas as consultas em paralelo subsequentes.
-  // Portanto o .where() NÃO deve consumir a fila; só o .limit() consome.
-  // Para as consultas paralelas (sem .limit), o .where() devolve Promise diretamente.
-  function makeQuery() {
+  function whereResult() {
+    const next = () => selectResults.shift() ?? [];
     return {
-      from: vi.fn(() => ({
-        // .where() retorna uma Promise que também tem .limit()
-        where: vi.fn(() => {
-          // Captura o próximo item apenas quando .limit() é chamado;
-          // se ninguém chamar .limit(), este where age como Promise via then/catch/finally.
-          let consumed = false;
-          let data: DbRow[] | undefined;
-
-          const ensureConsumed = () => {
-            if (!consumed) { consumed = true; data = selectQueue.shift() ?? []; }
-            return data!;
-          };
-
-          const promise = {
-            then: (resolve: (v: DbRow[]) => unknown) => Promise.resolve(ensureConsumed()).then(resolve),
-            catch: (reject: (e: unknown) => unknown) => Promise.resolve(ensureConsumed()).catch(reject),
-            finally: (cb: () => unknown) => Promise.resolve(ensureConsumed()).finally(cb),
-            limit: async (_n: number) => {
-              // .limit() após .where(): a fila ainda não foi consumida pelo .where()
-              // (porque ninguém chamou .then antes), então consumimos aqui.
-              if (!consumed) { consumed = true; data = selectQueue.shift() ?? []; }
-              return data!;
-            },
-          } as unknown as Promise<DbRow[]> & { limit: (n: number) => Promise<DbRow[]> };
-
-          return promise;
-        }),
-        limit: vi.fn(async () => selectQueue.shift() ?? []),
-      })),
+      limit: vi.fn(async () => next()),
+      then: (resolve: (v: unknown) => unknown, reject?: (e: unknown) => unknown) =>
+        Promise.resolve(next()).then(resolve, reject),
+      catch: (reject: (e: unknown) => unknown) => Promise.resolve(next()).catch(reject),
     };
   }
 
   const db = {
-    select: vi.fn(() => makeQuery()),
+    select: vi.fn(() => ({ from: vi.fn(() => ({ where: vi.fn(() => whereResult()) })) })),
     update: vi.fn(() => ({
-      set: vi.fn((data: DbRow) => {
+      set: vi.fn((data: unknown) => {
         updates.push(data);
         return { where: vi.fn(async () => undefined) };
       }),
     })),
   };
 
-  return { db, updates };
-}
-
-// ── mock de storage ──────────────────────────────────────────────────────────
-
-const storageMocks = vi.hoisted(() => ({
-  storagePutExact: vi.fn(async () => ({ key: "ok" })),
-  storageCopy: vi.fn(async () => ({ key: "ok" })),
-  storageVerify: vi.fn(async () => ({ exists: true, size: 1024 })),
-}));
-
-vi.mock("./storage", () => ({
-  storagePutExact: storageMocks.storagePutExact,
-  storageCopy: storageMocks.storageCopy,
-  storageVerify: storageMocks.storageVerify,
-}));
-
-// ── mock de requireDb – configurado por teste ────────────────────────────────
-
-const dbMock = vi.hoisted(() => ({ current: null as ReturnType<typeof buildDb> | null }));
+  return { db, updates, selectResults };
+});
 
 vi.mock("./db", () => ({
-  requireDb: vi.fn(async () => dbMock.current!.db),
-  // outros exports usados por routers.ts (não necessários aqui mas
-  // vi.mock substitui o módulo inteiro)
-  getDb: vi.fn(),
-  getUserByOpenId: vi.fn(),
-  getCycleById: vi.fn(),
-  getSchoolOverview: vi.fn(),
-  getVisibleSchools: vi.fn(),
-  getManagementCycles: vi.fn(),
-  getManagementItems: vi.fn(),
-  getManagementIssues: vi.fn(),
-  listAssignableUsers: vi.fn(),
-  userCanAccessSchool: vi.fn(),
-  requireSchool: vi.fn(),
-  findSchoolMember: vi.fn(),
-  getSchoolMembers: vi.fn(),
-  getManagementControlExportData: vi.fn(),
-  linkUserToSchoolByEmail: vi.fn(),
-  createUserWithPassword: vi.fn(),
-  verifyUserPassword: vi.fn(),
+  requireDb: vi.fn(async () => mocks.db),
 }));
 
-// ── importação após os mocks ─────────────────────────────────────────────────
+// ── mock de storage ───────────────────────────────────────────────────────────
+const storageMocks = vi.hoisted(() => ({
+  storageCopy: vi.fn(async (_source: string, dest: string) => ({ key: dest })),
+  storagePutExact: vi.fn(async (key: string) => ({ key })),
+  storageVerify: vi.fn(async () => ({ exists: true, size: 123 })),
+}));
+
+vi.mock("./storage", () => storageMocks);
 
 import { archiveCycle } from "./archiveService";
 
-// ── constantes de fixture ────────────────────────────────────────────────────
+// ── fixtures ──────────────────────────────────────────────────────────────────
 
-const VALIDATED_CYCLE: DbRow = {
-  id: 45,
-  schoolId: 123,
-  year: 2026,
-  status: "validated",
-  archiveStatus: "ACTIVE",
-  archiveLocation: null,
-};
+function baseCycle(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 45,
+    schoolId: 123,
+    year: 2026,
+    status: "validated",
+    archiveStatus: "ACTIVE",
+    archiveLocation: null,
+    ...overrides,
+  };
+}
 
-const SINGLE_DOCUMENT: DbRow = {
-  id: 7,
-  cycleId: 45,
-  documentType: "opening_minutes",
-  fileName: "abertura.pdf",
-  storageKey: "inventarios/escola-123/2026/opening_minutes/1234-abertura.pdf",
-};
+/** Empilha os resultados de SELECT para o caminho feliz completo. */
+function queueHappyPath(
+  cycle: ReturnType<typeof baseCycle>,
+  documents: unknown[] = [],
+  items: unknown[] = [{ id: 1 }],
+) {
+  mocks.selectResults.push(
+    [cycle],                                   // cycleRows
+    [{ id: cycle.schoolId, name: "Escola Modelo" }], // school
+    items,                                     // items
+    [],                                        // issues
+    [],                                        // notes
+    [],                                        // committee
+    [],                                        // history
+    documents,                                 // documents
+  );
+}
 
-// ── testes ───────────────────────────────────────────────────────────────────
+// ── setup ─────────────────────────────────────────────────────────────────────
 
 beforeEach(() => {
-  vi.clearAllMocks();
-  storageMocks.storagePutExact.mockResolvedValue({ key: "ok" });
-  storageMocks.storageCopy.mockResolvedValue({ key: "ok" });
-  storageMocks.storageVerify.mockResolvedValue({ exists: true, size: 1024 });
+  mocks.updates.length = 0;
+  mocks.selectResults.length = 0;
+  storageMocks.storageCopy.mockClear();
+  storageMocks.storagePutExact.mockClear();
+  storageMocks.storageVerify.mockClear();
+  storageMocks.storageVerify.mockResolvedValue({ exists: true, size: 123 });
+  storageMocks.storageCopy.mockImplementation(async (_source: string, dest: string) => ({ key: dest }));
+  storageMocks.storagePutExact.mockImplementation(async (key: string) => ({ key }));
 });
+
+// ── testes ────────────────────────────────────────────────────────────────────
 
 describe("archiveCycle", () => {
   it("retorna erro quando o ciclo não existe", async () => {
-    dbMock.current = buildDb({} as DbRow);
-    // Sobrescreve a fila: primeira consulta retorna array vazio (ciclo não encontrado)
-    dbMock.current.db.select.mockReturnValueOnce({
-      from: vi.fn(() => ({
-        where: vi.fn(() => {
-          const p = Promise.resolve([]) as Promise<DbRow[]> & { limit: (n: number) => Promise<DbRow[]> };
-          p.limit = async () => [];
-          return p;
-        }),
-        limit: vi.fn(async () => []),
-      })),
-    });
-
-    const result = await archiveCycle(99);
+    mocks.selectResults.push([]); // cycleRows vazio
+    const result = await archiveCycle(999);
     expect(result).toEqual({ ok: false, error: "Ciclo não encontrado." });
+    expect(mocks.updates).toHaveLength(0);
   });
 
-  it("rejeita ciclo com status diferente de 'validated'", async () => {
-    const cycle = { ...VALIDATED_CYCLE, status: "submitted", archiveStatus: "ACTIVE" };
-    dbMock.current = buildDb(cycle);
-
+  it("recusa arquivar um ciclo que ainda não foi validado", async () => {
+    mocks.selectResults.push([baseCycle({ status: "under_review" })]);
     const result = await archiveCycle(45);
     expect(result).toEqual({ ok: false, error: "Somente ciclos validados podem ser arquivados." });
+    expect(mocks.updates).toHaveLength(0);
   });
 
-  it("retorna sucesso imediatamente quando ciclo já está ARCHIVED (idempotência)", async () => {
-    const cycle = { ...VALIDATED_CYCLE, archiveStatus: "ARCHIVED", archiveLocation: "arquivo-inventario/2026/escola-123/ciclo-45" };
-    dbMock.current = buildDb(cycle);
-
+  it("é idempotente: um ciclo já arquivado retorna sucesso sem reprocessar nem tocar no storage", async () => {
+    mocks.selectResults.push([
+      baseCycle({ archiveStatus: "ARCHIVED", archiveLocation: "arquivo-inventario/2026/escola-123/ciclo-45" }),
+    ]);
     const result = await archiveCycle(45);
     expect(result).toEqual({ ok: true, location: "arquivo-inventario/2026/escola-123/ciclo-45" });
-    // Não deve ter chamado storage nem update
+    expect(mocks.updates).toHaveLength(0);
+    expect(storageMocks.storageCopy).not.toHaveBeenCalled();
     expect(storageMocks.storagePutExact).not.toHaveBeenCalled();
-    expect(dbMock.current.updates).toHaveLength(0);
   });
 
-  it("rejeita ciclo com archiveStatus PENDING para evitar concorrência", async () => {
-    const cycle = { ...VALIDATED_CYCLE, archiveStatus: "PENDING" };
-    dbMock.current = buildDb(cycle);
-
+  it("impede duas execuções simultâneas do mesmo ciclo (archiveStatus PENDING)", async () => {
+    mocks.selectResults.push([baseCycle({ archiveStatus: "PENDING" })]);
     const result = await archiveCycle(45);
     expect(result).toEqual({ ok: false, error: "Arquivamento já em andamento para este ciclo." });
-    expect(storageMocks.storagePutExact).not.toHaveBeenCalled();
+    expect(mocks.updates).toHaveLength(0);
   });
 
-  it("sucesso completo: grava JSONs, copia documentos, verifica, grava manifest e marca ARCHIVED", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, { documents: [SINGLE_DOCUMENT] });
+  it("arquiva com sucesso: exporta dados, copia documentos, verifica e só então registra ARCHIVED", async () => {
+    const documents = [
+      {
+        id: 1,
+        documentType: "opening_minutes",
+        fileName: "abertura.pdf",
+        storageKey: "inventarios/escola-123/2026/opening_minutes/123-abertura.pdf",
+      },
+    ];
+    queueHappyPath(baseCycle(), documents);
 
     const result = await archiveCycle(45);
 
     expect(result).toEqual({ ok: true, location: "arquivo-inventario/2026/escola-123/ciclo-45" });
 
-    // Deve ter marcado PENDING primeiro, depois ARCHIVED
-    expect(dbMock.current.updates[0]).toMatchObject({ archiveStatus: "PENDING" });
-    expect(dbMock.current.updates[1]).toMatchObject({
+    // Ordem obrigatória: PENDING primeiro, ARCHIVED só no final.
+    expect(mocks.updates).toHaveLength(2);
+    expect(mocks.updates[0]).toMatchObject({ archiveStatus: "PENDING", archiveError: null });
+    expect(mocks.updates[1]).toMatchObject({
       archiveStatus: "ARCHIVED",
-      archiveVersion: 1,
       archiveLocation: "arquivo-inventario/2026/escola-123/ciclo-45",
-      archivedAt: expect.any(Date),
+      archiveVersion: 1,
+      archiveError: null,
     });
+    expect(mocks.updates[1]).toHaveProperty("archivedAt");
 
-    // 6 JSONs de dados + 1 manifest = 7 chamadas a storagePutExact
+    // 6 JSONs de dados + manifest.json = 7 chamadas.
     expect(storageMocks.storagePutExact).toHaveBeenCalledTimes(7);
+    const putKeys = storageMocks.storagePutExact.mock.calls.map(call => call[0]);
+    expect(putKeys).toEqual(
+      expect.arrayContaining([
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/ciclo.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/itens.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/ocorrencias.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/observacoes.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/comissao.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/dados/validacoes.json",
+        "arquivo-inventario/2026/escola-123/ciclo-45/manifest.json",
+      ]),
+    );
 
-    // 1 documento copiado
-    expect(storageMocks.storageCopy).toHaveBeenCalledTimes(1);
+    // Cópia server-side do documento para o pacote histórico.
     expect(storageMocks.storageCopy).toHaveBeenCalledWith(
-      SINGLE_DOCUMENT.storageKey,
-      expect.stringContaining("arquivo-inventario/2026/escola-123/ciclo-45/documentos/"),
+      "inventarios/escola-123/2026/opening_minutes/123-abertura.pdf",
+      "arquivo-inventario/2026/escola-123/ciclo-45/documentos/opening_minutes-1-abertura.pdf",
     );
 
-    // Verifica documento + manifest = 2 chamadas a storageVerify
-    expect(storageMocks.storageVerify).toHaveBeenCalledTimes(2);
-  });
-
-  it("sucesso sem documentos: não chama storageCopy, apenas grava JSONs e manifest", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, { documents: [] });
-
-    const result = await archiveCycle(45);
-    expect(result.ok).toBe(true);
-    expect(storageMocks.storageCopy).not.toHaveBeenCalled();
-    // 6 JSONs + manifest
-    expect(storageMocks.storagePutExact).toHaveBeenCalledTimes(7);
-    // Apenas verifica manifest
-    expect(storageMocks.storageVerify).toHaveBeenCalledTimes(1);
-  });
-
-  it("falha ao copiar documento → archiveStatus = ERROR, nenhum conteúdo operacional é removido", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, { documents: [SINGLE_DOCUMENT] });
-    storageMocks.storageCopy.mockRejectedValueOnce(new Error("R2: access denied"));
-
-    const result = await archiveCycle(45);
-
-    expect(result).toMatchObject({ ok: false, error: expect.stringContaining("R2: access denied") });
-    // O último update deve marcar ERROR com a mensagem
-    const lastUpdate = dbMock.current.updates.at(-1);
-    expect(lastUpdate).toMatchObject({ archiveStatus: "ERROR", archiveError: expect.stringContaining("R2: access denied") });
-    // Não deve ter marcado ARCHIVED em nenhum momento
-    expect(dbMock.current.updates.some((u) => u.archiveStatus === "ARCHIVED")).toBe(false);
-  });
-
-  it("falha na verificação de documento copiado → archiveStatus = ERROR", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, { documents: [SINGLE_DOCUMENT] });
-    // storageVerify retorna exists: false para o documento
-    storageMocks.storageVerify.mockResolvedValueOnce({ exists: false });
-
-    const result = await archiveCycle(45);
-
-    expect(result.ok).toBe(false);
-    expect(result).toMatchObject({ error: expect.stringContaining("Falha ao verificar documento arquivado") });
-    const lastUpdate = dbMock.current.updates.at(-1);
-    expect(lastUpdate).toMatchObject({ archiveStatus: "ERROR" });
-  });
-
-  it("falha na verificação do manifest → archiveStatus = ERROR", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, { documents: [] });
-    // storageVerify retorna exists: false para o manifest
-    storageMocks.storageVerify.mockResolvedValueOnce({ exists: false });
-
-    const result = await archiveCycle(45);
-
-    expect(result.ok).toBe(false);
-    expect(result).toMatchObject({ error: expect.stringContaining("manifest") });
-    const lastUpdate = dbMock.current.updates.at(-1);
-    expect(lastUpdate).toMatchObject({ archiveStatus: "ERROR" });
-  });
-
-  it("falha ao gravar JSONs de dados → archiveStatus = ERROR", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE);
-    storageMocks.storagePutExact.mockRejectedValueOnce(new Error("R2: quota exceeded"));
-
-    const result = await archiveCycle(45);
-
-    expect(result.ok).toBe(false);
-    const lastUpdate = dbMock.current.updates.at(-1);
-    expect(lastUpdate).toMatchObject({ archiveStatus: "ERROR", archiveError: expect.stringContaining("R2: quota exceeded") });
-  });
-
-  it("manifest contém os campos corretos", async () => {
-    dbMock.current = buildDb(VALIDATED_CYCLE, {
-      items: [{ id: 1 }, { id: 2 }],
-      documents: [SINGLE_DOCUMENT],
-    });
-
-    await archiveCycle(45);
-
-    // Encontra a chamada que grava o manifest.json (última storagePutExact)
-    const manifestCall = storageMocks.storagePutExact.mock.calls.find(([key]) =>
-      (key as string).endsWith("manifest.json"),
+    // Verificação de integridade do documento copiado e do manifest.
+    expect(storageMocks.storageVerify).toHaveBeenCalledWith(
+      "arquivo-inventario/2026/escola-123/ciclo-45/documentos/opening_minutes-1-abertura.pdf",
     );
-    expect(manifestCall).toBeDefined();
+    expect(storageMocks.storageVerify).toHaveBeenCalledWith(
+      "arquivo-inventario/2026/escola-123/ciclo-45/manifest.json",
+    );
+
+    // Conteúdo do manifest (formato definido no plano, seção 8).
+    const manifestCall = storageMocks.storagePutExact.mock.calls.find(call =>
+      (call[0] as string).endsWith("manifest.json"),
+    );
     const manifest = JSON.parse(manifestCall![1] as string);
     expect(manifest).toMatchObject({
       version: 1,
       schoolId: 123,
       cycleId: 45,
       year: 2026,
-      items: 2,
+      items: 1,
       documents: 1,
       archiveStatus: "completed",
       archivedAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
     });
+  });
+
+  it("arquivar não é apagar: falha na verificação do documento → ERROR, conteúdo operacional intacto", async () => {
+    const documents = [
+      {
+        id: 1,
+        documentType: "opening_minutes",
+        fileName: "abertura.pdf",
+        storageKey: "inventarios/escola-123/2026/opening_minutes/123-abertura.pdf",
+      },
+    ];
+    queueHappyPath(baseCycle(), documents);
+    storageMocks.storageVerify.mockResolvedValueOnce({ exists: false });
+
+    const result = await archiveCycle(45);
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.error).toContain("Falha ao verificar documento arquivado");
+    expect(mocks.updates).toHaveLength(2);
+    expect(mocks.updates[0]).toMatchObject({ archiveStatus: "PENDING" });
+    expect(mocks.updates[1]).toMatchObject({ archiveStatus: "ERROR" });
+    expect(mocks.updates[1]).toHaveProperty("archiveError");
+  });
+
+  it("falha na verificação do manifest → ERROR", async () => {
+    queueHappyPath(baseCycle(), []); // sem documentos — só verifica manifest
+    // primeira chamada de storageVerify é para o manifest
+    storageMocks.storageVerify.mockResolvedValueOnce({ exists: false });
+
+    const result = await archiveCycle(45);
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.error).toContain("manifest");
+    expect(mocks.updates[1]).toMatchObject({ archiveStatus: "ERROR" });
+  });
+
+  it("registra ERROR quando a cópia de um documento falha (storage indisponível)", async () => {
+    const documents = [
+      {
+        id: 1,
+        documentType: "opening_minutes",
+        fileName: "abertura.pdf",
+        storageKey: "inventarios/escola-123/2026/opening_minutes/123-abertura.pdf",
+      },
+    ];
+    queueHappyPath(baseCycle(), documents);
+    storageMocks.storageCopy.mockRejectedValueOnce(new Error("R2 indisponível"));
+
+    const result = await archiveCycle(45);
+
+    expect(result).toEqual({ ok: false, error: "R2 indisponível" });
+    expect(mocks.updates[1]).toMatchObject({ archiveStatus: "ERROR", archiveError: "R2 indisponível" });
+  });
+
+  it("registra ERROR quando a gravação dos JSONs de dados falha", async () => {
+    queueHappyPath(baseCycle());
+    storageMocks.storagePutExact.mockRejectedValueOnce(new Error("R2: quota exceeded"));
+
+    const result = await archiveCycle(45);
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.error).toContain("quota exceeded");
+    expect(mocks.updates[1]).toMatchObject({
+      archiveStatus: "ERROR",
+      archiveError: expect.stringContaining("quota exceeded"),
+    });
+  });
+
+  it("ciclo sem documentos: não chama storageCopy, apenas grava JSONs e manifest", async () => {
+    queueHappyPath(baseCycle(), []);
+
+    const result = await archiveCycle(45);
+
+    expect(result.ok).toBe(true);
+    expect(storageMocks.storageCopy).not.toHaveBeenCalled();
+    expect(storageMocks.storagePutExact).toHaveBeenCalledTimes(7); // 6 JSONs + manifest
+    expect(storageMocks.storageVerify).toHaveBeenCalledTimes(1);   // só manifest
   });
 });

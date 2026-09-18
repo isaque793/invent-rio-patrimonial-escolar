@@ -352,6 +352,6 @@ export function exportSchoolControlWorkbook({ year, records }: { year: number; r
   const relevantRecords = filterSchoolControlRecords(records);
   if (!relevantRecords.length) return false;
   const workbook = buildSchoolControlWorkbook(relevantRecords, year);
-  XLSX.writeFile(workbook, `resumo-consolidado-inventario-${year}.xlsx`, { cellStyles: true });
+  XLSX.writeFile(workbook, `resumo-consolidado-inventario-${year}.xlsx`);
   return true;
 }

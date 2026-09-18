@@ -40,6 +40,9 @@ export async function getDb() {
         // Descarta conexões que ficaram ociosas por mais de 60 s (antes de
         // o Aiven fechá-las pelo lado dele, geralmente em ~120 s).
         idleTimeout: 60_000,
+        // Timeout para estabelecer cada conexão (evita esperar infinitamente
+        // quando o banco está temporariamente inacessível).
+        connectTimeout: 10_000, // 10 s
       });
       _db = drizzle(pool);
     } catch (error) {
@@ -142,23 +145,30 @@ export async function requireDb() {
 }
 
 /**
- * Executa uma função que usa o banco e, se o erro for ECONNRESET (conexão
- * descartada pelo Aiven após idle), descarta o pool atual, reabre a ligação
- * e tenta novamente uma vez antes de propagar o erro.
+ * Executa uma função que usa o banco e, se o erro for de conectividade
+ * transitória (ECONNRESET ou ETIMEDOUT), descarta o pool atual, reabre
+ * a ligação e tenta novamente uma vez antes de propagar o erro.
  */
 export async function withDb<T>(fn: (db: MySql2Database) => Promise<T>): Promise<T> {
   const db = await requireDb();
   try {
     return await fn(db);
   } catch (error: unknown) {
-    const isReset =
-      error instanceof Error &&
-      ("code" in error
-        ? (error as NodeJS.ErrnoException).code === "ECONNRESET"
-        : error.message.includes("ECONNRESET"));
-    if (!isReset) throw error;
+    const code =
+      error instanceof Error && "code" in error
+        ? (error as NodeJS.ErrnoException).code
+        : undefined;
+    const message = error instanceof Error ? error.message : "";
+    const isTransient =
+      code === "ECONNRESET" ||
+      code === "ETIMEDOUT" ||
+      code === "ECONNREFUSED" ||
+      message.includes("ECONNRESET") ||
+      message.includes("ETIMEDOUT");
 
-    console.warn("[Database] ECONNRESET detectado — descartando pool e reconectando...");
+    if (!isTransient) throw error;
+
+    console.warn(`[Database] Erro transitório (${code ?? "desconhecido"}) — descartando pool e reconectando...`);
     _db = null; // força recriação do pool na próxima chamada
     const freshDb = await requireDb();
     return fn(freshDb);

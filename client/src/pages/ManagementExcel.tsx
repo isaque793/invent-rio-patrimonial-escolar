@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArchiveStatusPanel } from "@/components/ArchiveStatusPanel";
 import { exportPendingIssuesTemplate, exportSchoolControlWorkbook } from "@/lib/exportSchoolControlExcel";
 import { trpc } from "@/lib/trpc";
 import { Building2, CheckCircle2, CircleAlert, ClipboardCheck, FileSpreadsheet, Landmark, Loader2, Send } from "lucide-react";
@@ -342,6 +343,8 @@ export default function ManagementExcel() {
           </CardContent>
         </Card>
       </div>
+
+      <ArchiveStatusPanel year={year} />
     </div>
   );
 }

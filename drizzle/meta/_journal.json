@@ -43,6 +43,13 @@
       "when": 1789661048919,
       "tag": "0005_auto_missing_property_issue",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1789740849409,
+      "tag": "0006_brown_vargas",
+      "breakpoints": true
     }
   ]
 }

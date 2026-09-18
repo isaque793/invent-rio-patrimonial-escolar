@@ -67,6 +67,8 @@ vi.mock("@/lib/trpc", () => ({
         }),
       },
       controlExport: { useQuery: () => ({ isFetching: false, refetch: mocks.controlRefetch }) },
+      archiveStats: { useQuery: () => ({ isLoading: false, isFetching: false, data: null, refetch: vi.fn() }) },
+      retryArchive: { useMutation: () => ({ isPending: false, variables: null, mutate: vi.fn() }) },
     },
     catalog: { expenseCategories: { useQuery: () => ({ data: [{ code: "52.14", label: "Material permanente" }] }) } },
   },

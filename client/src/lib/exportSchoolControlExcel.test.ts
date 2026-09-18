@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx-js-style";
 import {
   buildSchoolControlTemplateRows,
   buildSchoolControlWorkbook,
@@ -87,7 +87,7 @@ describe("exportação estruturada do controle escolar", () => {
       "Bom",
       2,
       350.25,
-      null,
+      "",  // coluna L é fórmula (=J*K), sheet_to_json serializa como ""
       "Em uso",
     ]);
     expect(sheet["!ref"]).toBe("A1:AD5");

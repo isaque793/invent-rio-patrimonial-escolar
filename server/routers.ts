@@ -419,6 +419,38 @@ export const appRouter = router({
       if (!result.ok) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: result.error });
       return { success: true, location: result.location };
     }),
+    archiveStats: adminProcedure.input(z.object({ year: yearInput })).query(async ({ input }) => {
+      const db = await requireDb();
+      // Traz todos os ciclos validados do ano com seus dados de arquivamento e escola
+      const rows = await db
+        .select({ cycle: inventoryCycles, school: schools })
+        .from(inventoryCycles)
+        .innerJoin(schools, eq(inventoryCycles.schoolId, schools.id))
+        .where(and(eq(inventoryCycles.year, input.year), eq(inventoryCycles.status, "validated")));
+
+      const counts = { ACTIVE: 0, PENDING: 0, ARCHIVED: 0, ERROR: 0 };
+      for (const row of rows) counts[row.cycle.archiveStatus as keyof typeof counts]++;
+
+      const withErrors = rows
+        .filter(row => row.cycle.archiveStatus === "ERROR")
+        .map(row => ({
+          cycleId: row.cycle.id,
+          schoolName: row.school.name,
+          archiveError: row.cycle.archiveError,
+        }));
+
+      const archived = rows
+        .filter(row => row.cycle.archiveStatus === "ARCHIVED")
+        .map(row => ({
+          cycleId: row.cycle.id,
+          schoolName: row.school.name,
+          archivedAt: row.cycle.archivedAt,
+          archiveLocation: row.cycle.archiveLocation,
+          archiveVersion: row.cycle.archiveVersion,
+        }));
+
+      return { counts, withErrors, archived };
+    }),
   }),
 });
 
